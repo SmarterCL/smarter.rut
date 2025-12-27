@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Script from 'next/script';
 import { supabase } from '../../../services/supabaseClient';
 import { Montserrat } from '@next/font/google';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 const mailgun = require('mailgun.js');
 const mg = mailgun.client({
   username: 'api',

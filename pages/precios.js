@@ -5,7 +5,7 @@ import { Montserrat } from '@next/font/google';
 import { Fragment, useEffect, useState } from 'react';
 import { supabase } from '../services/supabaseClient';
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 export default function Prices() {
   const [count, setCount] = useState(1);

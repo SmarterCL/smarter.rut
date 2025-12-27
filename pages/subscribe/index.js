@@ -13,7 +13,7 @@ const mg = mailgun.client({
   username: 'api',
   key: 'key-80d577c302f3bcad991bea13930b3fde',
 });
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 export default function Home() {
   const [saving, setSaving] = useState(false);

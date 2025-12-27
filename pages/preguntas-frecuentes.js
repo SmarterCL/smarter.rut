@@ -5,7 +5,7 @@ import {Montserrat} from '@next/font/google';
 import {Fragment, useState} from 'react';
 import Faq from '../components/Faq';
 
-const montserrat = Montserrat({subsets: ['latin'], weight: 'variable'});
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 export default function Home() {
   return (

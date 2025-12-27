@@ -4,7 +4,7 @@ import Script from 'next/script';
 import {useRouter} from 'next/router';
 import {BounceLoader} from 'react-spinners';
 import {Montserrat} from '@next/font/google';
-const montserrat = Montserrat({subsets: ['latin'], weight: 'variable'});
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 const override = {
   display: 'block',

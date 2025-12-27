@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs-react';
 import { Montserrat } from '@next/font/google';
 import { RxEyeClosed, RxEyeOpen } from 'react-icons/rx';
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 function RecorverPassword(props) {
   const [loading, setLoading] = useState(false);

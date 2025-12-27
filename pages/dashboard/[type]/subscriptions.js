@@ -6,7 +6,7 @@ import Sidebar from '../../../components/Sidebar';
 import ChileanRutify from 'chilean-rutify';
 import { supabase } from '../../../services/supabaseClient';
 import DashNav from '../../../components/DashNav';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 function Dashboard(props) {
   const [displayMobileBar, setDisplayMoblieBar] = useState(false);

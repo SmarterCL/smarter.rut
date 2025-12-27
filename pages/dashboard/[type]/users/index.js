@@ -6,7 +6,7 @@ import Sidebar from '../../../../components/Sidebar';
 import { supabase } from '../../../../services/supabaseClient';
 import UserItem from '../../../../components/UserItem';
 import DashNav from '../../../../components/DashNav';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 function Dashboard(props) {
   const [displayMobileBar, setDisplayMoblieBar] = useState(false);

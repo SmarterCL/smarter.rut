@@ -7,7 +7,7 @@ import { supabase } from '../../../services/supabaseClient';
 import moment from 'moment';
 import { isEmpty } from 'lodash';
 import DashNav from '../../../components/DashNav';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 function Dashboard(props) {
   const [displayMobileBar, setDisplayMoblieBar] = useState(false);

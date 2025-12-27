@@ -4,7 +4,7 @@ import Script from 'next/script';
 import moment from 'moment';
 import { Montserrat } from '@next/font/google';
 import { supabase } from '../../../services/supabaseClient';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 function Success(props) {
   const [userName, setUserName] = useState('');
   const [subscriptionsCount, setSubscriptionsCount] = useState(0);

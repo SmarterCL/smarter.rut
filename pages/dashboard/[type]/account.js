@@ -9,7 +9,7 @@ import moment from 'moment';
 import { RxEyeClosed, RxEyeOpen } from 'react-icons/rx';
 import bcrypt from 'bcryptjs-react';
 import DashNav from '../../../components/DashNav';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 function Account(props) {
   const [displayMobileBar, setDisplayMoblieBar] = useState(false);

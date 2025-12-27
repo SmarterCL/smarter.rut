@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {Montserrat} from '@next/font/google';
 import {Fragment, useState} from 'react';
 
-const montserrat = Montserrat({subsets: ['latin'], weight: 'variable'});
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 export default function Terminos() {
   return (

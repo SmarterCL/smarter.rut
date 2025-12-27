@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { supabase } from '../../services/supabaseClient';
 import { Montserrat } from '@next/font/google';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 
 function Login(props) {
   const [loading, setLoading] = useState(false);

@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { Montserrat } from '@next/font/google';
 import { supabase } from '../../../services/supabaseClient';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
 function Success(props) {
   useEffect(() => { }, []);
 
