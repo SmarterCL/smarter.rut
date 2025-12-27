@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Montserrat } from '@next/font/google';
+
 import { Fragment, useEffect, useState } from 'react';
 import { supabase } from '../services/supabaseClient';
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
 
 export default function Home() {
   const [count, setCount] = useState(1);
@@ -108,7 +108,7 @@ export default function Home() {
           href="images/touch-icon-ipad-retina.png"
         />
       </Head>
-      <div className={`${montserrat.className} d-flex flex-column h-100`}>
+      <div className={`${"mont"} d-flex flex-column h-100`}>
         {' '}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"

@@ -3,10 +3,10 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { supabase } from '../../../../services/supabaseClient';
 import bcrypt from 'bcryptjs-react';
-import { Montserrat } from '@next/font/google';
+
 import { RxEyeClosed, RxEyeOpen } from 'react-icons/rx';
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
 
 function RecorverPassword(props) {
   const [loading, setLoading] = useState(false);
@@ -153,7 +153,7 @@ function RecorverPassword(props) {
           </a>
         </nav>
       </header>
-      <div className={`${montserrat.className} section-shop pt-5 pb-0`}>
+      <div className={`${"mont"} section-shop pt-5 pb-0`}>
         <div className="container">
           <div className="z-index">
             <h1 className="text-center mb-4">

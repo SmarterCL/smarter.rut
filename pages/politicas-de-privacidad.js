@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import Link from 'next/link';
-import {Montserrat} from '@next/font/google';
+
 import {Fragment, useState} from 'react';
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
 
 export default function Politicas() {
   return (
@@ -72,7 +72,7 @@ export default function Politicas() {
           href="images/touch-icon-ipad-retina.png"
         />
       </Head>
-      <div className={`${montserrat.className} d-flex flex-column h-100`}>
+      <div className={`${"mont"} d-flex flex-column h-100`}>
         {' '}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"

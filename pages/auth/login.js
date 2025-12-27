@@ -2,8 +2,8 @@ import { Fragment, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import { supabase } from '../../services/supabaseClient';
-import { Montserrat } from '@next/font/google';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
+
 
 function Login(props) {
   const [loading, setLoading] = useState(false);
@@ -160,7 +160,7 @@ function Login(props) {
           </a>
         </nav>
       </header>
-      <div className={`${montserrat.className} section-shop pt-5 pb-0`}>
+      <div className={`${"mont"} section-shop pt-5 pb-0`}>
         <div className="container">
           <div className="z-index">
             <h1 className="text-center mb-4">Iniciar sesión</h1>

@@ -1,12 +1,12 @@
 import { Fragment, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
-import { Montserrat } from '@next/font/google';
+
 import Sidebar from '../../../../components/Sidebar';
 import { supabase } from '../../../../services/supabaseClient';
 import UserItem from '../../../../components/UserItem';
 import DashNav from '../../../../components/DashNav';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
 
 function Dashboard(props) {
   const [displayMobileBar, setDisplayMoblieBar] = useState(false);
@@ -147,7 +147,7 @@ function Dashboard(props) {
             </div>
           </nav>
         </header>
-        <div className={`${montserrat.className} container-fluid dashboard`}>
+        <div className={`${"mont"} container-fluid dashboard`}>
           <div className="row mont">
             <Sidebar userType={props.userType} />
             <main

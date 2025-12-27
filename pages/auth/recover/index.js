@@ -3,8 +3,8 @@ import Head from 'next/head';
 import { v4 as uuidv4 } from 'uuid';
 import Script from 'next/script';
 import { supabase } from '../../../services/supabaseClient';
-import { Montserrat } from '@next/font/google';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
+
 const mailgun = require('mailgun.js');
 const mg = mailgun.client({
   username: 'api',
@@ -157,7 +157,7 @@ function RecorverPassword(props) {
           </a>
         </nav>
       </header>
-      <div className={`${montserrat.className} section-shop pt-5 pb-0`}>
+      <div className={`${"mont"} section-shop pt-5 pb-0`}>
         <div className="container">
           <div className="z-index">
             <h1 className="text-center mb-4">

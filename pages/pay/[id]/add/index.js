@@ -2,9 +2,9 @@ import { Fragment, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
-import { Montserrat } from '@next/font/google';
+
 import { supabase } from '../../../../services/supabaseClient';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
 
 function Pay(props) {
   const router = useRouter();
@@ -181,7 +181,7 @@ function Pay(props) {
           </a>
         </nav>
       </header>
-      <div className={`${montserrat.className} section-shop pt-5 pb-0`}>
+      <div className={`${"mont"} section-shop pt-5 pb-0`}>
         <div className="container">
           <div className="z-index">
             <h1 className="text-center mb-4">Agrega suscripciones</h1>

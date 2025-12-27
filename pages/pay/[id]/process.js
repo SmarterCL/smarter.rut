@@ -3,8 +3,8 @@ import Head from 'next/head';
 import Script from 'next/script';
 import {useRouter} from 'next/router';
 import {BounceLoader} from 'react-spinners';
-import {Montserrat} from '@next/font/google';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
+
 
 const override = {
   display: 'block',
@@ -85,7 +85,7 @@ function Proccess(props) {
           href="images/touch-icon-ipad-retina.png"
         />
       </Head>
-      <div className={`${montserrat.className} d-flex flex-column h-100`}>
+      <div className={`${"mont"} d-flex flex-column h-100`}>
         {' '}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"

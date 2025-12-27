@@ -2,9 +2,9 @@ import { Fragment, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
-import { Montserrat } from '@next/font/google';
+
 import { supabase } from '../../../services/supabaseClient';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
 function Success(props) {
   useEffect(() => { }, []);
 
@@ -73,7 +73,7 @@ function Success(props) {
           href="images/touch-icon-ipad-retina.png"
         />
       </Head>
-      <div className={`${montserrat.className} d-flex flex-column h-100`}>
+      <div className={`${"mont"} d-flex flex-column h-100`}>
         {' '}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"

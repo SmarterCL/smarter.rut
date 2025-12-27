@@ -1,12 +1,12 @@
 import { Fragment, Suspense, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
-import { Montserrat } from '@next/font/google';
+
 import Sidebar from '../../../components/Sidebar';
 import ChileanRutify from 'chilean-rutify';
 import { supabase } from '../../../services/supabaseClient';
 import DashNav from '../../../components/DashNav';
-const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable', display: 'swap' });
+
 
 function Dashboard(props) {
   const [displayMobileBar, setDisplayMoblieBar] = useState(false);
@@ -109,7 +109,7 @@ function Dashboard(props) {
           href="images/touch-icon-ipad-retina.png"
         />
       </Head>
-      <div className={`${montserrat.className} d-flex flex-column h-100`}>
+      <div className={`${"mont"} d-flex flex-column h-100`}>
         {' '}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"
