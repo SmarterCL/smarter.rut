@@ -1,0 +1,36 @@
+{
+    "mcpSupabaseIntegration": {
+        "supabase": {
+            "projectRef": "rjfcmmzjlguiititkmyh",
+            "url": "https://mcp.supabase.com",
+            "features": [
+                "docs",
+                "account",
+                "database",
+                "debugging",
+                "development",
+                "functions",
+                "branching",
+                "storage"
+            ]
+        },
+        "mcpServer": {
+            "url": "https://n8n.smarterbot.store/mcp-server/http",
+            "token": "YOUR_MCP_TOKEN_HERE",
+            "protocol": "MCP-2.0"
+        },
+        "integration": {
+            "auth": {
+                "type": "supabase-jwt",
+                "provider": "supabase",
+                "redirect": "https://rut.smarterbot.store/login"
+            },
+            "services": {
+                "odoo": "odoo-backend:8069",
+                "n8n": "n8n-backend:5678",
+                "chatwoot": "chatwoot-backend:3000",
+                "mcp": "internal-mcp:8000"
+            }
+        }
+    }
+}
