@@ -1,9 +1,38 @@
-/* Custom CSS by Faisandu -------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+/* Design System SmarterBOT ------------------------------------------------ */
+/* Basado en la paleta de Odoo para coherencia visual */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+/* Design Tokens */
+:root {
+  /* Base colors (compartida en todos los dominios) */
+  --color-bg: #F9F9FB;
+  --color-surface: #FFFFFF;
+  --color-text: #2F2F2F;
+  --color-muted: #6B7280;
 
+  /* Primario Smarter (convive con Odoo) */
+  --color-primary: #017E84;   /* acción, botones principales */
+  --color-primary-soft: #E6F3F3;
+
+  /* Vínculo con Odoo (clave visual) */
+  --color-odoo: #714B67;
+  --color-odoo-soft: #EFE9ED;
+
+  /* Estados */
+  --color-success: #2ECC71;
+  --color-warning: #F39C12;
+  --color-danger: #E74C3C;
+
+  /* Tipografía */
+  --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 600;
+  --font-body: 400;
+  --font-button: 500;
+}
+
+/* Tipografía principal */
 .mont{
-  font-family:'Montserrat' !important;
+  font-family: var(--font-base) !important;
 }
 
 .text-left{
