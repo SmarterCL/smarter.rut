@@ -207,8 +207,7 @@ function Dashboard(props) {
                   <Fragment>
                     {(!isEmpty(userData) &&
                       userData.expirationDate &&
-                      moment
-                        .unix(userData.expirationDate.seconds)
+                      moment(userData.expirationDate.seconds ? moment.unix(userData.expirationDate.seconds) : userData.expirationDate)
                         .diff(moment(), 'days') < 30) ||
                       userData.paymentStatus == 'PENDING' ? (
                       <div className="col-md-12 mb-5">
@@ -218,9 +217,8 @@ function Dashboard(props) {
                               {userData.paymentStatus != 'PENDING' ? (
                                 <p className="mb-0">
                                   Tu cuenta vence el{' '}
-                                  {!isEmpty(userData)
-                                    ? moment
-                                      .unix(userData.expirationDate.seconds)
+                                  {!isEmpty(userData) && userData.expirationDate
+                                    ? moment(userData.expirationDate.seconds ? moment.unix(userData.expirationDate.seconds) : userData.expirationDate)
                                       .format('DD-MM-YYYY')
                                     : ''}
                                   . Haz click en el siguiente botón para renovar

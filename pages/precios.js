@@ -29,17 +29,19 @@ export default function Prices() {
     if (typeof window != 'undefined') {
       localStorage.setItem('__mtp_count', 1);
     }
-    supabase.from('settings')
-      .select('*')
-      .eq('id', '--')
-      .maybeSingle()
-      .then(({ data: settings }) => {
-        if (settings) {
-          setPrice(parseInt(settings.price));
-          setOfferPrice(parseInt(settings.offerPrice));
-          setDiscountText(settings.discountText);
-        }
-      });
+    if (supabase) {
+      supabase.from('settings')
+        .select('*')
+        .eq('id', '--')
+        .maybeSingle()
+        .then(({ data: settings }) => {
+          if (settings) {
+            setPrice(parseInt(settings.price));
+            setOfferPrice(parseInt(settings.offerPrice));
+            setDiscountText(settings.discountText);
+          }
+        });
+    }
   }, []);
 
   return (

@@ -1,6 +1,6 @@
-const FlowApi = require('flowcl-node-api-client');
 
 export default async function handler(request, response) {
+  const FlowApi = require('flowcl-node-api-client');
   try {
     console.log('PAYMENT CALLBACK');
     let config = {
@@ -18,8 +18,8 @@ export default async function handler(request, response) {
     console.log(flowResponse);
     return response
       .status(200)
-      .send({status: 'OK', flowResponse: flowResponse});
+      .send({ status: 'OK', flowResponse: flowResponse });
   } catch (error) {
-    return response.status(200).send({status: 'ERROR', error: error});
+    return response.status(200).send({ status: 'ERROR', error: error });
   }
 }

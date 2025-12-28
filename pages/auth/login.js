@@ -14,6 +14,12 @@ function Login(props) {
   const doLogin = async () => {
     setLoading(true);
 
+    if (!supabase) {
+      alert('Error: El servicio de autenticación no está disponible.');
+      setLoading(false);
+      return;
+    }
+
     // Intentar login con Supabase Auth primero
     const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
       email,

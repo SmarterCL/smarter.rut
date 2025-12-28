@@ -422,9 +422,9 @@ function Account(props) {
                                 <td>
                                   {item.data.paymentData.requestDate
                                     ? item.data.paymentData.requestDate
-                                    : moment.unix(
-                                      item.data.paymentData.requestData
-                                    ).seconds}
+                                    : (item.data.paymentData.requestData
+                                      ? moment.unix(item.data.paymentData.requestData.seconds || item.data.paymentData.requestData).format('DD-MM-YYYY HH:mm')
+                                      : '--')}
                                 </td>
                                 <td>
                                   ${item.data.paymentData.amount}

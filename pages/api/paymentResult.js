@@ -1,13 +1,12 @@
-const FlowApi = require("flowcl-node-api-client");
-import moment from "moment";
 import { supabaseService as db } from "../../services/supabaseClient";
-const mailgun = require("mailgun.js");
-const mg = mailgun.client({
-  username: "api",
-  key: "key-80d577c302f3bcad991bea13930b3fde",
-});
 
 export default async function handler(request, response) {
+  const FlowApi = require("flowcl-node-api-client");
+  const mailgun = require("mailgun.js");
+  const mg = mailgun.client({
+    username: "api",
+    key: "key-80d577c302f3bcad991bea13930b3fde",
+  });
   db.from("accounts")
     .select("*")
     .eq("id", request.query.uid)

@@ -1,7 +1,7 @@
-const FlowApi = require('flowcl-node-api-client');
 import { supabaseService as db } from '../../services/supabaseClient';
 
 export default async function handler(request, response) {
+  const FlowApi = require('flowcl-node-api-client');
   const config = {
     apiKey: '332F432C-0523-4832-A963-36CLA8D505F8',
     secretKey: 'ed20bb9761d5f18c7d7171b804b12a4ba7ba1797',

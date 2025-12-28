@@ -8,11 +8,18 @@ import bcrypt from 'bcryptjs-react';
 import intlTelInput from 'intl-tel-input';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import { RxEyeClosed, RxEyeOpen } from 'react-icons/rx';
-const mailgun = require('mailgun.js');
-const mg = mailgun.client({
-  username: 'api',
-  key: 'key-80d577c302f3bcad991bea13930b3fde',
-});
+let mg = null;
+if (typeof window === 'undefined' || process.env.NEXT_PUBLIC_MAILGUN_KEY) {
+  try {
+    const mailgun = require('mailgun.js');
+    mg = mailgun.client({
+      username: 'api',
+      key: process.env.NEXT_PUBLIC_MAILGUN_KEY || 'key-80d577c302f3bcad991bea13930b3fde',
+    });
+  } catch (e) {
+    console.error('Failed to initialize mailgun', e);
+  }
+}
 
 
 export default function Home() {
@@ -44,16 +51,18 @@ export default function Home() {
     input.addEventListener('countrychange', function () {
       setDialCode(iti.getSelectedCountryData().dialCode);
     });
-    supabase.from('settings')
-      .select('*')
-      .eq('id', '--')
-      .single()
-      .then(({ data: settings }) => {
-        if (settings) {
-          setPrice(parseInt(settings.price));
-          setOfferPrice(parseInt(settings.offerPrice));
-        }
-      });
+    if (supabase) {
+      supabase.from('settings')
+        .select('*')
+        .eq('id', '--')
+        .single()
+        .then(({ data: settings }) => {
+          if (settings) {
+            setPrice(parseInt(settings.price));
+            setOfferPrice(parseInt(settings.offerPrice));
+          }
+        });
+    }
     if (typeof window != 'undefined') {
       setCount(parseInt(localStorage.getItem('__mtp_count') || 1));
     }
@@ -135,6 +144,11 @@ export default function Home() {
       return alert('Debes aceptar términos y condiciones');
     }
 
+    if (!supabase) {
+      setSaving(false);
+      return alert('Error: El servicio de base de datos no está disponible.');
+    }
+
     const { data: existingRut } = await supabase
       .from('accounts')
       .select('id')
@@ -210,6 +224,12 @@ export default function Home() {
       if (subErr) {
         console.error(subErr);
       }
+
+      if (!mg) {
+        setReady(true);
+        return;
+      }
+
       mg.messages
         .create('mail.mountainpass.cl', {
           from: 'Mountain Pass<noreply@mail.mountainpass.cl>',
