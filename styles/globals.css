@@ -2,32 +2,74 @@
 /* Basado en la paleta de Odoo para coherencia visual */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Design Tokens */
+/* Design Tokens - Adaptados desde OS-web */
 :root {
-  /* Base colors (compartida en todos los dominios) */
-  --color-bg: #F9F9FB;
-  --color-surface: #FFFFFF;
-  --color-text: #2F2F2F;
-  --color-muted: #6B7280;
+  /* Base colors (OS-web) */
+  --background: #F9FAFB;
+  --foreground: #030712;
+  --card: #FFFFFF;
+  --card-foreground: #030712;
+  --popover: #FFFFFF;
+  --popover-foreground: #030712;
+  --primary: #0263FF;
+  --primary-foreground: #F9FAFB;
+  --secondary: #F3F4F6;
+  --secondary-foreground: #030712;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --accent: #F3F4F6;
+  --accent-foreground: #030712;
+  --destructive: #EF4444;
+  --destructive-foreground: #F9FAFB;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #0263FF;
+  --chart-1: #0263FF;
+  --chart-2: #10B981;
+  --chart-3: #F59E0B;
+  --chart-4: #EF4444;
+  --chart-5: #8B5CF6;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #030712;
+  --sidebar-primary: #0263FF;
+  --sidebar-primary-foreground: #F9FAFB;
+  --sidebar-accent: #F3F4F6;
+  --sidebar-accent-foreground: #030712;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #0263FF;
 
-  /* Primario Smarter (convive con Odoo) */
-  --color-primary: #017E84;   /* acción, botones principales */
-  --color-primary-soft: #E6F3F3;
+  /* Color variables para compatibilidad */
+  --color-bg: var(--background);
+  --color-surface: var(--card);
+  --color-text: var(--foreground);
+  --color-muted: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-soft: #E6F3FF;
+  --color-secondary: var(--secondary);
+  --color-tertiary: #F9FAFB;
+  --color-success: var(--chart-2);
+  --color-success-soft: #ECFDF5;
+  --color-warning: var(--chart-3);
+  --color-warning-soft: #FEFCE8;
+  --color-danger: var(--destructive);
+  --color-danger-soft: #FEF2F2;
 
   /* Vínculo con Odoo (clave visual) */
   --color-odoo: #714B67;
   --color-odoo-soft: #EFE9ED;
-
-  /* Estados */
-  --color-success: #2ECC71;
-  --color-warning: #F39C12;
-  --color-danger: #E74C3C;
 
   /* Tipografía */
   --font-base: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 600;
   --font-body: 400;
   --font-button: 500;
+
+  /* Radios */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 /* Tipografía principal */
