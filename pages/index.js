@@ -164,20 +164,13 @@ export default function Home() {
                   className="btn btn-secondary mx-2 btn-header"
                   href="/login"
                 >
-                  Ingresa
+                  Entrar al sistema
                 </a>
                 <a
                   className="btn btn-primary btn-header mx-2 btn-sub"
-                  href="/login"
+                  href="/subscribe"
                 >
-                  Inscríbete Gratis
-                </a>
-                <a
-                  className="btn btn-primary btn-header mx-2 btn-sub"
-                  href="https://rut.smarterbot.store"
-                  target="_blank"
-                >
-                  Tienda
+                  Crear cuenta
                 </a>
               </div>
             </div>
@@ -188,35 +181,38 @@ export default function Home() {
             <div className="row align-items-center">
               <div className="col-12 col-sm-12 col-lg-12 col-xl-7 z-index">
                 <h1 className="display-1">
-                  Transforma tu negocio con <span className="color">SmarterBOT</span>
+                  <span className="color">Smarter.OS</span>
                 </h1>
                 <p className="large mt-3">
-                  SmarterBOT es una plataforma integral que te permitirá gestionar
-                  tus procesos de negocio, con una serie de beneficios y herramientas avanzadas.
+                  Acceso al sistema operativo comercial basado en RUT.
                 </p>
-                <p className="large mt-3">
-                  ¡Inscríbete gratis en nuestros planes y conoce las ofertas de
-                  la tienda!
-                </p>
-                <a
-                  className="btn btn-primary btn-lg mt-4 mb-4"
-                  href="/login"
-                >
-                  Inscríbete gratis
-                </a>
-                <a
-                  className="btn btn-primary btn-lg mt-4 mb-4 home-store"
-                  href="https://rut.smarterbot.store"
-                  target="_blank"
-                >
-                  Ir a la Tienda
-                </a>
-                <p>
+                <div className="mt-4">
+                  <a
+                    className="btn btn-primary btn-lg me-3"
+                    href="https://odoo.smarterbot.store"
+                    target="_blank"
+                  >
+                    Ver demostración
+                  </a>
+                  <a
+                    className="btn btn-primary btn-lg me-3"
+                    href="/login"
+                  >
+                    Entrar al sistema
+                  </a>
+                  <a
+                    className="btn btn-primary btn-lg"
+                    href="/subscribe"
+                  >
+                    Crear cuenta
+                  </a>
+                </div>
+                <p className="mt-4">
                   <img
                     className="margin-top img-fluid mt-4"
                     src="/images/holder.svg"
                     width="640"
-                    title="Nuestros servicios"
+                    title="Sistema operativo comercial"
                   />
                 </p>
               </div>
@@ -407,30 +403,17 @@ export default function Home() {
                     contacto@smarterbot.store
                   </a>
                 </p>
-
-
               </div>
               <div className="col-sm-6">
                 <ul>
                   <li>
-                    <a href="/quienes-somos">Quiénes Somos</a>
+                    <a href="/politicas-de-privacidad">Política</a>
                   </li>
                   <li>
-                    <a href="/precios">Tarifas y planes</a>
+                    <a href="/terminos-y-condiciones">Términos</a>
                   </li>
                   <li>
-                    <a href="/politicas-de-privacidad">
-                      Política de Privacidad
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/terminos-y-condiciones">Términos de Uso</a>
-                  </li>
-                  <li>
-                    <a href="/preguntas-frecuentes">¿Cómo Funciona?</a>
-                  </li>
-                  <li>
-                    <a href="/login">Iniciar Sesión</a>
+                    <a href="https://smarterbot.cl">Volver a smarterbot.cl</a>
                   </li>
                 </ul>
               </div>

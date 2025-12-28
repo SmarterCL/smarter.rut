@@ -1,0 +1,157 @@
+/* Estilos para el layout del dashboard */
+.dashboard-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+.dashboard-header {
+  background-color: var(--color-surface);
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.tenant-status {
+  text-align: center;
+}
+
+.status-indicator {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-indicator.active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-indicator.pendiente {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-indicator.limitado {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-name {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.dashboard-container {
+  display: flex;
+  flex: 1;
+}
+
+.dashboard-sidebar {
+  width: 240px;
+  background-color: var(--color-surface);
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem 0;
+  height: calc(100vh - 60px);
+  position: fixed;
+  overflow-y: auto;
+}
+
+.dashboard-sidebar .nav-link {
+  padding: 0.75rem 1.5rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.dashboard-sidebar .nav-link.active {
+  background-color: #f0f9ff;
+  color: var(--color-primary);
+  border-left: 3px solid var(--color-primary);
+}
+
+.dashboard-content {
+  flex: 1;
+  margin-left: 240px;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 60px);
+}
+
+/* Estilos para las páginas del dashboard */
+.dashboard-content .card {
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content .card-body {
+  padding: 1.5rem;
+}
+
+.status-indicator {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-indicator.active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-indicator.pendiente {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-indicator.limitado {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Estilos para la tabla de planes */
+.table th {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.badge {
+  font-size: 0.75em;
+}
+
+/* Estilos para botones */
+.btn {
+  font-family: var(--font-base);
+  font-weight: var(--font-button);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: #016a6f;
+  border-color: #016a6f;
+}
+
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
