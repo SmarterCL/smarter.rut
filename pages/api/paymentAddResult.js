@@ -19,7 +19,7 @@ export default async function handler(request, response) {
         apiKey: "332F432C-0523-4832-A963-36CLA8D505F8",
         secretKey: "ed20bb9761d5f18c7d7171b804b12a4ba7ba1797",
         apiURL: "https://www.flow.cl/api",
-        baseURL: "https://mountainpass.cl",
+        baseURL: "https://rut.smarterbot.store",
       };
       let params = {
         token: request.body.token,
@@ -46,11 +46,11 @@ export default async function handler(request, response) {
           paymentData: flowResponse,
         });
         mg.messages
-          .create("mail.mountainpass.cl", {
-            from: "Mountain Pass<noreply@mail.educomlab.com>",
+          .create("rut.smarterbot.store", {
+            from: "SmarterBOT<noreply@rut.smarterbot.store>",
             to: [documentSnapshot.email],
-            subject: "Confirmación de pago de tu cuenta Mountain Pass",
-            text: "Has agregado suscripciones a tu cuenta Mountain Pass",
+            subject: "Confirmación de pago de tu cuenta SmarterBOT",
+            text: "Has agregado suscripciones a tu cuenta SmarterBOT",
             html: `<html><head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -401,7 +401,7 @@ export default async function handler(request, response) {
                                   <table>
                                       <tbody><tr>
                                       <td>
-                                        <img src="https://mountainpass.cl/images/email-cover.png" width="100%" style="border-radius: 10px;">
+                                        <img src="https://rut.smarterbot.store/images/holder.svg" width="100%" style="border-radius: 10px;">
                                       </td>
                                     </tr>
                                   </tbody></table>
@@ -409,7 +409,7 @@ export default async function handler(request, response) {
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tbody><tr>
                                       <td>
-                                      <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${documentSnapshot.firstName
+                                       <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${documentSnapshot.firstName
               },</span><br/>hemos recibido el pago de tus nuevas suscripciones</h1>
                                         <p>Te invitamos a completar todos los datos de tu suscripciones añadidas.</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" className="btn btn-primary">
@@ -419,7 +419,7 @@ export default async function handler(request, response) {
                                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                   <tbody>
                                                     <tr>
-                                                      <td> <a href="https://mountainpass.cl/auth/login" target="_blank">Inicia sesión aquí</a> </td>
+                                                      <td> <a href="https://rut.smarterbot.store/login" target="_blank">Inicia sesión aquí</a> </td>
                                                     </tr>
                                                   </tbody>
                                                 </table>
@@ -443,7 +443,7 @@ export default async function handler(request, response) {
                               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tbody><tr>
                                   <td className="content-block">
-                                    <span className="apple-link">Mountain Pass 2025</span>
+                                    <span className="apple-link">SmarterBOT 2025</span>
                                   </td>
                                 </tr>
                 

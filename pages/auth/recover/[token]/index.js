@@ -63,49 +63,49 @@ function RecorverPassword(props) {
   return (
     <Fragment>
       <Head>
-        <title>Mountain Pass</title>
+        <title>SmarterBOT</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Mountain Pass – Suscríbete y paga sólo las horas que esquíes"
+          content="SmarterBOT - Gestión inteligente"
         />
-        <meta name="author" content="Mountain Pass" />
-        <title>Mountain Pass – Esquía pagando solo el tiempo que uses</title>
+        <meta name="author" content="SmarterBOT" />
+        <title>SmarterBOT - Gestión inteligente</title>
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Mountain Pass - La nueva forma de disfrutar la montaña"
+          content="SmarterBOT - Gestión inteligente"
         />
         <meta
           property="og:description"
-          content="Suscríbete y obtén una montaña de beneficios"
+          content="SmarterBOT - Gestión inteligente"
         />
         <meta
           property="og:image"
-          content="https://faisandu.com/mountainpass//images/mountainpass-cover.jpg"
+          content="https://rut.smarterbot.store/images/holder.svg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
-        <meta property="og:url" content="https://www.mountainpass.cl" />
-        <meta property="og:site_name" content="Mountainpass" />
+        <meta property="og:url" content="https://rut.smarterbot.store" />
+        <meta property="og:site_name" content="SmarterBOT" />
         <meta property="fb:app_id" content="" />
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-16.png"
+          href="/images/holder.svg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-32.png"
+          href="/images/holder.svg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-96.png"
+          href="/images/holder.svg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -147,7 +147,7 @@ function RecorverPassword(props) {
           <a className="d-block text-center" href="/">
             <img
               className="margin-top img-fluid"
-              src="/images/MountainPassv2.svg"
+              src="/images/SmarterBotV2.svg"
               width={220}
             />
           </a>
@@ -179,7 +179,7 @@ function RecorverPassword(props) {
                         </h3>
                         <div className="text-center">
                           <a
-                            href="/auth/login"
+                            href="/login"
                             className="btn btn-primary btn-lg d-block mt-4"
                           >
                             Ingresar
@@ -242,9 +242,9 @@ function RecorverPassword(props) {
             <div className="row text-center">
               <div className="col-sm-12">
                 <p className="d-block">
-                  <strong>Mountain Pass</strong> 2025 –{' '}
-                  <a href="mailto:experiencias@mountainpass.cl">
-                    clientes@mountainpass.cl
+                  <strong>SmarterBOT</strong> 2025 –{' '}
+                  <a href="mailto:contacto@smarterbot.store">
+                    contacto@smarterbot.store
                   </a>
                 </p>
               </div>

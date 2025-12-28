@@ -17,18 +17,18 @@ export default function Home() {
 
   const updateCount = (option) => {
     if (option == 'minus' && count > 1) {
-      localStorage.setItem('__mtp_count', count - 1);
+      localStorage.setItem('__sbot_count', count - 1);
       setCount(count - 1);
     }
     if (option == 'plus' && count < 10) {
-      localStorage.setItem('__mtp_count', count + 1);
+      localStorage.setItem('__sbot_count', count + 1);
       setCount(count + 1);
     }
   };
 
   useEffect(() => {
     if (typeof window != 'undefined') {
-      localStorage.setItem('__mtp_count', 1);
+      localStorage.setItem('__sbot_count', 1);
     }
     if (supabase) {
       supabase.from('settings')
@@ -50,49 +50,49 @@ export default function Home() {
   return (
     <Fragment>
       <Head>
-        <title>Mountain Pass</title>
+        <title>SmarterBOT</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Mountain Pass – Suscríbete y paga sólo las horas que esquíes"
+          content="SmarterBOT – Automatización y tecnología para tu negocio"
         />
-        <meta name="author" content="Mountain Pass" />
-        <title>Mountain Pass – Esquía pagando solo el tiempo que uses</title>
+        <meta name="author" content="SmarterBOT" />
+        <title>SmarterBOT – Soluciones tecnológicas integrales</title>
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Mountain Pass - La nueva forma de disfrutar la montaña"
+          content="SmarterBOT - La nueva forma de gestionar tu empresa"
         />
         <meta
           property="og:description"
-          content="Suscríbete y obtén una montaña de beneficios"
+          content="Suscríbete y obtén beneficios exclusivos"
         />
         <meta
           property="og:image"
-          content="https://mountainpass.cl/images/mountainpass-share.png"
+          content="https://rut.smarterbot.store/images/holder.svg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
-        <meta property="og:url" content="https://www.mountainpass.cl" />
-        <meta property="og:site_name" content="Mountainpass" />
+        <meta property="og:url" content="https://rut.smarterbot.store" />
+        <meta property="og:site_name" content="SmarterBOT" />
         <meta property="fb:app_id" content="" />
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-16.png"
+          href="/images/holder.svg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-32.png"
+          href="/images/holder.svg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-96.png"
+          href="/images/holder.svg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -137,7 +137,7 @@ export default function Home() {
               <Link className="navbar-brand" href="/">
                 <img
                   className="margin-top img-fluid"
-                  src="/images/MountainPassv2.svg"
+                  src="/images/SmarterBotV2.svg"
                   width={220}
                 />
               </Link>
@@ -168,13 +168,13 @@ export default function Home() {
                 </a>
                 <a
                   className="btn btn-primary btn-header mx-2 btn-sub"
-                  href="/subscribe"
+                  href="/login"
                 >
                   Inscríbete Gratis
                 </a>
                 <a
                   className="btn btn-primary btn-header mx-2 btn-sub"
-                  href="https://tienda.mountainpass.cl"
+                  href="https://rut.smarterbot.store"
                   target="_blank"
                 >
                   Tienda
@@ -188,13 +188,11 @@ export default function Home() {
             <div className="row align-items-center">
               <div className="col-12 col-sm-12 col-lg-12 col-xl-7 z-index">
                 <h1 className="display-1">
-                  Lánzate a la nueva forma de{' '}
-                  <span className="color">disfrutar la montaña</span>
+                  Transforma tu negocio con <span className="color">SmarterBOT</span>
                 </h1>
                 <p className="large mt-3">
-                  Mountain Pass es una membresía anual que te permitirá acceder
-                  a nuestros centros de ski asociados y a la montaña durante{' '}
-                  <b>invierno y verano</b>, con una serie de beneficios.
+                  SmarterBOT es una plataforma integral que te permitirá gestionar
+                  tus procesos de negocio, con una serie de beneficios y herramientas avanzadas.
                 </p>
                 <p className="large mt-3">
                   ¡Inscríbete gratis en nuestros planes y conoce las ofertas de
@@ -202,13 +200,13 @@ export default function Home() {
                 </p>
                 <a
                   className="btn btn-primary btn-lg mt-4 mb-4"
-                  href="/subscribe"
+                  href="/login"
                 >
                   Inscríbete gratis
                 </a>
                 <a
                   className="btn btn-primary btn-lg mt-4 mb-4 home-store"
-                  href="https://tienda.mountainpass.cl"
+                  href="https://rut.smarterbot.store"
                   target="_blank"
                 >
                   Ir a la Tienda
@@ -216,16 +214,16 @@ export default function Home() {
                 <p>
                   <img
                     className="margin-top img-fluid mt-4"
-                    src="/images/centros.png"
+                    src="/images/holder.svg"
                     width="640"
-                    title="Los mejores centros de ski del país"
+                    title="Nuestros servicios"
                   />
                 </p>
               </div>
               <div className="col-12 col-sm-12 col-lg-12 col-xl-5 mx-auto text-center img-home-container">
                 <img
                   className="align-middle img-fluid rounded img-home"
-                  src="/images/i-1.png"
+                  src="/images/holder.svg"
                   width="460"
                 />
               </div>
@@ -257,7 +255,7 @@ export default function Home() {
                       <td>No</td>
                     </tr>
                     <tr>
-                      <th scope="row">Centros de Ski</th>
+                      <th scope="row">Módulos</th>
                       <td>Uno a elección</td>
                     </tr>
                     <tr>
@@ -265,7 +263,7 @@ export default function Home() {
                       <td>78 horas</td>
                     </tr>
                     <tr>
-                      <th scope="row">Montaña de Beneficios</th>
+                      <th scope="row">Beneficios Smarter</th>
                       <td>No</td>
                     </tr>
                   </tbody>
@@ -273,7 +271,7 @@ export default function Home() {
                 <div className="d-grid">
                   <a
                     className="btn btn-block btn-primary btn-md mt-4"
-                    href="/subscribe"
+                    href="/login"
                   >
                     Inscríbete gratis
                   </a>
@@ -307,7 +305,7 @@ export default function Home() {
                       <td>Sí</td>
                     </tr>
                     <tr>
-                      <th scope="row">Centros de Ski</th>
+                      <th scope="row">Módulos</th>
                       <td>Todos</td>
                     </tr>
                     <tr>
@@ -315,7 +313,7 @@ export default function Home() {
                       <td>24 horas</td>
                     </tr>
                     <tr>
-                      <th scope="row">Montaña de Beneficios</th>
+                      <th scope="row">Beneficios Smarter</th>
                       <td>Sí</td>
                     </tr>
                   </tbody>
@@ -338,18 +336,17 @@ export default function Home() {
               <div className="col-12 col-sm-12 col-lg-12 col-xl-6 mx-auto text-center">
                 <img
                   className="align-middle img-fluid rounded img-home-two"
-                  src="/images/i-2.jpg"
+                  src="/images/holder.svg"
                   width="460"
                 />
               </div>
               <div className="col-12 col-sm-12 col-lg-12 col-xl-6 z-index">
                 <h1>
-                  Una montaña <span className="color">de beneficios</span>
+                  Una serie <span className="color">de beneficios</span>
                 </h1>
                 <p className="large mt-3">
-                  Los suscriptores de Mountain Pass podrán disfrutar de tarifas
-                  de ski por hora, ofertas especiales en alojamiento, rental,
-                  clases, alimentación y mucho más.
+                  Los suscriptores de SmarterBOT podrán disfrutar de herramientas
+                  avanzadas, soporte prioritario, integraciones exclusivas y mucho más.
                 </p>
 
                 <div>
@@ -364,7 +361,7 @@ export default function Home() {
                     className="btn btn-primary btn-md mt-4 mx-3"
                     href="/precios"
                   >
-                    Tarifas de ski por hora
+                    Tarifas y planes
                   </a>
                 </div>
               </div>
@@ -376,7 +373,7 @@ export default function Home() {
             <div className="row align-content-start align-items-center">
               <div className="col-12 col-sm-12 col-md-8 mx-auto text-center">
                 <h1 className="mb-5">
-                  Conoce <span className="color">Mountain Pass</span>
+                  Conoce <span className="color">SmarterBOT</span>
                 </h1>
                 <div className="justify-content-center">
                   <div className="video-home rounded">
@@ -393,69 +390,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="section-white mb-5">
-          <div className="container">
-            <div className="row align-content-start align-items-center">
-              <div className="col-12 col-sm-12 col-md-12 mx-auto text-center">
-                <h1 className="mb-5">Centros de ski asociados</h1>
-                <div className="partner-container d-flex justify-content-center">
-                  <div className="partner-brand">
-                    <a
-                      href="https://laparva.cl/"
-                      target="_blank"
-                      title="La Parva"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="/images/la-parva.png"
-                        width="180"
-                      />
-                    </a>
-                  </div>
-                  <div className="partner-brand">
-                    <a
-                      href="https://skiportillo.com/"
-                      target="_blank"
-                      title="Ski Portillo"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="/images/ski-portillo.png"
-                        width="180"
-                      />
-                    </a>
-                  </div>
-                  <div className="partner-brand">
-                    <a
-                      href="https://antillanca.cl/"
-                      target="_blank"
-                      title="Antillanca - Vive la Montaña"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="/images/antillanca.png"
-                        width="180"
-                      />
-                    </a>
-                  </div>
-                  <div className="partner-brand">
-                    <a
-                      href="https://laderas.com.ar/"
-                      target="_blank"
-                      title="Laderas – Cerro Perito Moreno"
-                    >
-                      <img
-                        className="img-fluid"
-                        src="/images/laderas.png"
-                        width="180"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <footer className="footer mt-auto py-5">
           <div className="container-fluid">
             <div className="row align-items-center">
@@ -463,58 +398,17 @@ export default function Home() {
                 <a className="footer-brand d-block" href="#">
                   <img
                     className="margin-top img-fluid "
-                    src="/images/MountainPass-white.svg"
+                    src="/images/SmarterBot-white.svg"
                   />
                 </a>
                 <p className="d-block mt-4">
-                  Mountain Pass 2025 –{' '}
-                  <a href="mailto:clientes@mountainpass.cl">
-                    clientes@mountainpass.cl
+                  SmarterBOT 2025 –{' '}
+                  <a href="mailto:contacto@smarterbot.store">
+                    contacto@smarterbot.store
                   </a>
                 </p>
 
-                <div className="follow-us mt-4">
-                  <a
-                    href="https://www.instagram.com/mountainpassgroup/"
-                    target="_blank"
-                  >
-                    <img
-                      className="icon-follow-us align-middle img-fluid"
-                      src="/images/i-instagram.svg"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    href="https://www.facebook.com/MountainPassGroup/"
-                    target="_blank"
-                  >
-                    <img
-                      className="icon-follow-us align-middle img-fluid"
-                      src="/images/i-facebook.svg"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    href="https://www.tiktok.com/@mountainpassgroup"
-                    target="_blank"
-                  >
-                    <img
-                      className="icon-follow-us align-middle img-fluid"
-                      src="/images/i-tiktok.svg"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@mountainpassgroup"
-                    target="_blank"
-                  >
-                    <img
-                      className="icon-follow-us align-middle img-fluid"
-                      src="/images/i-youtube.svg"
-                      width="40"
-                    />
-                  </a>
-                </div>
+
               </div>
               <div className="col-sm-6">
                 <ul>
@@ -522,7 +416,7 @@ export default function Home() {
                     <a href="/quienes-somos">Quiénes Somos</a>
                   </li>
                   <li>
-                    <a href="/precios">Tarifas de ski por hora</a>
+                    <a href="/precios">Tarifas y planes</a>
                   </li>
                   <li>
                     <a href="/politicas-de-privacidad">

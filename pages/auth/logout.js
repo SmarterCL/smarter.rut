@@ -4,9 +4,9 @@ import { supabase } from '../../services/supabaseClient';
 function Logout() {
   useEffect(() => {
     supabase.auth.signOut();
-    localStorage.removeItem('__mtp__id');
-    localStorage.removeItem('__mtp__ud');
-    window.location.replace('/auth/login');
+    localStorage.removeItem('__sbot__id');
+    localStorage.removeItem('__sbot__ud');
+    window.location.replace('/login');
   }, []);
 
   return <p></p>;

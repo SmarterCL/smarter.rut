@@ -238,11 +238,11 @@ export default function Home() {
 
         if (subErr) console.error(subErr);
         mg.messages
-          .create('mail.mountainpass.cl', {
-            from: 'Mountain Pass<noreply@mail.mountainpass.cl>',
+          .create('rut.smarterbot.store', {
+            from: 'SmarterBOT<noreply@rut.smarterbot.store>',
             to: [email],
-            subject: 'Te damos la bienvenida a Mountain Pass',
-            text: 'Te damos la bienvenida a Mountain Pass',
+            subject: 'Te damos la bienvenida a SmarterBOT',
+            text: 'Te damos la bienvenida a SmarterBOT',
             html: `<html><head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -547,23 +547,23 @@ export default function Home() {
                     </style>
                   </head>
                   <body>
-                    <span className="preheader">Tu cuenta ya está creada y tus subscripciones listas para ser inscritas.</span>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" className="body">
+                    <span class="preheader">Tu cuenta ya está creada y tus subscripciones listas para ser inscritas.</span>
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
                       <tbody><tr>
                         <td>&nbsp;</td>
-                        <td className="container">
-                          <div className="content">
+                        <td class="container">
+                          <div class="content">
                 
                             <table width="100%" style="max-width:640px;">
                             <!-- START CENTERED WHITE CONTAINER -->
-                            </table><table role="presentation" className="main">
+                            </table><table role="presentation" class="main">
                               <!-- START MAIN CONTENT AREA -->
                               <tbody><tr>
-                                <td className="wrapper">
+                                <td class="wrapper">
                                   <table>
                                       <tbody><tr>
                                       <td>
-                                        <img src="https://mountainpass.cl/images/email-cover.png" width="100%" style="border-radius: 10px;">
+                                        <img src="https://rut.smarterbot.store/images/holder.svg" width="100%" style="border-radius: 10px;">
                                       </td>
                                     </tr>
                                   </tbody></table>
@@ -571,17 +571,17 @@ export default function Home() {
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tbody><tr>
                                       <td>
-                                      <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${firstName},</span><br/>¡Te damos la bienvenida a Mountain Pass!</h1>
-                                        <p>Tu cuenta Mountain Pass ya está creada y te invitamos a completar el pago de tu suscripción</p>
+                                      <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
+                                        <p>Tu cuenta SmarterBOT ya está creada y te invitamos a completar el pago de tu suscripción</p>
                                         <p>En caso de que no puedas o no quieras realizar el pago de tu cuenta ahora, puedes seguir el proceso en este link: </p> 
-                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" className="btn btn-primary">
+                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                           <tbody>
                                             <tr>
                                               <td align="left">
                                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                   <tbody>
                                                     <tr>
-                                                      <td> <a href="https://mountainpass.cl/pay/${account.id}" target="_blank">Paga tu suscripción aquí</a> </td>
+                                                      <td> <a href="https://rut.smarterbot.store/pay/${account.id}" target="_blank">Paga tu suscripción aquí</a> </td>
                                                     </tr>
                                                   </tbody>
                                                 </table>
@@ -601,11 +601,11 @@ export default function Home() {
                             <!-- END CENTERED WHITE CONTAINER -->
                 
                             <!-- START FOOTER -->
-                            <div className="footer">
+                            <div class="footer">
                               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tbody><tr>
-                                  <td className="content-block">
-                                    <span className="apple-link">Mountain Pass 2025</span>
+                                  <td class="content-block">
+                                    <span class="apple-link">SmarterBOT 2025</span>
                                   </td>
                                 </tr>
                 
@@ -638,49 +638,49 @@ export default function Home() {
   return (
     <Fragment>
       <Head>
-        <title>Mountain Pass</title>
+        <title>SmarterBOT</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Mountain Pass - La nueva forma de disfrutar la montaña"
+          content="SmarterBOT - Gestión inteligente"
         />
-        <meta name="author" content="Mountain Pass" />
-        <title>Mountain Pass - Esquía pagando solo el tiempo que uses</title>
+        <meta name="author" content="SmarterBOT" />
+        <title>SmarterBOT - Gestión inteligente</title>
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Mountain Pass - La nueva forma de disfrutar la montaña"
+          content="SmarterBOT - Gestión inteligente"
         />
         <meta
           property="og:description"
-          content="Suscríbete y obtén una montaña de beneficios"
+          content="SmarterBOT - Gestión inteligente"
         />
         <meta
           property="og:image"
-          content="https://faisandu.com/mountainpass//images/mountainpass-cover.jpg"
+          content="https://rut.smarterbot.store/images/holder.svg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
-        <meta property="og:url" content="https://www.mountainpass.cl" />
-        <meta property="og:site_name" content="Mountainpass" />
+        <meta property="og:url" content="https://rut.smarterbot.store" />
+        <meta property="og:site_name" content="SmarterBOT" />
         <meta property="fb:app_id" content="" />
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-16.png"
+          href="/images/holder.svg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-32.png"
+          href="/images/holder.svg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-96.png"
+          href="/images/holder.svg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -724,7 +724,7 @@ export default function Home() {
             <a className="d-block text-center" href="/">
               <img
                 className="margin-top img-fluid"
-                src="/images/MountainPassv2.svg"
+                src="/images/SmarterBotV2.svg"
                 width={220}
               />
             </a>
@@ -739,7 +739,7 @@ export default function Home() {
                 <div className="row order-container">
                   <div className="col-md-12">
                     <div className="row">
-                      <h3 className="mb-4">Regístrate en Mountain Pass</h3>
+                      <h3 className="mb-4">Regístrate en SmarterBOT</h3>
                       <div className="col-md-12">
                         <div className="form-floating mb-3">
                           <input
@@ -958,7 +958,7 @@ export default function Home() {
                         {' '}
                         Acepto los{' '}
                         <a
-                          href="https://mountainpass.cl/terminos-y-condiciones"
+                          href="https://rut.smarterbot.store/terminos-y-condiciones"
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -985,9 +985,9 @@ export default function Home() {
               <div className="row text-center">
                 <div className="col-sm-12">
                   <p className="d-block">
-                    <strong>Mountain Pass</strong> 2025 –{' '}
-                    <a href="mailto:clientes@mountainpass.cl">
-                      clientes@mountainpass.cl
+                    <strong>SmarterBOT</strong> 2025 –{' '}
+                    <a href="mailto:contacto@smarterbot.store">
+                      contacto@smarterbot.store
                     </a>
                   </p>
                 </div>

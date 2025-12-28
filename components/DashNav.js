@@ -1,9 +1,9 @@
-import {MdDashboard} from 'react-icons/md';
-import {FaHouseUser, FaUsers} from 'react-icons/fa';
-import {IoMdLogOut} from 'react-icons/io';
-import {IoIdCardSharp} from 'react-icons/io5';
-import {GiSkier} from 'react-icons/gi';
-import {FaAddressCard} from 'react-icons/fa';
+import { MdDashboard } from 'react-icons/md';
+import { FaHouseUser, FaUsers } from 'react-icons/fa';
+import { IoMdLogOut } from 'react-icons/io';
+import { IoIdCardSharp } from 'react-icons/io5';
+import { BiBuildings } from 'react-icons/bi';
+import { FaAddressCard } from 'react-icons/fa';
 
 function DashNav(props) {
   return (
@@ -17,8 +17,8 @@ function DashNav(props) {
       {props.userType == 'user' ? (
         <li className="nav-item text-left dash-nav-item">
           <a className="nav-link" href={`/dashboard/${props.userType}/account`}>
-            <FaHouseUser size={30} className="mx-2"></FaHouseUser> Mi Mountain
-            Pass <span className="sr-only"></span>
+            <FaHouseUser size={30} className="mx-2"></FaHouseUser> Mi Cuenta
+            <span className="sr-only"></span>
           </a>
         </li>
       ) : (
@@ -51,7 +51,7 @@ function DashNav(props) {
       {props.userType == 'admin' ? (
         <li className="nav-item text-left dash-nav-item">
           <a className="nav-link" href={`/dashboard/${props.userType}/centers`}>
-            <GiSkier size={30} className="mx-2"></GiSkier> Centros{' '}
+            <BiBuildings size={30} className="mx-2"></BiBuildings> Sedes{' '}
           </a>
         </li>
       ) : (

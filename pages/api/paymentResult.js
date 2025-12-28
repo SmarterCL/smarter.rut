@@ -18,7 +18,7 @@ export default async function handler(request, response) {
             apiKey: "332F432C-0523-4832-A963-36CLA8D505F8",
             secretKey: "ed20bb9761d5f18c7d7171b804b12a4ba7ba1797",
             apiURL: "https://www.flow.cl/api",
-            baseURL: "https://mountainpass.cl",
+            baseURL: "https://rut.smarterbot.store",
           };
           let params = {
             token: request.body.token,
@@ -40,11 +40,11 @@ export default async function handler(request, response) {
               paymentData: flowResponse,
             });
             mg.messages
-              .create("mail.mountainpass.cl", {
-                from: "Mountain Pass<noreply@mail.mountainpass.cl>",
+              .create("rut.smarterbot.store", {
+                from: "SmarterBOT<noreply@rut.smarterbot.store>",
                 to: [documentSnapshot.email],
-                subject: "Confirmación de pago de tu cuenta Mountain Pass",
-                text: "Te damos la bienvenida a Mountain Pass",
+                subject: "Confirmación de pago de tu cuenta SmarterBOT",
+                text: "Te damos la bienvenida a SmarterBOT",
                 html: `<html><head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -395,7 +395,7 @@ export default async function handler(request, response) {
                                   <table>
                                       <tbody><tr>
                                       <td>
-                                        <img src="https://mountainpass.cl/images/email-cover.png" width="100%" style="border-radius: 10px;">
+                                        <img src="https://rut.smarterbot.store/images/holder.svg" width="100%" style="border-radius: 10px;">
                                       </td>
                                     </tr>
                                   </tbody></table>
@@ -405,8 +405,8 @@ export default async function handler(request, response) {
                                       <td>
                                        <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${documentSnapshot.firstName
                   },</span><br/>hemos recibido el pago de tu suscripción</h1>
-                                        <p>Tu cuenta Mountain Pass ya está activa y te invitamos a completar todos los datos de tu suscripción</p>
-                                        <p>Si compraste más de una membresía, ingresa los datos de tus invitados para que todos puedan acceder a las reservas de los centros de ski asociados. ¡Te esperamos!</p> 
+                                        <p>Tu cuenta SmarterBOT ya está activa y te invitamos a completar todos los datos de tu suscripción</p>
+                                        <p>Si compraste más de una membresía, ingresa los datos de tus invitados. ¡Te esperamos!</p> 
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" className="btn btn-primary">
                                           <tbody>
                                             <tr>
@@ -414,7 +414,7 @@ export default async function handler(request, response) {
                                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                   <tbody>
                                                     <tr>
-                                                      <td> <a href="https://mountainpass.cl/auth/login" target="_blank">Inicia sesión aquí</a> </td>
+                                                      <td> <a href="https://rut.smarterbot.store/login" target="_blank">Inicia sesión aquí</a> </td>
                                                     </tr>
                                                   </tbody>
                                                 </table>
@@ -438,7 +438,7 @@ export default async function handler(request, response) {
                               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tbody><tr>
                                   <td className="content-block">
-                                    <span className="apple-link">Mountain Pass 2025</span>
+                                    <span className="apple-link">SmarterBOT 2025</span>
                                   </td>
                                 </tr>
                 
@@ -465,12 +465,12 @@ export default async function handler(request, response) {
           } else {
             console.log(flowResponse);
             mg.messages
-              .create("mail.mountainpass.cl", {
-                from: "Mountain Pass<noreply@mail.mountainpass.cl>",
+              .create("rut.smarterbot.store", {
+                from: "SmarterBOT<noreply@rut.smarterbot.store>",
                 to: "esteban@slashstudio.cl",
-                subject: "Pago con problema en Mountain Pass",
+                subject: "Pago con problema en SmarterBOT",
                 text: "",
-                html: `Llegó un pedido con problema en mountainpass, acá va el problema: ${JSON.stringify(
+                html: `Llegó un pedido con problema en SmarterBOT, acá va el problema: ${JSON.stringify(
                   flowResponse
                 )}`,
               })

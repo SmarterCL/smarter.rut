@@ -32,7 +32,7 @@ function Account(props) {
     if (typeof window != 'undefined') {
       supabase.from('accounts')
         .select('*')
-        .eq('id', localStorage.getItem('__mtp__id'))
+        .eq('id', localStorage.getItem('__sbot__id'))
         .single()
         .then(({ data: account }) => {
           if (account) {
@@ -53,7 +53,7 @@ function Account(props) {
 
       supabase.from('paymentData')
         .select('*')
-        .eq('accountId', localStorage.getItem('__mtp__id'))
+        .eq('accountId', localStorage.getItem('__sbot__id'))
         .then(({ data: paymentItems }) => {
           if (paymentItems) {
             setPaymentInfo(paymentItems.map(p => ({ id: p.id, data: p })));
@@ -130,7 +130,7 @@ function Account(props) {
 
     supabase.from('accounts')
       .update(data)
-      .eq('id', localStorage.getItem('__mtp__id'))
+      .eq('id', localStorage.getItem('__sbot__id'))
       .then(() => {
         alert('Datos Actualizados');
         setSaving(false);
@@ -145,49 +145,49 @@ function Account(props) {
   return (
     <Fragment>
       <Head>
-        <title>Mountain Pass</title>
+        <title>SmarterBOT</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Mountain Pass – Suscríbete y paga sólo las horas que esquíes"
+          content="SmarterBOT - Gestión inteligente"
         />
-        <meta name="author" content="Mountain Pass" />
-        <title>Mountain Pass – Esquía pagando solo el tiempo que uses</title>
+        <meta name="author" content="SmarterBOT" />
+        <title>SmarterBOT</title>
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Mountain Pass - La nueva forma de disfrutar la montaña"
+          content="SmarterBOT"
         />
         <meta
           property="og:description"
-          content="Suscríbete y obtén una montaña de beneficios"
+          content="SmarterBOT - Gestión inteligente"
         />
         <meta
           property="og:image"
-          content="https://faisandu.com/mountainpass//images/mountainpass-cover.jpg"
+          content="https://rut.smarterbot.store/images/holder.svg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
-        <meta property="og:url" content="https://www.mountainpass.cl" />
-        <meta property="og:site_name" content="Mountainpass" />
+        <meta property="og:url" content="https://rut.smarterbot.store" />
+        <meta property="og:site_name" content="SmarterBOT" />
         <meta property="fb:app_id" content="" />
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-16.png"
+          href="/images/holder.svg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-32.png"
+          href="/images/holder.svg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/mountainpass-favicon-96.png"
+          href="/images/holder.svg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -232,7 +232,7 @@ function Account(props) {
               <a className="navbar-brand" href={`/dashboard/${props.userType}`}>
                 <img
                   className="margin-top img-fluid"
-                  src="/images/MountainPassv2.svg"
+                  src="/images/SmarterBotV2.svg"
                   width={220}
                 />
               </a>
@@ -454,12 +454,12 @@ function Account(props) {
                 <a className="footer-brand d-block" href="#">
                   <img
                     className="margin-top img-fluid "
-                    src="/images/MountainPass-white.svg"
+                    src="/images/SmarterBot-white.svg"
                   />
                 </a>
               </div>
               <div className="col-sm-6">
-                <p className="d-block">Mountain Pass 2025 </p>
+                <p className="d-block">SmarterBOT 2025 </p>
               </div>
             </div>
           </div>
