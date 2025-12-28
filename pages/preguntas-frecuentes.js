@@ -26,7 +26,7 @@ export default function Home() {
                 <ul className="navbar-nav me-auto mb-2 mb-md-0"></ul>
                 <a
                   className="btn btn-secondary mx-2 btn-header"
-                  href="/auth/login"
+                  href="/login"
                 >
                   Ingresa
                 </a>

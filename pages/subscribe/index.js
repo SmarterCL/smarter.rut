@@ -610,7 +610,7 @@ export default function Home() {
                           </p>
                           <div className="text-center">
                             <a
-                              href="/auth/login"
+                              href="/login"
                               className="btn btn-primary btn-lg d-block mt-4"
                             >
                               Ingresar

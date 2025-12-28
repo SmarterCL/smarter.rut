@@ -162,7 +162,7 @@ export default function Home() {
 
                 <a
                   className="btn btn-secondary mx-2 btn-header"
-                  href="/auth/login"
+                  href="/login"
                 >
                   Ingresa
                 </a>
@@ -430,7 +430,7 @@ export default function Home() {
                     <a href="/preguntas-frecuentes">¿Cómo Funciona?</a>
                   </li>
                   <li>
-                    <a href="/auth/login">Iniciar Sesión</a>
+                    <a href="/login">Iniciar Sesión</a>
                   </li>
                 </ul>
               </div>

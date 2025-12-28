@@ -164,7 +164,7 @@ function Success(props) {
                   <div className="text-center mt-4">
                     <a
                       className="btn btn-primary btn-lg d-block mt-4"
-                      href="/auth/login"
+                      href="/login"
                     >
                       Ir a mi cuenta
                     </a>
