@@ -7,7 +7,6 @@ import { supabase } from '../services/supabaseClient';
 const DashboardLayout = ({ children, currentView }) => {
   const router = useRouter();
   const [userData, setUserData] = useState(null);
-  const [tenantStatus, setTenantStatus] = useState('pendiente'); // Por defecto pendiente
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -16,15 +15,6 @@ const DashboardLayout = ({ children, currentView }) => {
       if (storedUser) {
         const user = JSON.parse(storedUser);
         setUserData(user);
-        
-        // Determinar estado del tenant según tipo de usuario o suscripción
-        if (user.paymentStatus === 'PAGO' || user.paymentStatus === 'AL_DIA') {
-          setTenantStatus('activo');
-        } else if (user.paymentStatus === 'PENDIENTE') {
-          setTenantStatus('pendiente');
-        } else if (user.paymentStatus === 'LIMITADO') {
-          setTenantStatus('limitado');
-        }
       } else {
         // Si no hay usuario, redirigir al login
         router.push('/login');
@@ -33,6 +23,18 @@ const DashboardLayout = ({ children, currentView }) => {
 
     fetchUserData();
   }, []);
+
+  // Verificar si es una de las rutas del dashboard tipo [type]
+  const isTypeDashboard = router.pathname.includes('/dashboard/[type]');
+
+  if (isTypeDashboard) {
+    // Si es una ruta tipo [type], simplemente renderizar el contenido
+    return (
+      <>
+        {children}
+      </>
+    );
+  }
 
   const menuItems = [
     { id: 'status', label: 'Estado', href: '/dashboard/status' },
@@ -52,15 +54,15 @@ const DashboardLayout = ({ children, currentView }) => {
   return (
     <div className="dashboard-layout">
       <Head>
-        <title>Smarter.OS - Dashboard</title>
+        <title>SmarterBOT - Dashboard</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Smarter.OS - Dashboard" />
+        <meta name="description" content="SmarterBOT - Dashboard" />
         <link rel="icon" type="image/png" href="/images/holder.svg" sizes="16x16"></link>
         <link rel="icon" type="image/png" href="/images/holder.svg" sizes="32x32"></link>
         <link rel="icon" type="image/png" href="/images/holder.svg" sizes="96x96"></link>
       </Head>
-      
+
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"
         strategy="afterInteractive"
@@ -80,13 +82,13 @@ const DashboardLayout = ({ children, currentView }) => {
           <div className="row align-items-center">
             <div className="col-md-6">
               <a href="/" className="logo-link">
-                <img src="/images/SmarterBotV2.svg" width="220" alt="Smarter.OS" />
+                <img src="/images/SmarterBotV2.svg" width="220" alt="SmarterBOT" />
               </a>
             </div>
             <div className="col-md-4">
               <div className="tenant-status">
-                <span className={`status-indicator ${tenantStatus}`}>
-                  {tenantStatus === 'activo' ? '✅ Operativo' : tenantStatus === 'limitado' ? '⚠️ Limitado' : '⚠️ Pendiente'}
+                <span className="status-indicator active">
+                  ✅ Operativo
                 </span>
               </div>
             </div>
@@ -108,8 +110,8 @@ const DashboardLayout = ({ children, currentView }) => {
           <ul className="nav flex-column">
             {menuItems.map((item) => (
               <li key={item.id} className="nav-item">
-                <a 
-                  href={item.href} 
+                <a
+                  href={item.href}
                   className={`nav-link ${currentView === item.id ? 'active' : ''}`}
                 >
                   {item.label}

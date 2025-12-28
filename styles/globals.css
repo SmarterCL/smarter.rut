@@ -72,13 +72,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* Tipografía principal */
+/* Tipografía principal - Mantener Montserrat para mantener la estructura original */
 .mont{
   font-family: var(--font-base) !important;
 }
-
-/* Importar estilos del dashboard */
-@import './dashboard.css';
 
 .text-left{
   text-align: left !important;
