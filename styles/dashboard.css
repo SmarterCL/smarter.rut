@@ -1,4 +1,4 @@
-/* Estilos para el layout del dashboard */
+/* Estilos para el layout del dashboard - OS-web */
 .dashboard-layout {
   min-height: 100vh;
   display: flex;
@@ -30,18 +30,18 @@
 }
 
 .status-indicator.active {
-  background-color: var(--color-success-soft);
-  color: var(--chart-2);
+  background-color: oklch(0.2 0.03 120);
+  color: oklch(0.8 0.15 120);
 }
 
 .status-indicator.pendiente {
-  background-color: var(--color-warning-soft);
-  color: var(--chart-3);
+  background-color: oklch(0.2 0.03 60);
+  color: oklch(0.8 0.15 60);
 }
 
 .status-indicator.limitado {
-  background-color: var(--color-danger-soft);
-  color: var(--destructive);
+  background-color: oklch(0.2 0.03 20);
+  color: oklch(0.8 0.15 20);
 }
 
 .user-info {
@@ -102,7 +102,7 @@
   color: var(--card-foreground);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .dashboard-content .card-body {
@@ -126,7 +126,7 @@
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) > * {
-  --bs-table-accent-bg: rgba(0, 0, 0, 0.05);
+  --bs-table-accent-bg: oklch(0.15 0 0 / 0.05);
 }
 
 .badge {
@@ -136,9 +136,10 @@
 
 /* Estilos para botones */
 .btn {
-  font-family: var(--font-base);
-  font-weight: var(--font-button);
+  font-family: var(--font-sans);
+  font-weight: 500;
   border-radius: var(--radius);
+  border: 1px solid transparent;
 }
 
 .btn-primary {
@@ -148,13 +149,14 @@
 }
 
 .btn-primary:hover {
-  background-color: #004488;
-  border-color: #004488;
+  background-color: oklch(0.65 0.15 142);
+  border-color: oklch(0.65 0.15 142);
 }
 
 .btn-outline-primary {
   color: var(--primary);
   border-color: var(--primary);
+  background-color: transparent;
 }
 
 .btn-outline-primary:hover {
@@ -172,6 +174,7 @@
 .btn-outline-secondary {
   color: var(--secondary-foreground);
   border-color: var(--secondary);
+  background-color: transparent;
 }
 
 .btn-outline-secondary:hover {
@@ -208,7 +211,7 @@
 
 .form-control:focus {
   border-color: var(--ring);
-  box-shadow: 0 0 0 0.2rem rgba(0, 85, 170, 0.25);
+  box-shadow: 0 0 0 2px var(--ring);
 }
 
 .form-select {
@@ -247,19 +250,19 @@
 }
 
 .alert-success {
-  background-color: var(--color-success-soft);
-  color: var(--chart-2);
-  border: 1px solid var(--border);
+  background-color: oklch(0.2 0.03 120);
+  color: oklch(0.7 0.15 120);
+  border: 1px solid oklch(0.3 0.05 120);
 }
 
 .alert-warning {
-  background-color: var(--color-warning-soft);
-  color: var(--chart-3);
-  border: 1px solid var(--border);
+  background-color: oklch(0.2 0.03 60);
+  color: oklch(0.7 0.15 60);
+  border: 1px solid oklch(0.3 0.05 60);
 }
 
 .alert-danger {
-  background-color: var(--color-danger-soft);
-  color: var(--destructive);
-  border: 1px solid var(--border);
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+  border: 1px solid oklch(0.3 0.05 20);
 }
