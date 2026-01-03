@@ -396,13 +396,13 @@ export default function Home() {
                       }
 
                       .btn-primary table td {
-                        background-color: #0043FF;
+                        background-color: var(--odoo-purple);
                                   border-radius: 100px;
                       }
 
                       .btn-primary a {
-                        background-color: #0043FF;
-                        border-color: #0043FF;
+                        background-color: var(--odoo-purple);
+                        border-color: var(--odoo-purple);
                         color: #ffffff;
                       }
 
@@ -568,7 +568,7 @@ export default function Home() {
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tbody><tr>
                                       <td>
-                                      <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
+                                      <h1 style="font-size:22px">Hola <span style="color: var(--odoo-purple)">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
                                         <p>Tu cuenta SmarterBOT ya está creada y te invitamos a completar el pago de tu suscripción</p>
                                         <p>En caso de que no puedas o no quieras realizar el pago de tu cuenta ahora, puedes seguir el proceso en este link: </p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">

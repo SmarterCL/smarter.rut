@@ -229,13 +229,13 @@ export default async function handler(request, response) {
                       }
                 
                       .btn-primary table td {
-                        background-color: #0043FF; 
+                        background-color: var(--odoo-purple);
                                   border-radius: 100px;
                       }
                 
                       .btn-primary a {
-                        background-color: #0043FF;
-                        border-color: #0043FF;
+                        background-color: var(--odoo-purple);
+                        border-color: var(--odoo-purple);
                         color: #ffffff; 
                       }
                 
@@ -409,7 +409,7 @@ export default async function handler(request, response) {
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tbody><tr>
                                       <td>
-                                       <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${documentSnapshot.firstName
+                                       <h1 style="font-size:22px">Hola <span style="color: var(--odoo-purple)">${documentSnapshot.firstName
               },</span><br/>hemos recibido el pago de tus nuevas suscripciones</h1>
                                         <p>Te invitamos a completar todos los datos de tu suscripciones añadidas.</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" className="btn btn-primary">

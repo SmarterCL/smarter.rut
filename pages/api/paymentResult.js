@@ -223,14 +223,14 @@ export default async function handler(request, response) {
                       }
                 
                       .btn-primary table td {
-                        background-color: #0043FF; 
+                        background-color: var(--odoo-purple);
                                   border-radius: 100px;
                       }
-                
+
                       .btn-primary a {
-                        background-color: #0043FF;
-                        border-color: #0043FF;
-                        color: #ffffff; 
+                        background-color: var(--odoo-purple);
+                        border-color: var(--odoo-purple);
+                        color: #ffffff;
                       }
                 
                       /* -------------------------------------
@@ -403,7 +403,7 @@ export default async function handler(request, response) {
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tbody><tr>
                                       <td>
-                                       <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${documentSnapshot.firstName
+                                       <h1 style="font-size:22px">Hola <span style="color: var(--odoo-purple)">${documentSnapshot.firstName
                   },</span><br/>hemos recibido el pago de tu suscripción</h1>
                                         <p>Tu cuenta SmarterBOT ya está activa y te invitamos a completar todos los datos de tu suscripción</p>
                                         <p>Si compraste más de una membresía, ingresa los datos de tus invitados. ¡Te esperamos!</p> 

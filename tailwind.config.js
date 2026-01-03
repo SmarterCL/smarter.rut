@@ -20,7 +20,6 @@ module.exports = {
           yellow: '#F1C40F', // Yellow para advertencias
           white: '#FFFFFF',
           black: '#000000',
-          blue: '#1E88E5', // Azul adicional
           orange: '#FF9800', // Naranja adicional
         },
         iphone: {

@@ -248,7 +248,7 @@ export default function Home() {
                       table { border-collapse: separate; width: 100%; }
                       .container { max-width: 580px; margin: 0 auto; padding: 10px; }
                       .main { background: #ffffff; width: 100%; }
-                      .btn-primary a { background-color: #0043FF; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 100px; display: inline-block; font-weight: bold; }
+                      .btn-primary a { background-color: var(--odoo-purple); color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 100px; display: inline-block; font-weight: bold; }
                     </style>
                   </head>
                   <body>
@@ -261,7 +261,7 @@ export default function Home() {
                               <tr>
                                 <td class="wrapper">
                                   <img src="https://rut.smarterbot.store/images/holder.svg" width="100%" style="border-radius: 10px;">
-                                  <h1 style="font-size:22px">Hola <span style="color: #0043ff">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
+                                  <h1 style="font-size:22px">Hola <span style="color: var(--odoo-purple)">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
                                   <p>Tu cuenta SmarterBOT Basic ya está creada y te invitamos a completar el pago de tu suscripción</p>
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                     <tr>
