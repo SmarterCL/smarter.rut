@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
+import Header from '../components/Header';
 
 import { Fragment, useEffect, useState } from 'react';
 import { supabase } from '../services/supabaseClient';
@@ -131,51 +132,7 @@ export default function Home() {
           src="https://www.googletagmanager.com/gtm.js?id=GTM-WS4L7S5"
           strategy="afterInteractive"
         />
-        <header>
-          <nav className="navbar navbar-expand-md fixed-top">
-            <div className="container-fluid">
-              <Link className="navbar-brand" href="/">
-                <img
-                  className="margin-top img-fluid"
-                  src="/images/SmarterBotV2.svg"
-                  width={220}
-                />
-              </Link>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                onClick={() => setDisplayMoblieBar(!displayMobileBar)}
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div
-                className={`collapse navbar-collapse ${displayMobileBar ? 'show' : ''
-                  }`}
-                id="navbarCollapse"
-              >
-                <ul className="navbar-nav me-auto mb-2 mb-md-0"></ul>
-
-                <a
-                  className="btn btn-secondary mx-2 btn-header"
-                  href="/login"
-                >
-                  Entrar al sistema
-                </a>
-                <a
-                  className="btn btn-primary btn-header mx-2 btn-sub"
-                  href="/subscribe"
-                >
-                  Crear cuenta
-                </a>
-              </div>
-            </div>
-          </nav>
-        </header>
+        <Header showAuthButtons={true} />
         <div className="section-cover">
           <div className="container">
             <div className="row align-items-center">

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import Header from '../../components/Header';
 
 import ChileanRutify from 'chilean-rutify';
 import { Fragment, useEffect, useState } from 'react';
@@ -372,17 +373,7 @@ export default function Home() {
           src="https://www.googletagmanager.com/gtm.js?id=GTM-WS4L7S5"
           strategy="afterInteractive"
         />
-        <header>
-          <nav className="navbar-transparent d-flex justify-content-center">
-            <a className="d-block text-center" href="/">
-              <img
-                className="margin-top img-fluid"
-                src="/images/SmarterBotV2.svg"
-                width={220}
-              />
-            </a>
-          </nav>
-        </header>
+        <Header showAuthButtons={false} />
         <div className="section-shop pt-5 pb-0">
           <div className="container">
             <div className="z-index">
