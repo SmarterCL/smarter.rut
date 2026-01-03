@@ -2,12 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos base para diseño tipo iPhone - Modo Oscuro por defecto */
+/* Paleta de colores de Odoo */
 :root {
+  --odoo-primary: #00A09D; /* Verde azulado característico de Odoo */
+  --odoo-primary-dark: #007270; /* Versión más oscura */
+  --odoo-secondary: #8E3537; /* Rojo característico de Odoo */
+  --odoo-secondary-light: #C85F63;
+  --odoo-gray: #7C7C7C;
+  --odoo-light-gray: #F0F0F0;
+  --odoo-dark-gray: #4F4F4F;
+  --odoo-white: #FFFFFF;
+  --odoo-black: #000000;
+
+  /* Estilos base para diseño tipo iPhone - Modo Oscuro por defecto */
   --iphone-bg: #000000;
   --iphone-text: #ffffff;
   --iphone-card: #1c1c1e;
-  --iphone-accent: #0a84ff;
+  --iphone-accent: #00A09D; /* Cambiado a color de Odoo */
   --iphone-success: #30d158;
   --iphone-warning: #ffd60a;
   --iphone-danger: #ff453a;
@@ -18,10 +29,57 @@
   --iphone-bg: #ffffff;
   --iphone-text: #000000;
   --iphone-card: #f2f2f7;
-  --iphone-accent: #007aff;
+  --iphone-accent: #00A09D; /* Cambiado a color de Odoo */
   --iphone-success: #34c759;
   --iphone-warning: #ffcc00;
   --iphone-danger: #ff3b30;
+}
+
+/* Estilos para botones con colores de Odoo */
+.btn-primary {
+  background-color: var(--odoo-primary) !important;
+  border-color: var(--odoo-primary) !important;
+  color: var(--odoo-white) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--odoo-primary-dark) !important;
+  border-color: var(--odoo-primary-dark) !important;
+}
+
+.btn-secondary {
+  background-color: var(--odoo-secondary) !important;
+  border-color: var(--odoo-secondary) !important;
+  color: var(--odoo-white) !important;
+}
+
+.color {
+  color: var(--odoo-primary) !important;
+}
+
+.bg-light {
+  background-color: var(--odoo-light-gray) !important;
+}
+
+.section-cover {
+  background: linear-gradient(135deg, var(--odoo-primary) 0%, var(--odoo-primary-dark) 100%);
+  color: var(--odoo-white);
+}
+
+.section-cover .color {
+  color: var(--odoo-white) !important;
+}
+
+.section-cover .btn-primary {
+  background-color: var(--odoo-white) !important;
+  border-color: var(--odoo-white) !important;
+  color: var(--odoo-primary) !important;
+}
+
+.section-cover .btn-primary:hover {
+  background-color: var(--odoo-light-gray) !important;
+  border-color: var(--odoo-light-gray) !important;
+  color: var(--odoo-primary-dark) !important;
 }
 
 /* Estilo para cuerpo de iPhone */

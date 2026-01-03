@@ -181,10 +181,10 @@ export default function Home() {
             <div className="row align-items-center">
               <div className="col-12 col-sm-12 col-lg-12 col-xl-7 z-index">
                 <h1 className="display-1">
-                  <span className="color">Smarter.OS</span>
+                  <span className="color">SmarterOS</span>
                 </h1>
                 <p className="large mt-3">
-                  Acceso al sistema operativo comercial basado en RUT.
+                  Una sola plataforma. Múltiples operaciones. Cero fricción.
                 </p>
                 <div className="mt-4">
                   <a
@@ -364,7 +364,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="section-white mb-2">
+        <div className="section-white">
           <div className="container">
             <div className="row align-content-start align-items-center">
               <div className="col-12 col-sm-12 col-md-8 mx-auto text-center">
@@ -382,6 +382,84 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="section-white mb-2">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 text-center">
+                <h1 className="display-1">
+                  <span className="color">Cómo funciona</span> SmarterOS
+                </h1>
+                <p className="large mt-3 text-center">
+                  Eventos reales. Decisiones automáticas.
+                </p>
+              </div>
+            </div>
+
+            <div className="row mt-5">
+              <div className="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="card h-100 text-center">
+                  <div className="card-body">
+                    <h5 className="card-title">Escritura</h5>
+                    <p className="card-text">Entrada de datos por teclado</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="card h-100 text-center">
+                  <div className="card-body">
+                    <h5 className="card-title">Navegación</h5>
+                    <p className="card-text">Clics y comportamiento de uso</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="card h-100 text-center">
+                  <div className="card-body">
+                    <h5 className="card-title">WhatsApp</h5>
+                    <p className="card-text">Recepción de mensajes y audios</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="card h-100 text-center">
+                  <div className="card-body">
+                    <h5 className="card-title">Transacciones</h5>
+                    <p className="card-text">Ventas, facturas y pagos</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="card h-100 text-center">
+                  <div className="card-body">
+                    <h5 className="card-title">Patrones</h5>
+                    <p className="card-text">Repetición o abandono de acciones</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="row mt-5 justify-content-center">
+              <div className="col-12 text-center">
+                <p className="display-6">
+                  Las señales <span className="color">construyen contexto</span>.
+                </p>
+                <p className="display-6 mt-3">
+                  El contexto <span className="color">activa automatización e IA</span>.
+                </p>
+                <p className="large mt-4">
+                  Menos explicación. Más acción.
+                </p>
+                <a
+                  className="btn btn-primary btn-lg mt-4"
+                  href="#"
+                >
+                  Ver cómo funciona
+                </a>
               </div>
             </div>
           </div>
