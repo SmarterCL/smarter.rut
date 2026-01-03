@@ -6,27 +6,30 @@ import { BiBuildings } from 'react-icons/bi';
 import { FaAddressCard } from 'react-icons/fa';
 
 function Sidebar(props) {
+  // Determinar la ruta activa para resaltar el enlace correcto
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+
   return (
-    <nav className="col-md-2 col-lg-3 d-none d-md-block bg-light sidebar pt-5">
+    <nav className="col-md-3 col-lg-2 d-none d-md-block sidebar">
       <div className="sidebar-sticky">
         <ul className="nav flex-column">
           <li className="nav-item">
             <a
-              className="nav-link active"
+              className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}`) && currentPath === `/dashboard/${props.userType}` ? 'active' : ''}`}
               href={`/dashboard/${props.userType}`}
             >
-              <MdDashboard size={30} className="mx-2"></MdDashboard>
-              Dashboard <span className="sr-only"></span>
+              <MdDashboard size={24} className="mr-2"></MdDashboard>
+              <span>Dashboard</span>
             </a>
           </li>
           {props.userType == 'user' ? (
             <li className="nav-item">
               <a
-                className="nav-link active"
+                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/account`) ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/account`}
               >
-                <FaHouseUser size={30} className="mx-2"></FaHouseUser> Mi
-                Cuenta <span className="sr-only"></span>
+                <FaHouseUser size={24} className="mr-2"></FaHouseUser>
+                <span>Mi Cuenta</span>
               </a>
             </li>
           ) : (
@@ -35,11 +38,11 @@ function Sidebar(props) {
           {props.userType == 'user' ? (
             <li className="nav-item">
               <a
-                className="nav-link"
+                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/subscriptions`) ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/subscriptions`}
               >
-                <IoIdCardSharp size={30} className="mx-2"></IoIdCardSharp>
-                Suscripciones{' '}
+                <IoIdCardSharp size={24} className="mr-2"></IoIdCardSharp>
+                <span>Suscripciones</span>
               </a>
             </li>
           ) : (
@@ -49,10 +52,11 @@ function Sidebar(props) {
           {props.userType == 'admin' ? (
             <li className="nav-item">
               <a
-                className="nav-link"
+                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/users`) ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/users`}
               >
-                <FaHouseUser size={30} className="mx-2"></FaHouseUser> Usuarios{' '}
+                <FaUsers size={24} className="mr-2"></FaUsers>
+                <span>Usuarios</span>
               </a>
             </li>
           ) : (
@@ -62,10 +66,11 @@ function Sidebar(props) {
           {props.userType == 'admin' ? (
             <li className="nav-item">
               <a
-                className="nav-link"
+                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/centers`) ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/centers`}
               >
-                <BiBuildings size={30} className="mx-2"></BiBuildings> Sedes{' '}
+                <BiBuildings size={24} className="mr-2"></BiBuildings>
+                <span>Sedes</span>
               </a>
             </li>
           ) : (
@@ -75,22 +80,21 @@ function Sidebar(props) {
           {props.userType == 'center' ? (
             <li className="nav-item">
               <a
-                className="nav-link"
+                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/validate`) ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/validate`}
               >
-                <FaAddressCard size={30} className="mx-2"></FaAddressCard>
-                Validar rut{' '}
+                <FaAddressCard size={24} className="mr-2"></FaAddressCard>
+                <span>Validar rut</span>
               </a>
             </li>
           ) : (
             ''
           )}
 
-          <li className="nav-item">
+          <li className="nav-item mt-auto pt-3 border-top">
             <a className="nav-link" href={`/auth/logout`}>
-              {' '}
-              <IoMdLogOut size={30} className="mx-2"></IoMdLogOut>
-              Cerrar Sesión{' '}
+              <IoMdLogOut size={24} className="mr-2"></IoMdLogOut>
+              <span>Cerrar Sesión</span>
             </a>
           </li>
         </ul>

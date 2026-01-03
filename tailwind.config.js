@@ -38,6 +38,9 @@ module.exports = {
         'screen-xl': '1200px',
         'screen-2xl': '1400px',
       },
+      spacing: {
+        '240': '240px',
+      },
       boxShadow: {
         'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
         'card-hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
