@@ -508,6 +508,7 @@ h4 {
   font-weight: 500;
   font-size: 0.9rem;
   line-height: 1.4;
+  gap: 0.25rem; /* Espacio consistente entre icono y texto */
 }
 
 .sidebar .nav-link:hover {
@@ -529,11 +530,12 @@ h4 {
 }
 
 .sidebar .nav-link svg {
-  margin-right: 0.75rem;
+  margin-right: 0.25rem !important; /* Alineado con el header */
   color: #c8b6d0 !important; /* Iconos claros sobre fondo oscuro */
   transition: all 0.2s ease;
   width: 20px;
   height: 20px;
+  flex-shrink: 0; /* Evita que los iconos se reduzcan */
 }
 
 .sidebar .nav-link:hover svg {
