@@ -328,36 +328,6 @@ h4 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard-btn-primary {
-  background-color: var(--odoo-purple);
-  border-color: var(--odoo-purple);
-  color: var(--odoo-white);
-}
-
-.dashboard-btn-primary:hover {
-  background-color: var(--odoo-purple-dark);
-  border-color: var(--odoo-purple-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(135, 90, 123, 0.3);
-}
-
-.dashboard-btn-success {
-  background-color: var(--odoo-green);
-  border-color: var(--odoo-green);
-  color: var(--odoo-white);
-}
-
-.dashboard-btn-danger {
-  background-color: var(--odoo-red);
-  border-color: var(--odoo-red);
-  color: var(--odoo-white);
-}
-
-.dashboard-btn-warning {
-  background-color: var(--odoo-yellow);
-  border-color: var(--odoo-yellow);
-  color: var(--odoo-gray-dark);
-}
 
 /* Estilos para formularios */
 .form-control {
@@ -626,16 +596,25 @@ h4 {
   border-bottom-right-radius: 10px;
 }
 
-/* Estilos para botones en el dashboard */
+/* Estilos para botones en el dashboard - Asegurando consistencia con el front */
 .dashboard .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
   transition: all 0.2s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  user-select: none;
 }
 
 .dashboard .btn-primary {
   background-color: var(--odoo-purple);
+  color: var(--odoo-white);
   border-color: var(--odoo-purple);
 }
 
@@ -644,6 +623,18 @@ h4 {
   border-color: var(--odoo-purple-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(135, 90, 123, 0.3);
+}
+
+.dashboard .btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 10px;
+}
+
+.dashboard .btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
 }
 
 /* Estilos para tablas en el dashboard */
