@@ -755,6 +755,10 @@ h4 {
   text-align: center !important;
 }
 
+.mr-1 {
+  margin-right: 0.25rem !important;
+}
+
 /* Estilos para el contenido principal */
 main {
   flex: 1 0 auto;

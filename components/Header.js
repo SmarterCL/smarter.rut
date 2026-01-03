@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { FaWhatsapp, FaQuestionCircle, FaShoppingCart } from 'react-icons/fa';
 import WhatsAppButton from './WhatsAppButton';
 
 const Header = ({ showAuthButtons = true }) => {
@@ -34,30 +35,30 @@ const Header = ({ showAuthButtons = true }) => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               <li className="nav-item">
-                <a 
-                  className="nav-link" 
-                  href="https://wa.me/56979540471" 
-                  target="_blank" 
+                <a
+                  className="nav-link"
+                  href="https://wa.me/56979540471"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
-                  WhatsApp
+                  <FaWhatsapp className="mr-1" /> WhatsApp
                 </a>
               </li>
               <li className="nav-item">
-                <a 
-                  className="nav-link" 
+                <a
+                  className="nav-link"
                   href="mailto:contacto@smarterbot.store"
                 >
-                  Ayuda
+                  <FaQuestionCircle className="mr-1" /> Ayuda
                 </a>
               </li>
               <li className="nav-item">
-                <a 
-                  className="nav-link" 
+                <a
+                  className="nav-link"
                   href="https://odoo.smarterbot.store"
                   target="_blank"
                 >
-                  Venta
+                  <FaShoppingCart className="mr-1" /> Venta
                 </a>
               </li>
             </ul>
