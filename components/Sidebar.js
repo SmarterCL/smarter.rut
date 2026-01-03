@@ -1,7 +1,5 @@
-import { MdDashboard } from 'react-icons/md';
-import { FaHouseUser, FaUsers } from 'react-icons/fa';
-import { IoMdLogOut } from 'react-icons/io';
-import { IoIdCardSharp } from 'react-icons/io5';
+import { MdDashboard, MdAccountBalance, MdReceipt, MdLogout } from 'react-icons/md';
+import { FaUsers } from 'react-icons/fa';
 import { BiBuildings } from 'react-icons/bi';
 import { FaAddressCard } from 'react-icons/fa';
 
@@ -28,7 +26,7 @@ function Sidebar(props) {
                 className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/account`) ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/account`}
               >
-                <FaHouseUser size={24} className="mr-2"></FaHouseUser>
+                <MdAccountBalance size={24} className="mr-2"></MdAccountBalance>
                 <span>Mi Cuenta</span>
               </a>
             </li>
@@ -41,7 +39,7 @@ function Sidebar(props) {
                 className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/subscriptions`) ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/subscriptions`}
               >
-                <IoIdCardSharp size={24} className="mr-2"></IoIdCardSharp>
+                <MdReceipt size={24} className="mr-2"></MdReceipt>
                 <span>Suscripciones</span>
               </a>
             </li>
@@ -93,7 +91,7 @@ function Sidebar(props) {
 
           <li className="nav-item mt-auto pt-3 border-top">
             <a className="nav-link" href={`/auth/logout`}>
-              <IoMdLogOut size={24} className="mr-2"></IoMdLogOut>
+              <MdLogout size={24} className="mr-2"></MdLogout>
               <span>Cerrar Sesión</span>
             </a>
           </li>
