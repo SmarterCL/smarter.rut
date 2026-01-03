@@ -44,4 +44,4 @@ pnpm run dev
 
 ## Licencia
 
-© 2025 SmarterOS Chile. Todos los derechos reservados.
+© 2026 Smarter SPA Chile. Propiedad Intelectual. Licencia open source.
