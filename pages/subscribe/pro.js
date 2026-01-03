@@ -70,14 +70,12 @@ export default function Home() {
     let priceAux = 0;
     let realValue =
       parseInt(value) == 1
-        ? 0
+        ? 7500
         : parseInt(value) == 2
-          ? 24000
+          ? 14700
           : parseInt(value) == 3
-            ? 36000
-            : parseInt(value) == 4
-              ? 48000
-              : 0;
+            ? 23400
+            : 0;
     let totalAux = 0;
     for (let j = 0; j < subscriptionsCount; j++) {
       aux[j] =
@@ -85,14 +83,12 @@ export default function Home() {
           ? {
             option:
               parseInt(value) == 1
-                ? '3 a 10 años - Gratis'
+                ? 'Startup - $7.500'
                 : parseInt(value) == 2
-                  ? '11 a 18 años - $24.000'
+                  ? 'Pro - $14.700'
                   : parseInt(value) == 3
-                    ? '19 a 34 años - $36.000'
-                    : parseInt(value) == 4
-                      ? '35 a 64 años - $48.000'
-                      : '65 años - Gratis',
+                    ? 'Enterprise - $23.400'
+                    : 'Gratis',
             value,
             realValue,
           }
@@ -251,9 +247,9 @@ export default function Home() {
                       img {
                         border: none;
                         -ms-interpolation-mode: bicubic;
-                        max-width: 100%; 
+                        max-width: 100%;
                       }
-                
+
                       body {
                         background-color: #f6f6f6;
                         font-family: sans-serif;
@@ -263,9 +259,9 @@ export default function Home() {
                         margin: 0;
                         padding: 0;
                         -ms-text-size-adjust: 100%;
-                        -webkit-text-size-adjust: 100%; 
+                        -webkit-text-size-adjust: 100%;
                       }
-                
+
                       table {
                         border-collapse: separate;
                         mso-table-lspace: 0pt;
@@ -274,51 +270,51 @@ export default function Home() {
                         table td {
                           font-family: sans-serif;
                           font-size: 14px;
-                          vertical-align: top; 
+                          vertical-align: top;
                       }
-                
+
                       .body {
                         background-color: #f6f6f6;
-                        width: 100%; 
+                        width: 100%;
                       }
-                
+
                       .container {
                         display: block;
                         margin: 0 auto !important;
                         max-width: 580px;
                         padding: 10px;
-                        width: 580px; 
+                        width: 580px;
                       }
-                
+
                       .content {
                         box-sizing: border-box;
                         display: block;
                         margin: 0 auto;
                         max-width: 580px;
-                        padding: 10px; 
+                        padding: 10px;
                       }
-                
+
                       .main {
                         background: #ffffff;
                         border-radius: px;
-                        width: 100%; 
+                        width: 100%;
                       }
-                
+
                       .wrapper {
                         box-sizing: border-box;
-                        padding: 20px; 
+                        padding: 20px;
                       }
-                
+
                       .content-block {
                         padding-bottom: 10px;
                         padding-top: 10px;
                       }
-                
+
                       .footer {
                         clear: both;
                         margin-top: 10px;
                         text-align: center;
-                        width: 100%; 
+                        width: 100%;
                       }
                         .footer td,
                         .footer p,
@@ -326,9 +322,9 @@ export default function Home() {
                         .footer a {
                           color: #999999;
                           font-size: 12px;
-                          text-align: center; 
+                          text-align: center;
                       }
-                
+
                       h1,
                       h2,
                       h3,
@@ -338,16 +334,16 @@ export default function Home() {
                         font-weight: 400;
                         line-height: 1.4;
                         margin: 0;
-                        margin-bottom: 30px; 
+                        margin-bottom: 30px;
                       }
-                
+
                       h1 {
                         font-size: 40px;
                         font-weight: 800;
                         text-align: left;
                         margin-top: .5em;
                       }
-                
+
                       p,
                       ul,
                       ol {
@@ -355,32 +351,32 @@ export default function Home() {
                         font-size: 14px;
                         font-weight: normal;
                         margin: 0;
-                        margin-bottom: 15px; 
+                        margin-bottom: 15px;
                       }
                         p li,
                         ul li,
                         ol li {
                           list-style-position: inside;
-                          margin-left: 5px; 
+                          margin-left: 5px;
                       }
-                
+
                       a {
                         color: #3498db;
-                        text-decoration: underline; 
+                        text-decoration: underline;
                       }
-                
+
                       .btn {
                         box-sizing: border-box;
                         width: 100%; }
                         .btn > tbody > tr > td {
                           padding-bottom: 15px; }
                         .btn table {
-                          width: auto; 
+                          width: auto;
                       }
                         .btn table td {
                           background-color: #ffffff;
                           border-radius: 5px;
-                          text-align: center; 
+                          text-align: center;
                       }
                         .btn a {
                           background-color: #ffffff;
@@ -395,53 +391,53 @@ export default function Home() {
                           margin: 0;
                           padding: 12px 25px;
                           text-decoration: none;
-                          text-transform: capitalize; 
+                          text-transform: capitalize;
                       }
-                
+
                       .btn-primary table td {
-                        background-color: #0043FF; 
+                        background-color: #0043FF;
                                   border-radius: 100px;
                       }
-                
+
                       .btn-primary a {
                         background-color: #0043FF;
                         border-color: #0043FF;
-                        color: #ffffff; 
+                        color: #ffffff;
                       }
-                
-                      
+
+
                       .last {
-                        margin-bottom: 0; 
+                        margin-bottom: 0;
                       }
-                
+
                       .first {
-                        margin-top: 0; 
+                        margin-top: 0;
                       }
-                
+
                       .align-center {
-                        text-align: center; 
+                        text-align: center;
                       }
-                
+
                       .align-right {
-                        text-align: right; 
+                        text-align: right;
                       }
-                
+
                       .align-left {
-                        text-align: left; 
+                        text-align: left;
                       }
-                
+
                       .clear {
-                        clear: both; 
+                        clear: both;
                       }
-                
+
                       .mt0 {
-                        margin-top: 0; 
+                        margin-top: 0;
                       }
-                
+
                       .mb0 {
-                        margin-bottom: 0; 
+                        margin-bottom: 0;
                       }
-                
+
                       .preheader {
                         color: transparent;
                         display: none;
@@ -452,23 +448,23 @@ export default function Home() {
                         overflow: hidden;
                         mso-hide: all;
                         visibility: hidden;
-                        width: 0; 
+                        width: 0;
                       }
-                
+
                       .powered-by a {
-                        text-decoration: none; 
+                        text-decoration: none;
                       }
-                
+
                       hr {
                         border: 0;
                         border-bottom: 1px solid #f6f6f6;
-                        margin: 20px 0; 
+                        margin: 20px 0;
                       }
-                
+
                       @media only screen and (max-width: 620px) {
                         table.body h1 {
                           font-size: 28px !important;
-                          margin-bottom: 10px !important; 
+                          margin-bottom: 10px !important;
                         }
                         table.body p,
                         table.body ul,
@@ -476,40 +472,40 @@ export default function Home() {
                         table.body td,
                         table.body span,
                         table.body a {
-                          font-size: 16px !important; 
+                          font-size: 16px !important;
                         }
                         table.body .wrapper,
                         table.body .article {
-                          padding: 10px !important; 
+                          padding: 10px !important;
                         }
                         table.body .content {
-                          padding: 0 !important; 
+                          padding: 0 !important;
                         }
                         table.body .container {
                           padding: 0 !important;
-                          width: 100% !important; 
+                          width: 100% !important;
                         }
                         table.body .main {
                           border-left-width: 0 !important;
                           border-radius: 0 !important;
-                          border-right-width: 0 !important; 
+                          border-right-width: 0 !important;
                         }
                         table.body .btn table {
-                          width: 100% !important; 
+                          width: 100% !important;
                         }
                         table.body .btn a {
-                          width: 100% !important; 
+                          width: 100% !important;
                         }
                         table.body .img-responsive {
                           height: auto !important;
                           max-width: 100% !important;
-                          width: auto !important; 
+                          width: auto !important;
                         }
                       }
-                
+
                       @media all {
                         .ExternalClassName {
-                          width: 100%; 
+                          width: 100%;
                         }
                         .ExternalClassName,
                         .ExternalClassName p,
@@ -517,7 +513,7 @@ export default function Home() {
                         .ExternalClassName font,
                         .ExternalClassName td,
                         .ExternalClassName div {
-                          line-height: 100%; 
+                          line-height: 100%;
                         }
                         .apple-link a {
                           color: inherit !important;
@@ -525,7 +521,7 @@ export default function Home() {
                           font-size: inherit !important;
                           font-weight: inherit !important;
                           line-height: inherit !important;
-                          text-decoration: none !important; 
+                          text-decoration: none !important;
                         }
                         #MessageViewBody a {
                           color: inherit;
@@ -536,14 +532,14 @@ export default function Home() {
                           line-height: inherit;
                         }
                         .btn-primary table td:hover {
-                          background-color: #34495e !important; 
+                          background-color: #34495e !important;
                         }
                         .btn-primary a:hover {
                           background-color: #34495e !important;
-                          border-color: #34495e !important; 
-                        } 
+                          border-color: #34495e !important;
+                        }
                       }
-                
+
                     </style>
                   </head>
                   <body>
@@ -553,7 +549,7 @@ export default function Home() {
                         <td>&nbsp;</td>
                         <td class="container">
                           <div class="content">
-                
+
                             <table width="100%" style="max-width:640px;">
                             <!-- START CENTERED WHITE CONTAINER -->
                             </table><table role="presentation" class="main">
@@ -567,13 +563,13 @@ export default function Home() {
                                       </td>
                                     </tr>
                                   </tbody></table>
-                  
+
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tbody><tr>
                                       <td>
                                       <h1 style="font-size:22px">Hola <span style="color: ##0043ff">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
                                         <p>Tu cuenta SmarterBOT ya está creada y te invitamos a completar el pago de tu suscripción</p>
-                                        <p>En caso de que no puedas o no quieras realizar el pago de tu cuenta ahora, puedes seguir el proceso en este link: </p> 
+                                        <p>En caso de que no puedas o no quieras realizar el pago de tu cuenta ahora, puedes seguir el proceso en este link: </p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                           <tbody>
                                             <tr>
@@ -589,17 +585,17 @@ export default function Home() {
                                             </tr>
                                           </tbody>
                                         </table>
-                                        
+
                                       </td>
                                     </tr>
                                   </tbody></table>
                                 </td>
                               </tr>
-                
+
                             <!-- END MAIN CONTENT AREA -->
                             </tbody></table>
                             <!-- END CENTERED WHITE CONTAINER -->
-                
+
                             <!-- START FOOTER -->
                             <div class="footer">
                               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
@@ -608,17 +604,17 @@ export default function Home() {
                                     <span class="apple-link">SmarterBOT 2025</span>
                                   </td>
                                 </tr>
-                
+
                               </tbody></table>
                             </div>
                             <!-- END FOOTER -->
-                
+
                           </div>
                         </td>
                         <td>&nbsp;</td>
                       </tr>
                     </tbody></table>
-                  
+
                 </body></html>
                 `,
           })
@@ -850,10 +846,9 @@ export default function Home() {
                             <strong>
                               <small>
                                 {subscriptionsCount == 1
-                                  ? '1 Membresía'
-                                  : `${subscriptionsCount} Membresías`}{' '}
-                                Pro{' '}
-                                {subscriptionsCount > 1 ? 'Anuales' : 'Anual'}
+                                  ? '1 Asiento Pro'
+                                  : `${subscriptionsCount} Asientos Pro`}{' '}
+                                {subscriptionsCount > 1 ? '24 meses' : '24 meses'}
                               </small>
                             </strong>
                           </h4>
@@ -902,8 +897,8 @@ export default function Home() {
                             <hr />
                             <div className="form-floating">
                               <p className="mb-1 pl-3">
-                                Membresía {i + 1}{' '}
-                                {i > 0 ? '' : `(tu membresía)`}
+                                Asiento {i + 1}{' '}
+                                {i > 0 ? '' : `(tu asiento)`}
                               </p>
                               <select
                                 className="form-select form-select-lg mb-3"
@@ -913,33 +908,17 @@ export default function Home() {
                                 }
                               >
                                 <option selected="">
-                                  Seleccionar categoría
+                                  Seleccionar plan
                                 </option>
-                                {i > 0 ? (
-                                  <option value="1">
-                                    3 a 10 años - Gratis
-                                  </option>
-                                ) : (
-                                  ''
-                                )}
-                                {i > 0 ? (
-                                  <option value="2">
-                                    11 a 18 años - $24.000
-                                  </option>
-                                ) : (
-                                  ''
-                                )}
+                                <option value="1">
+                                  Startup - $7.500
+                                </option>
+                                <option value="2">
+                                  Pro - $14.700
+                                </option>
                                 <option value="3">
-                                  19 a 34 años - $36.000
+                                  Enterprise - $23.400
                                 </option>
-                                <option value="4">
-                                  35 a 64 años - $48.000
-                                </option>
-                                {i > 0 ? (
-                                  <option value="5">65 años - Gratis</option>
-                                ) : (
-                                  ''
-                                )}
                               </select>
                             </div>
                           </Fragment>

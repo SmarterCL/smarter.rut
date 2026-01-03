@@ -66,14 +66,15 @@ export default function Prices() {
                 <div className="col-md-4">
                   <div className="card mb-4 box-shadow">
                     <div className="card-header">
-                      <h4 className="my-0 font-weight-normal">Pro</h4>
+                      <h4 className="my-0 font-weight-normal">Enterprise</h4>
                     </div>
                     <div className="card-body">
-                      <h1 className="card-title pricing-card-title">$15 <small className="text-muted">/ mes</small></h1>
+                      <h1 className="card-title pricing-card-title">UF 1,20 <small className="text-muted">/ mes</small></h1>
                       <ul className="list-unstyled mt-3 mb-4">
-                        <li>Acceso completo</li>
-                        <li>Soporte prioritario</li>
-                        <li>Funcionalidades avanzadas</li>
+                        <li>ERP Completo</li>
+                        <li>Integraciones API (MCP)</li>
+                        <li>Soporte Prioritario</li>
+                        <li>Automatizaciones Avanzadas</li>
                       </ul>
                       <button type="button" className="btn btn-lg btn-block btn-primary">Comenzar ahora</button>
                     </div>

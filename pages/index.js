@@ -276,40 +276,40 @@ export default function Home() {
 
               <div className="bg-light rounded plans col-sm-12 col-lg-6 col-xl-4 py-4">
                 <h2 className="mb-3 text-center">
-                  <span className="color large">Pro</span>
+                  <span className="color large">Enterprise</span>
                 </h2>
                 <table className="table">
                   <tbody>
                     <tr>
-                      <th scope="row">Inscripción</th>
-                      <td>
-                        <a
-                          href="#modal-valores"
-                          data-bs-toggle="modal"
-                          onClick={() => setShowModal(true)}
-                        >
-                          Valores por categorías
-                        </a>
-                      </td>
+                      <th scope="row">Operación</th>
+                      <td>Avanzada</td>
                     </tr>
                     <tr>
-                      <th scope="row">Pagar por hora</th>
+                      <th scope="row">Precio</th>
+                      <td>UF 1,20 / mes</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Pago</th>
+                      <td>Mes a mes</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Funcionalidades</th>
+                      <td>Todo Pro</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">ERP</th>
+                      <td>Completo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Integraciones API (MCP)</th>
                       <td>Sí</td>
                     </tr>
                     <tr>
-                      <th scope="row">Precios Dinámicos</th>
+                      <th scope="row">Soporte Prioritario</th>
                       <td>Sí</td>
                     </tr>
                     <tr>
-                      <th scope="row">Módulos</th>
-                      <td>Todos</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Anticipación Reserva</th>
-                      <td>24 horas</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Beneficios Smarter</th>
+                      <th scope="row">Automatizaciones Avanzadas</th>
                       <td>Sí</td>
                     </tr>
                   </tbody>
