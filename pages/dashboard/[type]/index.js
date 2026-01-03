@@ -196,7 +196,7 @@ function Dashboard(props) {
             <Sidebar userType={props.userType} />
             <main
               role="main"
-              className="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content"
+              className="col-md-10 ml-sm-auto col-lg-10 px-md-4 main-content"
             >
               <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom">
                 <h2>Dashboard</h2>

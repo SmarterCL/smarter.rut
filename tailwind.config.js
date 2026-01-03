@@ -39,6 +39,7 @@ module.exports = {
         'screen-2xl': '1400px',
       },
       spacing: {
+        '200': '200px',
         '240': '240px',
       },
       boxShadow: {

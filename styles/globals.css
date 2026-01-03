@@ -508,6 +508,7 @@ h4 {
   padding-top: 1rem;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  width: 200px; /* Mismo ancho que el front */
 }
 
 .sidebar-sticky {
@@ -566,7 +567,7 @@ h4 {
 
 /* Estilos para el contenido principal del dashboard */
 .main-content {
-  margin-left: 240px;
+  margin-left: 200px;
   padding-top: 2rem;
   padding-bottom: 2rem;
   min-height: calc(100vh - 56px - 100px);
