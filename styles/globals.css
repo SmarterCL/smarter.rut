@@ -4,65 +4,65 @@
 
 /* Paleta de colores de Odoo */
 :root {
-  --odoo-primary: #00A09D; /* Verde azulado característico de Odoo */
-  --odoo-primary-dark: #007270; /* Versión más oscura */
-  --odoo-secondary: #8E3537; /* Rojo característico de Odoo */
-  --odoo-secondary-light: #C85F63;
-  --odoo-gray: #7C7C7C;
-  --odoo-light-gray: #F0F0F0;
-  --odoo-dark-gray: #4F4F4F;
-  --odoo-white: #FFFFFF;
-  --odoo-black: #000000;
+  --odoo-purple: #875A7B; /* Purple principal de Odoo */
+  --odoo-purple-light: #A78AB6; /* Light Purple para hover y fondos secundarios */
+  --odoo-purple-dark: #5C3A5B; /* Dark Purple para texto destacado */
+  --odoo-gray-dark: #333333; /* Dark Gray para texto principal */
+  --odoo-gray-medium: #666666; /* Medium Gray para texto secundario */
+  --odoo-gray-light: #F7F7F7; /* Light Gray para fondos y tarjetas */
+  --odoo-green: #78B159; /* Green para éxitos */
+  --odoo-red: #E74C3C; /* Red para errores y alertas */
+  --odoo-yellow: #F1C40F; /* Yellow para advertencias */
 
   /* Estilos base para diseño tipo iPhone - Modo Oscuro por defecto */
   --iphone-bg: #000000;
   --iphone-text: #ffffff;
   --iphone-card: #1c1c1e;
-  --iphone-accent: #00A09D; /* Cambiado a color de Odoo */
-  --iphone-success: #30d158;
-  --iphone-warning: #ffd60a;
-  --iphone-danger: #ff453a;
+  --iphone-accent: #875A7B; /* Cambiado a color de Odoo Purple */
+  --iphone-success: #78B159; /* Cambiado a color de Odoo Green */
+  --iphone-warning: #F1C40F; /* Cambiado a color de Odoo Yellow */
+  --iphone-danger: #E74C3C; /* Cambiado a color de Odoo Red */
 }
 
 /* Variables para modo claro */
 .light {
   --iphone-bg: #ffffff;
-  --iphone-text: #000000;
-  --iphone-card: #f2f2f7;
-  --iphone-accent: #00A09D; /* Cambiado a color de Odoo */
-  --iphone-success: #34c759;
-  --iphone-warning: #ffcc00;
-  --iphone-danger: #ff3b30;
+  --iphone-text: #333333; /* Cambiado a color de Odoo */
+  --iphone-card: #f7f7f7; /* Cambiado a color de Odoo */
+  --iphone-accent: #875A7B; /* Cambiado a color de Odoo Purple */
+  --iphone-success: #78B159; /* Cambiado a color de Odoo Green */
+  --iphone-warning: #F1C40F; /* Cambiado a color de Odoo Yellow */
+  --iphone-danger: #E74C3C; /* Cambiado a color de Odoo Red */
 }
 
 /* Estilos para botones con colores de Odoo */
 .btn-primary {
-  background-color: var(--odoo-primary) !important;
-  border-color: var(--odoo-primary) !important;
+  background-color: var(--odoo-purple) !important;
+  border-color: var(--odoo-purple) !important;
   color: var(--odoo-white) !important;
 }
 
 .btn-primary:hover {
-  background-color: var(--odoo-primary-dark) !important;
-  border-color: var(--odoo-primary-dark) !important;
+  background-color: var(--odoo-purple-dark) !important;
+  border-color: var(--odoo-purple-dark) !important;
 }
 
 .btn-secondary {
-  background-color: var(--odoo-secondary) !important;
-  border-color: var(--odoo-secondary) !important;
+  background-color: var(--odoo-gray-medium) !important;
+  border-color: var(--odoo-gray-medium) !important;
   color: var(--odoo-white) !important;
 }
 
 .color {
-  color: var(--odoo-primary) !important;
+  color: var(--odoo-purple) !important;
 }
 
 .bg-light {
-  background-color: var(--odoo-light-gray) !important;
+  background-color: var(--odoo-gray-light) !important;
 }
 
 .section-cover {
-  background: linear-gradient(135deg, var(--odoo-primary) 0%, var(--odoo-primary-dark) 100%);
+  background: linear-gradient(135deg, var(--odoo-purple) 0%, var(--odoo-purple-dark) 100%);
   color: var(--odoo-white);
 }
 
@@ -73,13 +73,58 @@
 .section-cover .btn-primary {
   background-color: var(--odoo-white) !important;
   border-color: var(--odoo-white) !important;
-  color: var(--odoo-primary) !important;
+  color: var(--odoo-purple) !important;
 }
 
 .section-cover .btn-primary:hover {
-  background-color: var(--odoo-light-gray) !important;
-  border-color: var(--odoo-light-gray) !important;
-  color: var(--odoo-primary-dark) !important;
+  background-color: var(--odoo-gray-light) !important;
+  border-color: var(--odoo-gray-light) !important;
+  color: var(--odoo-purple-dark) !important;
+}
+
+/* Estilos para el dashboard */
+.dashboard {
+  background-color: var(--odoo-gray-light) !important;
+  color: var(--odoo-gray-dark) !important;
+}
+
+.dashboard-header {
+  background-color: var(--odoo-purple) !important;
+  color: var(--odoo-white) !important;
+}
+
+.dashboard-card {
+  background-color: var(--odoo-white) !important;
+  border: 1px solid var(--odoo-gray-light) !important;
+}
+
+.dashboard-btn-primary {
+  background-color: var(--odoo-purple) !important;
+  border-color: var(--odoo-purple) !important;
+  color: var(--odoo-white) !important;
+}
+
+.dashboard-btn-primary:hover {
+  background-color: var(--odoo-purple-dark) !important;
+  border-color: var(--odoo-purple-dark) !important;
+}
+
+.dashboard-btn-success {
+  background-color: var(--odoo-green) !important;
+  border-color: var(--odoo-green) !important;
+  color: var(--odoo-white) !important;
+}
+
+.dashboard-btn-danger {
+  background-color: var(--odoo-red) !important;
+  border-color: var(--odoo-red) !important;
+  color: var(--odoo-white) !important;
+}
+
+.dashboard-btn-warning {
+  background-color: var(--odoo-yellow) !important;
+  border-color: var(--odoo-yellow) !important;
+  color: var(--odoo-gray-dark) !important;
 }
 
 /* Estilo para cuerpo de iPhone */

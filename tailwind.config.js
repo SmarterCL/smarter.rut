@@ -9,24 +9,26 @@ module.exports = {
     extend: {
       colors: {
         odoo: {
-          primary: '#00A09D',
-          'primary-dark': '#007270',
-          secondary: '#8E3537',
-          'secondary-light': '#C85F63',
-          gray: '#7C7C7C',
-          'light-gray': '#F0F0F0',
-          'dark-gray': '#4F4F4F',
+          purple: '#875A7B', // Purple principal de Odoo
+          'purple-light': '#A78AB6', // Light Purple para hover y fondos secundarios
+          'purple-dark': '#5C3A5B', // Dark Purple para texto destacado
+          'gray-dark': '#333333', // Dark Gray para texto principal
+          'gray-medium': '#666666', // Medium Gray para texto secundario
+          'gray-light': '#F7F7F7', // Light Gray para fondos y tarjetas
+          green: '#78B159', // Green para éxitos
+          red: '#E74C3C', // Red para errores y alertas
+          yellow: '#F1C40F', // Yellow para advertencias
           white: '#FFFFFF',
           black: '#000000',
         },
         iphone: {
           bg: '#000000',
-          text: '#ffffff',
-          card: '#1c1c1e',
-          accent: '#00A09D', // Actualizado a color de Odoo
-          success: '#30d158',
-          warning: '#ffd60a',
-          danger: '#ff453a',
+          text: '#333333', // Actualizado a color de Odoo
+          card: '#F7F7F7', // Actualizado a color de Odoo
+          accent: '#875A7B', // Actualizado a color de Odoo Purple
+          success: '#78B159', // Actualizado a color de Odoo Green
+          warning: '#F1C40F', // Actualizado a color de Odoo Yellow
+          danger: '#E74C3C', // Actualizado a color de Odoo Red
         }
       },
       maxWidth: {
