@@ -497,7 +497,7 @@ h4 {
 }
 
 .sidebar .nav-link {
-  color: var(--odoo-purple-light) !important;
+  color: #c8b6d0 !important; /* Texto claro sobre fondo oscuro */
   display: flex;
   align-items: center;
   padding: 0.75rem 1rem;
@@ -518,7 +518,7 @@ h4 {
 
 .sidebar .nav-link.active {
   color: var(--odoo-white) !important;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.25);
   border-left: 3px solid var(--odoo-white);
   font-weight: 600;
 }
@@ -530,7 +530,7 @@ h4 {
 
 .sidebar .nav-link svg {
   margin-right: 0.75rem;
-  color: var(--odoo-purple-light) !important;
+  color: #c8b6d0 !important; /* Iconos claros sobre fondo oscuro */
   transition: all 0.2s ease;
   width: 20px;
   height: 20px;
@@ -557,7 +557,8 @@ h4 {
   padding-top: 2rem;
   padding-bottom: 2rem;
   min-height: calc(100vh - 56px - 100px);
-  background-color: var(--odoo-gray-light);
+  background-color: var(--odoo-white);
+  color: var(--odoo-gray-dark);
 }
 
 /* Estilos para las cards del dashboard */
@@ -567,6 +568,7 @@ h4 {
   transition: all 0.3s ease;
   margin-bottom: 1.5rem;
   border-radius: 10px;
+  background-color: var(--odoo-white);
 }
 
 .dashboard .card:hover {
@@ -575,8 +577,8 @@ h4 {
 }
 
 .dashboard .card-header {
-  background-color: var(--odoo-white);
-  border-bottom: 1px solid var(--odoo-gray-light);
+  background-color: var(--odoo-gray-light);
+  border-bottom: 1px solid var(--odoo-gray-medium);
   font-weight: 600;
   color: var(--odoo-purple-dark);
   padding: 1rem 1.25rem;
@@ -586,14 +588,16 @@ h4 {
 
 .dashboard .card-body {
   padding: 1.25rem;
+  color: var(--odoo-gray-dark);
 }
 
 .dashboard .card-footer {
   background-color: var(--odoo-gray-light);
-  border-top: 1px solid var(--odoo-gray-light);
+  border-top: 1px solid var(--odoo-gray-medium);
   padding: 0.75rem 1.25rem;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  color: var(--odoo-gray-dark);
 }
 
 /* Estilos para botones en el dashboard - Asegurando consistencia con el front */
