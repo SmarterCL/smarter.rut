@@ -1,0 +1,630 @@
+openapi: 3.0.0
+info:
+  title: SmarterBOT API
+  description: API for the SmarterBOT platform supporting both web and mobile applications
+  version: 1.0.0
+  contact:
+    name: SmarterBOT Team
+    email: contacto@smarterbot.store
+  license:
+    name: Proprietary License
+    url: https://smarterbot.store/license
+
+servers:
+  - url: https://api.smarterbot.store/v1
+    description: Production server
+  - url: https://staging-api.smarterbot.store/v1
+    description: Staging server
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: User login
+      description: Authenticate user with email and password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: user@example.com
+                password:
+                  type: string
+                  format: password
+                  example: securePassword123
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                  refresh_token:
+                    type: string
+                    example: dGhpcyBpcyBhIHRlc3QgcmVmcmVzaCB0b2tlbg==
+                  user:
+                    $ref: '#/components/schemas/User'
+        '401':
+          description: Invalid credentials
+        '400':
+          description: Invalid request
+
+  /auth/google:
+    post:
+      tags:
+        - Authentication
+      summary: Google OAuth login
+      description: Authenticate user with Google OAuth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id_token
+              properties:
+                id_token:
+                  type: string
+                  description: Google ID token
+                  example: google_id_token_here
+      responses:
+        '200':
+          description: Successful Google login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+        '401':
+          description: Invalid Google token
+
+  /users/profile:
+    get:
+      tags:
+        - Users
+      summary: Get user profile
+      description: Retrieve the authenticated user's profile information
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User profile retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+    put:
+      tags:
+        - Users
+      summary: Update user profile
+      description: Update the authenticated user's profile information
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: User profile updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+        '400':
+          description: Invalid request
+
+  /products:
+    get:
+      tags:
+        - Products
+      summary: List products
+      description: Retrieve a list of products
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+          description: Number of products to return
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+          description: Number of products to skip
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  total:
+                    type: integer
+        '401':
+          description: Unauthorized
+    post:
+      tags:
+        - Products
+      summary: Create product
+      description: Create a new product
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+      responses:
+        '201':
+          description: Product created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '401':
+          description: Unauthorized
+        '400':
+          description: Invalid request
+
+  /products/{id}:
+    get:
+      tags:
+        - Products
+      summary: Get product
+      description: Retrieve a specific product by ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Product ID
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Product not found
+    put:
+      tags:
+        - Products
+      summary: Update product
+      description: Update an existing product
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Product ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductUpdate'
+      responses:
+        '200':
+          description: Product updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Product not found
+    delete:
+      tags:
+        - Products
+      summary: Delete product
+      description: Delete a product
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Product ID
+      responses:
+        '204':
+          description: Product deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Product not found
+
+  /qr-codes:
+    get:
+      tags:
+        - QR Codes
+      summary: List QR codes
+      description: Retrieve a list of QR codes
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of QR codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QRCode'
+        '401':
+          description: Unauthorized
+    post:
+      tags:
+        - QR Codes
+      summary: Create QR code
+      description: Create a new QR code
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QRCodeCreate'
+      responses:
+        '201':
+          description: QR code created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QRCode'
+        '401':
+          description: Unauthorized
+        '400':
+          description: Invalid request
+
+  /nfc-tags:
+    get:
+      tags:
+        - NFC
+      summary: List NFC tags
+      description: Retrieve a list of NFC tags
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of NFC tags
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NFCTag'
+        '401':
+          description: Unauthorized
+    post:
+      tags:
+        - NFC
+      summary: Create NFC tag
+      description: Create a new NFC tag record
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NFCTagCreate'
+      responses:
+        '201':
+          description: NFC tag created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NFCTag'
+        '401':
+          description: Unauthorized
+        '400':
+          description: Invalid request
+
+  /photos/upload:
+    post:
+      tags:
+        - Photos
+      summary: Upload photo
+      description: Upload a photo to the system
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                metadata:
+                  type: object
+                  description: Additional metadata for the photo
+      responses:
+        '201':
+          description: Photo uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        '401':
+          description: Unauthorized
+        '400':
+          description: Invalid request
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "user-123"
+        email:
+          type: string
+          format: email
+          example: user@example.com
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        avatar_url:
+          type: string
+          format: uri
+          example: https://example.com/avatar.jpg
+        created_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+      required:
+        - id
+        - email
+        - created_at
+        - updated_at
+
+    UserUpdate:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        avatar_url:
+          type: string
+          format: uri
+          example: https://example.com/avatar.jpg
+
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "prod-123"
+        name:
+          type: string
+          example: "Product Name"
+        description:
+          type: string
+          example: "Product description"
+        photo_url:
+          type: string
+          format: uri
+          example: https://example.com/product.jpg
+        qr_code:
+          type: string
+          example: "QR123456"
+        nfc_tag_id:
+          type: string
+          example: "NFC789"
+        created_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+      required:
+        - id
+        - name
+        - created_at
+        - updated_at
+
+    ProductCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Product Name"
+        description:
+          type: string
+          example: "Product description"
+        photo_url:
+          type: string
+          format: uri
+          example: https://example.com/product.jpg
+        qr_code:
+          type: string
+          example: "QR123456"
+      required:
+        - name
+
+    ProductUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Product Name"
+        description:
+          type: string
+          example: "Product description"
+        photo_url:
+          type: string
+          format: uri
+          example: https://example.com/product.jpg
+
+    QRCode:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "qr-123"
+        code:
+          type: string
+          example: "QR123456"
+        content:
+          type: string
+          example: "https://smarterbot.store/product/prod-123"
+        created_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+      required:
+        - id
+        - code
+        - content
+        - created_at
+        - updated_at
+
+    QRCodeCreate:
+      type: object
+      properties:
+        content:
+          type: string
+          example: "https://smarterbot.store/product/prod-123"
+      required:
+        - content
+
+    NFCTag:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "nfc-123"
+        tag_id:
+          type: string
+          example: "NFC789"
+        content:
+          type: string
+          example: "https://smarterbot.store/product/prod-123"
+        created_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+      required:
+        - id
+        - tag_id
+        - content
+        - created_at
+        - updated_at
+
+    NFCTagCreate:
+      type: object
+      properties:
+        content:
+          type: string
+          example: "https://smarterbot.store/product/prod-123"
+        tag_id:
+          type: string
+          example: "NFC789"
+      required:
+        - content
+        - tag_id
+
+    Photo:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "photo-123"
+        url:
+          type: string
+          format: uri
+          example: https://example.com/photo.jpg
+        thumbnail_url:
+          type: string
+          format: uri
+          example: https://example.com/photo-thumb.jpg
+        created_at:
+          type: string
+          format: date-time
+          example: "2023-01-01T00:00:00Z"
+      required:
+        - id
+        - url
+        - created_at
