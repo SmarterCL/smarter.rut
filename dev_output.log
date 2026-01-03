@@ -1,0 +1,21 @@
+
+> smarterbot@0.1.0 dev /Users/mac/dev/2025/smarter.rut
+> next dev
+
+[33mwarn[39m  - Port 3000 is in use, trying 3001 instead.
+[33mwarn[39m  - Port 3001 is in use, trying 3002 instead.
+[33mwarn[39m  - Port 3002 is in use, trying 3003 instead.
+[33mwarn[39m  - Port 3003 is in use, trying 3004 instead.
+[32mready[39m - started server on 0.0.0.0:3004, url: http://localhost:3004
+[36minfo[39m  - Loaded env from /Users/mac/dev/2025/smarter.rut/.env.local
+[35mevent[39m - compiled client and server successfully in 1164 ms (207 modules)
+[36mwait[39m  - compiling / (client and server)...
+[35mevent[39m - compiled client and server successfully in 1909 ms (308 modules)
+[36mwait[39m  - compiling /login (client and server)...
+[35mevent[39m - compiled client and server successfully in 528 ms (313 modules)
+[36mwait[39m  - compiling /subscribe (client and server)...
+[35mevent[39m - compiled client and server successfully in 3.2s (408 modules)
+[36mwait[39m  - compiling /_error (client and server)...
+[35mevent[39m - compiled client and server successfully in 339 ms (360 modules)
+[36mwait[39m  - compiling / (client and server)...
+[35mevent[39m - compiled client and server successfully in 297 ms (405 modules)

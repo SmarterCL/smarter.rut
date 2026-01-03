@@ -2,11 +2,20 @@
   "name": "smarterbot",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@8.15.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ionic-dev": "cd smarter-ionic && pnpm run dev",
+    "ionic-build": "cd smarter-ionic && pnpm run build",
+    "ionic-serve": "cd smarter-ionic && npx serve -s www",
+    "both-dev": "concurrently \"pnpm run dev\" \"pnpm run ionic-dev\"",
+    "fusion-status": "bash scripts/gestion_proyectos.sh status",
+    "fusion-install": "bash scripts/gestion_proyectos.sh install",
+    "fusion-build": "bash scripts/gestion_proyectos.sh build",
+    "fusion-sync-env": "bash scripts/gestion_proyectos.sh sync-env"
   },
   "dependencies": {
     "@next/font": "13.1.6",
