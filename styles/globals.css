@@ -306,13 +306,106 @@ h4 {
 
 .dashboard .container-fluid {
   max-width: 1400px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
-.dashboard-header {
-  background-color: var(--odoo-purple);
+/* Estilos para el layout de dos columnas del dashboard */
+.dashboard-layout {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 56px);
+}
+
+.dashboard-sidebar {
+  flex: 0 0 200px;
+  background-color: var(--odoo-purple-dark);
   color: var(--odoo-white);
-  padding: 1rem 0;
-  margin-bottom: 2rem;
+  height: calc(100vh - 56px);
+  position: fixed;
+  top: 56px;
+  left: 0;
+  z-index: 100;
+  padding-top: 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  width: 200px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.dashboard-main-content {
+  flex: 1;
+  margin-left: 200px;
+  padding: 2rem;
+  background-color: var(--odoo-white);
+  color: var(--odoo-gray-dark);
+  min-height: calc(100vh - 56px);
+}
+
+/* Estilos responsivos para el dashboard */
+@media (max-width: 767.98px) {
+  .dashboard-sidebar {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: -200px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .dashboard-sidebar.show {
+    left: 0;
+  }
+
+  .dashboard-main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+/* Estilos para las cards del dashboard */
+.dashboard .card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  background-color: var(--odoo-white);
+}
+
+.dashboard .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard .card-header {
+  background-color: var(--odoo-gray-light);
+  border-bottom: 1px solid var(--odoo-gray-medium);
+  font-weight: 600;
+  color: var(--odoo-purple-dark);
+  padding: 1rem 1.25rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.dashboard .card-body {
+  padding: 1.25rem;
+  color: var(--odoo-gray-dark);
+}
+
+.dashboard .card-footer {
+  background-color: var(--odoo-gray-light);
+  border-top: 1px solid var(--odoo-gray-medium);
+  padding: 0.75rem 1.25rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: var(--odoo-gray-dark);
+}
+
+/* Estilo para el área de contenido principal */
+.dashboard-content-area {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .dashboard-card {
@@ -465,141 +558,6 @@ h4 {
   background-color: var(--odoo-gray-light);
 }
 
-/* Estilos para sidebar del dashboard */
-.sidebar {
-  background-color: var(--odoo-purple-dark) !important;
-  color: var(--odoo-white);
-  height: calc(100vh - 56px);
-  position: fixed;
-  top: 56px;
-  left: 0;
-  z-index: 100;
-  padding-top: 1rem;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  width: 200px; /* Mismo ancho que el front */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.sidebar-sticky {
-  position: relative;
-  top: 0;
-  padding: 0 0.5rem;
-}
-
-.sidebar .nav {
-  flex-direction: column;
-}
-
-.sidebar .nav-item {
-  margin: 0.125rem 0;
-}
-
-.sidebar .nav-link {
-  color: #c8b6d0 !important; /* Texto claro sobre fondo oscuro */
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  margin: 0 0.25rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  gap: 0.25rem; /* Espacio consistente entre icono y texto */
-}
-
-.sidebar .nav-link:hover {
-  color: var(--odoo-white) !important;
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateX(4px);
-}
-
-.sidebar .nav-link.active {
-  color: var(--odoo-white) !important;
-  background-color: rgba(255, 255, 255, 0.25);
-  border-left: 3px solid var(--odoo-white);
-  font-weight: 600;
-}
-
-.sidebar .nav-link.active svg {
-  color: var(--odoo-white) !important;
-  transform: scale(1.1);
-}
-
-.sidebar .nav-link svg {
-  margin-right: 0.25rem !important; /* Alineado con el header */
-  color: #c8b6d0 !important; /* Iconos claros sobre fondo oscuro */
-  transition: all 0.2s ease;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0; /* Evita que los iconos se reduzcan */
-}
-
-.sidebar .nav-link:hover svg {
-  color: var(--odoo-white) !important;
-  transform: scale(1.1);
-}
-
-.sidebar .nav-link.active svg {
-  color: var(--odoo-white) !important;
-}
-
-.sidebar .nav-link span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Estilos para el contenido principal del dashboard */
-.main-content {
-  margin-left: 200px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  min-height: calc(100vh - 56px - 100px);
-  background-color: var(--odoo-white);
-  color: var(--odoo-gray-dark);
-}
-
-/* Estilos para las cards del dashboard */
-.dashboard .card {
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  margin-bottom: 1.5rem;
-  border-radius: 10px;
-  background-color: var(--odoo-white);
-}
-
-.dashboard .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.dashboard .card-header {
-  background-color: var(--odoo-gray-light);
-  border-bottom: 1px solid var(--odoo-gray-medium);
-  font-weight: 600;
-  color: var(--odoo-purple-dark);
-  padding: 1rem 1.25rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.dashboard .card-body {
-  padding: 1.25rem;
-  color: var(--odoo-gray-dark);
-}
-
-.dashboard .card-footer {
-  background-color: var(--odoo-gray-light);
-  border-top: 1px solid var(--odoo-gray-medium);
-  padding: 0.75rem 1.25rem;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  color: var(--odoo-gray-dark);
-}
 
 /* Estilos para botones en el dashboard - Asegurando consistencia con el front */
 .dashboard .btn {

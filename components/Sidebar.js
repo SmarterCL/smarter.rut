@@ -8,7 +8,7 @@ function Sidebar(props) {
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
   return (
-    <nav className="col-md-2 col-lg-2 d-none d-md-block sidebar">
+    <nav className="dashboard-sidebar">
       <div className="sidebar-sticky">
         <ul className="nav flex-column">
           <li className="nav-item">

@@ -191,13 +191,12 @@ function Dashboard(props) {
             </div>
           </nav>
         </header>
-        <div className="container-fluid dashboard">
-          <div className="row">
-            <Sidebar userType={props.userType} />
-            <main
-              role="main"
-              className="col-md-10 ml-sm-auto col-lg-10 px-md-4 main-content"
-            >
+        <div className="dashboard-layout">
+          <Sidebar userType={props.userType} />
+          <main
+            role="main"
+            className="dashboard-main-content"
+          >
               <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom">
                 <h2>Dashboard</h2>
                 <div className="btn-toolbar mb-2 mb-md-0"></div>
