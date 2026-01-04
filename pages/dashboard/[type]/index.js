@@ -350,7 +350,6 @@ function Dashboard(props) {
                 )}
               </div>
             </main>
-          </div>
         </div>
         <footer className="footer mt-auto py-4">
           <div className="container-fluid">
