@@ -365,7 +365,7 @@ const config: CapacitorConfig = {
       launchShowDuration: 3000,
       launchAutoHide: true,
       launchFadeOutDuration: 3000,
-      backgroundColor: "#3880ff",
+      backgroundColor: "#875A7B",
       androidSplashResourceName: "splash",
       iosScale: "scale",
       splashFullScreen: true,

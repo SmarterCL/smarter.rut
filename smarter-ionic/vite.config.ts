@@ -17,7 +17,7 @@ export default defineConfig({
         name: 'Smarter Ionic',
         short_name: 'Smarter',
         description: 'SmarterBOT Ionic Application',
-        theme_color: '#3880ff',
+        theme_color: '#875A7B',
         icons: [
           {
             src: 'pwa-192x192.png',
