@@ -1,5 +1,6 @@
 // shared/services/auth.js
 // Servicios de autenticación compartidos entre Next.js e Ionic
+// Note: This file has been converted from TypeScript to JavaScript for compatibility
 
 class SharedAuthService {
   constructor(supabaseClient) {
@@ -39,7 +40,7 @@ class SharedAuthService {
   async signInWithOAuth(provider, redirectUrl = null) {
     try {
       const finalRedirectUrl = redirectUrl || `${typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'}/dashboard`;
-      
+
       const { data, error } = await this.supabase.auth.signInWithOAuth({
         provider: provider,
         options: {

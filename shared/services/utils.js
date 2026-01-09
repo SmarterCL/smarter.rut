@@ -9,24 +9,24 @@ export const cleanRut = (rut) => {
 // Función para validar el RUT
 export const validateRut = (rut) => {
   if (!rut) return false;
-  
+
   const cleanRutValue = cleanRut(rut);
   if (cleanRutValue.length < 2) return false;
-  
+
   const body = cleanRutValue.slice(0, -1);
   const digit = cleanRutValue.slice(-1);
-  
+
   let sum = 0;
   let multiplier = 2;
-  
+
   for (let i = body.length - 1; i >= 0; i--) {
     sum += parseInt(body[i]) * multiplier;
     multiplier = multiplier === 7 ? 2 : multiplier + 1;
   }
-  
+
   const expectedDigit = 11 - (sum % 11);
   const actualDigit = digit === 'k' ? 10 : parseInt(digit);
-  
+
   return expectedDigit === actualDigit || (expectedDigit === 11 && actualDigit === 0);
 };
 
@@ -34,10 +34,10 @@ export const validateRut = (rut) => {
 export const formatRut = (rut) => {
   const cleanValue = cleanRut(rut);
   if (cleanValue.length <= 1) return cleanValue;
-  
+
   const body = cleanValue.slice(0, -1);
   const digit = cleanValue.slice(-1);
-  
+
   // Agregar puntos al cuerpo del RUT
   const formattedBody = body.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   return `${formattedBody}-${digit}`;
@@ -98,4 +98,7 @@ export const fetchWithRetry = async (url, options = {}, retries = 3) => {
       await delay(Math.pow(2, i) * 1000);
     }
   }
+
+  // This line should never be reached due to the loop logic, but added for JavaScript compliance
+  throw new Error('Unexpected error in fetchWithRetry');
 };

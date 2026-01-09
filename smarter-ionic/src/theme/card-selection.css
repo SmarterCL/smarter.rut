@@ -1,0 +1,13 @@
+.card-selectable {
+  transition: all 0.3s ease;
+}
+
+.card-selectable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-selectable.selected {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(56, 128, 255, 0.3);
+}

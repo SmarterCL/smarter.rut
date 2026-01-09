@@ -23,13 +23,15 @@ export const SupabaseProvider: React.FC<SupabaseProviderProps> = ({ children }) 
   const [supabase, setSupabase] = useState<SupabaseClient | null>(null);
 
   useEffect(() => {
-    // Use local Supabase configuration
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || 'http://localhost:54321';
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.xAHgHvOSPV099I8E2q4f406_T9avCzGm6B2p44J4Wt8';
-    
+    // Use the same Supabase configuration as the web app
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
     if (supabaseUrl && supabaseAnonKey) {
       const client = createClient(supabaseUrl, supabaseAnonKey);
       setSupabase(client);
+    } else {
+      console.error('Missing Supabase configuration. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.');
     }
   }, []);
 
