@@ -20,11 +20,15 @@ import {
   IonItem,
   IonList,
   IonToast,
-  IonLoading
+  IonLoading,
+  IonFab,
+  IonFabButton,
+  IonModal
 } from '@ionic/react';
 import { placeholderImages } from '../utils/placeholders';
 import { mcpService } from '../services/mcp-service';
 import { useAuth } from '../services/auth-provider';
+import ChatComponent from '../components/ChatComponent';
 
 interface CardItem {
   id: number;
@@ -186,6 +190,8 @@ const SelectionPage: React.FC = () => {
     }
   };
 
+  const [showChat, setShowChat] = useState(false);
+
   return (
     <IonPage>
       <IonHeader>
@@ -320,6 +326,31 @@ const SelectionPage: React.FC = () => {
           </IonGrid>
         </IonToolbar>
       </IonFooter>
+
+      {/* Floating Chat Button */}
+      <IonFab vertical="bottom" horizontal="end" slot="fixed">
+        <IonFabButton onClick={() => setShowChat(true)}>
+          <IonIcon icon="chatbubble" />
+        </IonFabButton>
+      </IonFab>
+
+      {/* Chat Modal */}
+      <IonModal
+        isOpen={showChat}
+        onDidDismiss={() => setShowChat(false)}
+        initialBreakpoint={0.9}
+        breakpoints={[0, 0.5, 0.9]}
+      >
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Chat con MCP</IonTitle>
+            <IonButton slot="end" onClick={() => setShowChat(false)}>Cerrar</IonButton>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">
+          <ChatComponent />
+        </IonContent>
+      </IonModal>
 
       {/* Toast notification */}
       <IonToast
