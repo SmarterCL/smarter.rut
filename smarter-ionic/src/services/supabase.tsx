@@ -27,11 +27,37 @@ export const SupabaseProvider: React.FC<SupabaseProviderProps> = ({ children }) 
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (supabaseUrl && supabaseAnonKey) {
+    if (supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('your-project.supabase.co')) {
       const client = createClient(supabaseUrl, supabaseAnonKey);
       setSupabase(client);
     } else {
-      console.error('Missing Supabase configuration. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.');
+      console.warn('Supabase configuration not found or invalid. Running in offline mode.');
+      // Create a mock client for local development
+      const mockClient: any = {
+        auth: {
+          signInWithPassword: () => Promise.resolve({ data: { user: null, session: null }, error: null }),
+          signInWithOAuth: () => {
+            console.log('OAuth sign in would redirect to provider');
+            return Promise.resolve({ error: null, data: null });
+          },
+          signUp: () => Promise.resolve({ data: { user: null, session: null }, error: null }),
+          signOut: () => Promise.resolve({ error: null }),
+          getSession: () => Promise.resolve({ data: { session: null }, error: null }),
+          onAuthStateChange: (callback: any) => {
+            // Simulate auth state change
+            setTimeout(() => callback('INITIAL_SESSION', null), 0);
+            return { data: { subscription: { unsubscribe: () => {} } } };
+          },
+          resetPasswordForEmail: () => Promise.resolve({ error: null }),
+          getUser: () => Promise.resolve({ data: { user: null }, error: null })
+        },
+        from: () => ({
+          select: () => Promise.resolve({ data: [], error: null }),
+          update: () => Promise.resolve({ error: null }),
+          eq: () => ({ single: () => Promise.resolve({ data: null, error: null }) })
+        })
+      };
+      setSupabase(mockClient);
     }
   }, []);
 

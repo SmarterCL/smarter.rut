@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "color-no-hex": [true, {
+      "message": "Use variables from theme.tokens.css instead of hex colors"
+    }],
+    "color-named": "never",
+    "declaration-block-no-duplicate-properties": true,
+    "property-disallowed-list": [
+      "/^--(?!ui-)/",
+      {
+        "message": "Only variables starting with --ui- are allowed"
+      }
+    ]
+  }
+}

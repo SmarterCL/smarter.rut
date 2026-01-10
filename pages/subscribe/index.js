@@ -244,11 +244,11 @@ export default function Home() {
                     <style>
                       /*All the styling*/
                       img { border: none; -ms-interpolation-mode: bicubic; max-width: 100%; }
-                      body { background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; }
+                      body { background-color: var(--ui-bg-muted); font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; }
                       table { border-collapse: separate; width: 100%; }
                       .container { max-width: 580px; margin: 0 auto; padding: 10px; }
-                      .main { background: #ffffff; width: 100%; }
-                      .btn-primary a { background-color: var(--odoo-purple); color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 100px; display: inline-block; font-weight: bold; }
+                      .main { background: var(--ui-bg-base); width: 100%; }
+                      .btn-primary a { background-color: var(--odoo-purple); color: var(--ui-bg-base); padding: 12px 25px; text-decoration: none; border-radius: 100px; display: inline-block; font-weight: bold; }
                     </style>
                   </head>
                   <body>

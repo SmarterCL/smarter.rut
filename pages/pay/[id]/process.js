@@ -120,7 +120,7 @@ function Proccess(props) {
         <div className="container processing-payment-wrapper">
           <div className="z-index">
             <BounceLoader
-              color="#875A7B"
+              color="var(--ui-accent-primary)"
               cssOverride={override}
               size={100}
               aria-label="Loading Spinner"

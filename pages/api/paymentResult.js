@@ -63,7 +63,7 @@ export default async function handler(request, response) {
                       }
                 
                       body {
-                        background-color: #f6f6f6;
+                        background-color: var(--ui-bg-muted);
                         font-family: sans-serif;
                         -webkit-font-smoothing: antialiased;
                         font-size: 14px;
@@ -71,7 +71,7 @@ export default async function handler(request, response) {
                         margin: 0;
                         padding: 0;
                         -ms-text-size-adjust: 100%;
-                        -webkit-text-size-adjust: 100%; 
+                        -webkit-text-size-adjust: 100%;
                       }
                 
                       table {
@@ -90,8 +90,8 @@ export default async function handler(request, response) {
                       ------------------------------------- */
                 
                       .body {
-                        background-color: #f6f6f6;
-                        width: 100%; 
+                        background-color: var(--ui-bg-muted);
+                        width: 100%;
                       }
                 
                       /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
@@ -117,9 +117,9 @@ export default async function handler(request, response) {
                           HEADER, FOOTER, MAIN
                       ------------------------------------- */
                       .main {
-                        background: #ffffff;
+                        background: var(--ui-bg-base);
                         border-radius: px;
-                        width: 100%; 
+                        width: 100%;
                       }
                 
                       .wrapper {
@@ -154,7 +154,7 @@ export default async function handler(request, response) {
                       h2,
                       h3,
                       h4 {
-                        color: #000000;
+                        color: var(--ui-text-primary);
                         font-family: sans-serif;
                         font-weight: 400;
                         line-height: 1.4;
@@ -202,12 +202,12 @@ export default async function handler(request, response) {
                           width: auto; 
                       }
                         .btn table td {
-                          background-color: #ffffff;
+                          background-color: var(--ui-bg-base);
                           border-radius: 5px;
-                          text-align: center; 
+                          text-align: center;
                       }
                         .btn a {
-                          background-color: #ffffff;
+                          background-color: var(--ui-bg-base);
                           border: solid 1px #3498db;
                           border-radius: 100px;
                           box-sizing: border-box;
@@ -230,7 +230,7 @@ export default async function handler(request, response) {
                       .btn-primary a {
                         background-color: var(--odoo-purple);
                         border-color: var(--odoo-purple);
-                        color: #ffffff;
+                        color: var(--ui-bg-base);
                       }
                 
                       /* -------------------------------------
@@ -287,8 +287,8 @@ export default async function handler(request, response) {
                 
                       hr {
                         border: 0;
-                        border-bottom: 1px solid #f6f6f6;
-                        margin: 20px 0; 
+                        border-bottom: 1px solid var(--ui-bg-muted);
+                        margin: 20px 0;
                       }
                 
                       /* -------------------------------------

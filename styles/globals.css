@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Paleta de colores de Odoo */
+@import './theme.tokens.css';
+
+/* Paleta de colores de Odoo (temporal - mapeo a tokens canónicos) */
 :root {
-  --odoo-purple: #875A7B; /* Purple principal de Odoo */
+  --odoo-purple: var(--ui-accent-primary); /* Purple principal de Odoo */
   --odoo-purple-light: #A78AB6; /* Light Purple para hover y fondos secundarios */
   --odoo-purple-dark: #5C3A5B; /* Dark Purple para texto destacado */
-  --odoo-gray-dark: #333333; /* Dark Gray para texto principal */
-  --odoo-gray-medium: #666666; /* Medium Gray para texto secundario */
-  --odoo-gray-light: #F7F7F7; /* Light Gray para fondos y tarjetas */
-  --odoo-green: #78B159; /* Green para éxitos */
+  --odoo-gray-dark: var(--ui-text-primary); /* Dark Gray para texto principal */
+  --odoo-gray-medium: var(--ui-text-muted); /* Medium Gray para texto secundario */
+  --odoo-gray-light: var(--ui-bg-base); /* Light Gray para fondos y tarjetas */
+  --odoo-green: var(--ui-success); /* Green para éxitos */
   --odoo-red: #E74C3C; /* Red para errores y alertas */
-  --odoo-yellow: #F1C40F; /* Yellow para advertencias */
+  --odoo-yellow: var(--ui-warning); /* Yellow para advertencias */
   --odoo-orange: #FF9800; /* Naranja adicional para acentos */
 }
 
@@ -510,7 +512,7 @@ h4 {
 .alert-warning {
   color: var(--odoo-yellow);
   background-color: #fefeeb;
-  border-color: #fff3cd;
+  border-color: var(--ui-warning);
 }
 
 /* Estilos para navegación */

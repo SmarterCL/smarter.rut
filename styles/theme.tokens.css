@@ -1,0 +1,13 @@
+:root {
+  --ui-bg-base: #f4f5f6;        /* base background */
+  --ui-bg-muted: #e6e7e8;
+
+  --ui-text-primary: #2f2f33;  /* primary text */
+  --ui-text-muted: #5c5d61;
+
+  --ui-accent-primary: #8756ff; /* primary accent */
+  --ui-accent-secondary: #6f42c1;
+
+  --ui-warning: #e6a700;
+  --ui-success: #3fa97c;
+}

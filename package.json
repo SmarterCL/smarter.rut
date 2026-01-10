@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "check-colors": "bash scripts/check-color-usage.sh",
     "ionic-dev": "cd smarter-ionic && pnpm run dev",
     "ionic-build": "cd smarter-ionic && pnpm run build",
     "ionic-serve": "cd smarter-ionic && npx serve -s www",

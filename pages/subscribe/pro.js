@@ -252,7 +252,7 @@ export default function Home() {
                       }
 
                       body {
-                        background-color: #f6f6f6;
+                        background-color: var(--ui-bg-muted);
                         font-family: sans-serif;
                         -webkit-font-smoothing: antialiased;
                         font-size: 14px;
@@ -275,7 +275,7 @@ export default function Home() {
                       }
 
                       .body {
-                        background-color: #f6f6f6;
+                        background-color: var(--ui-bg-muted);
                         width: 100%;
                       }
 
@@ -296,7 +296,7 @@ export default function Home() {
                       }
 
                       .main {
-                        background: #ffffff;
+                        background: var(--ui-bg-base);
                         border-radius: px;
                         width: 100%;
                       }
@@ -321,7 +321,7 @@ export default function Home() {
                         .footer p,
                         .footer span,
                         .footer a {
-                          color: #999999;
+                          color: var(--ui-text-muted);
                           font-size: 12px;
                           text-align: center;
                       }
@@ -330,7 +330,7 @@ export default function Home() {
                       h2,
                       h3,
                       h4 {
-                        color: #000000;
+                        color: var(--ui-text-primary);
                         font-family: sans-serif;
                         font-weight: 400;
                         line-height: 1.4;
@@ -375,12 +375,12 @@ export default function Home() {
                           width: auto;
                       }
                         .btn table td {
-                          background-color: #ffffff;
+                          background-color: var(--ui-bg-base);
                           border-radius: 5px;
                           text-align: center;
                       }
                         .btn a {
-                          background-color: #ffffff;
+                          background-color: var(--ui-bg-base);
                           border: solid 1px #3498db;
                           border-radius: 100px;
                           box-sizing: border-box;
@@ -403,7 +403,7 @@ export default function Home() {
                       .btn-primary a {
                         background-color: var(--odoo-purple);
                         border-color: var(--odoo-purple);
-                        color: #ffffff;
+                        color: var(--ui-bg-base);
                       }
 
 
@@ -458,7 +458,7 @@ export default function Home() {
 
                       hr {
                         border: 0;
-                        border-bottom: 1px solid #f6f6f6;
+                        border-bottom: 1px solid var(--ui-bg-muted);
                         margin: 20px 0;
                       }
 

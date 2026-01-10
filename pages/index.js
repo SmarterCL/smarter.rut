@@ -283,7 +283,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="section-white">
+        <div className="section-light-gray">
           <div className="container">
             <div className="row align-items-center">
               <div className="col-12 col-sm-12 col-lg-12 col-xl-6 mx-auto text-center">
@@ -321,7 +321,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="section-white">
+        <div className="section-light-gray">
           <div className="container">
             <div className="row align-content-start align-items-center">
               <div className="col-12 col-sm-12 col-md-8 mx-auto text-center">
@@ -344,79 +344,345 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="section-white mb-2">
+        <div className="section-light-gray mb-2">
           <div className="container">
             <div className="row">
               <div className="col-12 text-center">
                 <h1 className="display-1">
-                  <span className="color">Cómo funciona</span> SmarterOS
+                  <span className="color">Smarter OS</span>
                 </h1>
+                <h2 className="display-3 mt-3">
+                  Sistema Operativo Comercial B2B
+                </h2>
                 <p className="large mt-3 text-center">
-                  Eventos reales. Decisiones automáticas.
+                  La inteligencia de negocios ahora es ejecutable.
+                  Smarter OS ordena ingresos, prepara contabilidad y ejecuta reglas de negocio desde WhatsApp.
+                </p>
+                <p className="display-6 mt-4">
+                  <span className="color">Sin planillas.</span>
+                  <span className="color"> Sin miedo.</span>
+                  <span className="color"> Sin confusión.</span>
+                </p>
+                <p className="large mt-4">
+                  Basado en reglas abiertas (OpenSpec) y validado por contadores reales.
                 </p>
               </div>
             </div>
 
             <div className="row mt-5">
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="col-12">
+                <h3 className="text-center mb-4">¿Qué es Smarter OS?</h3>
+                <p className="text-center large">
+                  Smarter OS es una capa de gobernanza comercial y contable que opera sobre ERP existentes
+                  (como Odoo) y se integra vía MCP para ejecutar reglas claras, auditables y automáticas.
+                </p>
+                <p className="text-center large">
+                  No reemplaza sistemas: los coordina, los ordena y los hace operar solos.
+                </p>
+              </div>
+            </div>
+
+            <div className="row mt-5">
+              <div className="col-12 col-md-6 mb-4">
                 <div className="card h-100 text-center">
                   <div className="card-body">
-                    <h5 className="card-title">Escritura</h5>
-                    <p className="card-text">Entrada de datos por teclado</p>
+                    <h5 className="card-title">Contabilidad Inteligente</h5>
+                    <p className="card-text">Poder IA para que una persona sepa sus ingresos, los declare por contador y software</p>
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="col-12 col-md-6 mb-4">
                 <div className="card h-100 text-center">
                   <div className="card-body">
-                    <h5 className="card-title">Navegación</h5>
-                    <p className="card-text">Clics y comportamiento de uso</p>
+                    <h5 className="card-title">Canal WhatsApp Integrado</h5>
+                    <p className="card-text">OCR y modelos que hablen, lean y escriben con OpenRouter para conectar y seleccionar OpenAPI y OpenSpec</p>
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
-                <div className="card h-100 text-center">
-                  <div className="card-body">
-                    <h5 className="card-title">WhatsApp</h5>
-                    <p className="card-text">Recepción de mensajes y audios</p>
+            </div>
+
+            <div className="row mt-5">
+              <div className="col-12">
+                <h3 className="text-center mb-4">El problema que resolvemos</h3>
+                <div className="row">
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Confusión de Ingresos</h5>
+                        <p className="card-text">Confusión sobre ingresos y obligaciones tributarias</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Procesos Manuales</h5>
+                        <p className="card-text">Dependencia de planillas y procesos manuales</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Desconfianza B2B</h5>
+                        <p className="card-text">Desconfianza en operaciones B2B</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Operación Internacional</h5>
+                        <p className="card-text">Dificultad para operar dentro y fuera de Chile</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                <p className="large mt-3 text-center">
+                  La contabilidad se volvió compleja, fragmentada y estresante.
+                  Smarter OS devuelve claridad y control.
+                </p>
               </div>
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
-                <div className="card h-100 text-center">
-                  <div className="card-body">
-                    <h5 className="card-title">Transacciones</h5>
-                    <p className="card-text">Ventas, facturas y pagos</p>
+            </div>
+
+            <div className="row mt-5">
+              <div className="col-12">
+                <h3 className="text-center mb-4">La solución</h3>
+                <div className="row">
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Interfaz WhatsApp</h5>
+                        <p className="card-text">WhatsApp como interfaz operativa</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">OCR + IA</h5>
+                        <p className="card-text">OCR + IA para registrar eventos (boletas, facturas, pagos)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Reglas Abiertas</h5>
+                        <p className="card-text">Reglas abiertas (OpenSpec)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-3 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Validación Contable</h5>
+                        <p className="card-text">Validación por contadores reales</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                <p className="large mt-3 text-center">
+                  La IA no opina: ejecuta reglas.
+                </p>
               </div>
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
-                <div className="card h-100 text-center">
-                  <div className="card-body">
-                    <h5 className="card-title">Patrones</h5>
-                    <p className="card-text">Repetición o abandono de acciones</p>
+            </div>
+
+            <div className="row mt-5">
+              <div className="col-12">
+                <h3 className="text-center mb-4">Casos de uso clave</h3>
+                <div className="row">
+                  <div className="col-md-6 col-lg-4 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Registro Automático</h5>
+                        <p className="card-text">Registro automático de ingresos desde WhatsApp</p>
+                      </div>
+                    </div>
                   </div>
+                  <div className="col-md-6 col-lg-4 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Consulta en Tiempo Real</h5>
+                        <p className="card-text">Consulta de IVA y flujo de caja en tiempo real</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-4 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Ventas Cooperativas</h5>
+                        <p className="card-text">Ventas cooperativas y asociativas B2B</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-4 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Operación Multimoneda</h5>
+                        <p className="card-text">Operación multimoneda y multipaís</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-4 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Impuestos Automáticos</h5>
+                        <p className="card-text">Separación automática de impuestos</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-4 mb-4">
+                    <div className="card h-100">
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Conciliación Bancaria</h5>
+                        <p className="card-text">Conciliación bancaria y validación contable</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p className="large mt-3 text-center">
+                  La contabilidad deja de mirar el pasado y empieza a ayudar a decidir.
+                </p>
+              </div>
+            </div>
+
+            <div className="row mt-5">
+              <div className="col-12">
+                <h3 className="text-center mb-4">Comparación: Evolución del ERP al Sistema Operativo Comercial</h3>
+                <div className="table-responsive">
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Dimensión clave</th>
+                        <th>Odoo clásico (v13–v16)</th>
+                        <th>Odoo v17–v18</th>
+                        <th>Odoo v19 + IA (SmarterOS)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Rol del ERP</strong></td>
+                        <td>Registro transaccional</td>
+                        <td>Gestión optimizada</td>
+                        <td>Sistema operativo comercial</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Toma de decisiones</strong></td>
+                        <td>Manual, humana</td>
+                        <td>Semi-asistida</td>
+                        <td>Automática por reglas</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Dependencia del CEO / gerente</strong></td>
+                        <td>Alta</td>
+                        <td>Media</td>
+                        <td>Baja</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Dependencia de presupuesto</strong></td>
+                        <td>Alta (consultoría, horas)</td>
+                        <td>Media</td>
+                        <td>Baja (aprendizaje continuo)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Manejo de indecisión</strong></td>
+                        <td>No resuelto</td>
+                        <td>Alertas y reportes</td>
+                        <td>Ejecución automática</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Acumulación de tareas</strong></td>
+                        <td>Crece con el negocio</td>
+                        <td>Se ordena parcialmente</td>
+                        <td>Se elimina estructuralmente</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Uso de IA</strong></td>
+                        <td>No nativo</td>
+                        <td>Funciones aisladas</td>
+                        <td>Capa central de orquestación</td>
+                      </tr>
+                      <tr>
+                        <td><strong>IA decide o ejecuta</strong></td>
+                        <td>No</td>
+                        <td>Sugiere</td>
+                        <td>Ejecuta reglas</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Criterios comerciales</strong></td>
+                        <td>Implícitos / humanos</td>
+                        <td>Configurados</td>
+                        <td>Codificados y versionados</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Mejora continua</strong></td>
+                        <td>Por reuniones</td>
+                        <td>Por análisis</td>
+                        <td>Por eventos reales</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Automatización</strong></td>
+                        <td>Flujos rígidos</td>
+                        <td>Workflows mejorados</td>
+                        <td>Automatización adaptativa</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Contexto de decisiones</strong></td>
+                        <td>Histórico</td>
+                        <td>Histórico + dashboards</td>
+                        <td>Contexto vivo multicanal</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Canales operativos</strong></td>
+                        <td>Backend ERP</td>
+                        <td>Backend + web</td>
+                        <td>ERP + WhatsApp + eventos</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Entrada de información</strong></td>
+                        <td>Formularios</td>
+                        <td>Formularios</td>
+                        <td>OCR, mensajes, audios</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Relación con contabilidad</strong></td>
+                        <td>Registro posterior</td>
+                        <td>Conciliación asistida</td>
+                        <td>Validación en tiempo real</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Gobernanza B2B</strong></td>
+                        <td>Externa al ERP</td>
+                        <td>Parcial</td>
+                        <td>Nativa y ejecutable</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Escalabilidad operativa</strong></td>
+                        <td>Personas</td>
+                        <td>Personas + sistema</td>
+                        <td>Sistema primero</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Velocidad de ejecución</strong></td>
+                        <td>Lenta</td>
+                        <td>Media</td>
+                        <td>Inmediata</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
 
             <div className="row mt-5 justify-content-center">
               <div className="col-12 text-center">
-                <p className="display-6">
-                  Las señales <span className="color">construyen contexto</span>.
-                </p>
-                <p className="display-6 mt-3">
-                  El contexto <span className="color">activa automatización e IA</span>.
-                </p>
-                <p className="large mt-4">
-                  Menos explicación. Más acción.
-                </p>
-                <a
-                  className="btn btn-primary btn-lg mt-4"
-                  href="#"
-                >
-                  Ver cómo funciona
-                </a>
+                <h3 className="display-6">
+                  Hola, soy <span className="color">Smarter OS</span>.
+                </h3>
+                <h4 className="display-6 mt-3">
+                  ¿Cómo te ayudo hoy?
+                </h4>
               </div>
             </div>
           </div>
