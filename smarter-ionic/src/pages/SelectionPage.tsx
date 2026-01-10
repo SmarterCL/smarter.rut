@@ -29,6 +29,7 @@ import { placeholderImages } from '../utils/placeholders';
 import { mcpService } from '../services/mcp-service';
 import { useAuth } from '../services/auth-provider';
 import ChatComponent from '../components/ChatComponent';
+import ImageHolder from '../components/ImageHolder';
 
 interface CardItem {
   id: number;
@@ -226,10 +227,13 @@ const SelectionPage: React.FC = () => {
                     onClick={() => toggleSelection(card.id)}
                   >
                     <div style={{ position: 'relative' }}>
-                      <img
+                      <ImageHolder
                         src={card.imageUrl}
                         alt={card.title}
-                        style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+                        width="100%"
+                        height="200px"
+                        aspectRatio="4/3"
+                        showPlaceholder={true}
                       />
                       {card.isSelected && (
                         <IonIcon

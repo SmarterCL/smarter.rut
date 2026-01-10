@@ -1,9 +1,9 @@
 import React from 'react';
-import { 
-  IonContent, 
-  IonHeader, 
-  IonPage, 
-  IonTitle, 
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
   IonToolbar,
   IonCard,
   IonCardContent,
@@ -15,6 +15,7 @@ import {
   IonCol
 } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
+import HeaderImageHolder from '../components/HeaderImageHolder';
 
 const HomePage: React.FC = () => {
   const history = useHistory();
@@ -27,32 +28,34 @@ const HomePage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Welcome</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        
+        <HeaderImageHolder
+          title="SmarterOS"
+          subtitle="Tu plataforma de automatización y tecnología integral"
+          imageUrl="/assets/images/header-image.jpg" // Esta imagen no existe, mostrará el holder
+          showPlaceholder={true}
+          aspectRatio="16/9"
+        />
+
         <IonCard>
           <IonCardHeader>
             <IonCardTitle>SmarterBOT Mobile App</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <p>Your gateway to the SmarterBOT ecosystem on mobile devices.</p>
-            
+
             <IonGrid>
               <IonRow>
                 <IonCol size="12" sizeMd="6">
-                  <IonButton 
-                    expand="block" 
+                  <IonButton
+                    expand="block"
                     onClick={() => history.push('/login')}
                   >
                     Login
                   </IonButton>
                 </IonCol>
                 <IonCol size="12" sizeMd="6">
-                  <IonButton 
-                    expand="block" 
+                  <IonButton
+                    expand="block"
                     fill="outline"
                     onClick={() => history.push('/dashboard')}
                   >
