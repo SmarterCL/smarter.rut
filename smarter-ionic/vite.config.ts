@@ -25,4 +25,5 @@ export default defineConfig({
   define: {
     global: 'globalThis',
   },
+  envPrefix: ['VITE_', 'MCP_'], // Asegurar que las variables MCP estén disponibles en el cliente
 });

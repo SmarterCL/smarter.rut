@@ -16,7 +16,7 @@ class MCPService {
 
   constructor() {
     // Use the same environment variables as the main app
-    this.mcpBaseUrl = import.meta.env.VITE_MCP_BASE_URL || 'http://localhost:3000';
+    this.mcpBaseUrl = import.meta.env.VITE_MCP_BASE_URL || import.meta.env.VITE_MCP_BASE_URL || 'http://localhost:3002';
     
     // Initialize Supabase client if credentials are available
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
