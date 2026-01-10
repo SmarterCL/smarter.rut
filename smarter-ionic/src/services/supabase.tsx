@@ -27,12 +27,12 @@ export const SupabaseProvider: React.FC<SupabaseProviderProps> = ({ children }) 
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('your-project.supabase.co')) {
+    if (supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('your-project.supabase.co') && !supabaseUrl.includes('demo.supabase.co')) {
       const client = createClient(supabaseUrl, supabaseAnonKey);
       setSupabase(client);
     } else {
       console.warn('Supabase configuration not found or invalid. Running in offline mode.');
-      // Create a mock client for local development
+      // Create a mock client for local development that mimics the real Supabase client structure
       const mockClient: any = {
         auth: {
           signInWithPassword: () => Promise.resolve({ data: { user: null, session: null }, error: null }),
@@ -51,11 +51,21 @@ export const SupabaseProvider: React.FC<SupabaseProviderProps> = ({ children }) 
           resetPasswordForEmail: () => Promise.resolve({ error: null }),
           getUser: () => Promise.resolve({ data: { user: null }, error: null })
         },
-        from: () => ({
-          select: () => Promise.resolve({ data: [], error: null }),
-          update: () => Promise.resolve({ error: null }),
-          eq: () => ({ single: () => Promise.resolve({ data: null, error: null }) })
-        })
+        from: (table: string) => ({
+          select: (columns?: string) => Promise.resolve({ data: [], error: null }),
+          insert: (data: any) => Promise.resolve({ error: null }),
+          update: (data: any) => Promise.resolve({ error: null }),
+          upsert: (data: any) => Promise.resolve({ error: null }),
+          eq: (column: string, value: any) => ({
+            single: () => Promise.resolve({ data: null, error: null }),
+            then: (callback: any) => callback({ data: [], error: null })
+          }),
+          neq: (column: string, value: any) => ({
+            single: () => Promise.resolve({ data: null, error: null }),
+            then: (callback: any) => callback({ data: [], error: null })
+          })
+        }),
+        rpc: (fn: string, params: any) => Promise.resolve({ data: [], error: null })
       };
       setSupabase(mockClient);
     }
