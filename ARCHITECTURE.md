@@ -14,27 +14,22 @@ This document describes the unified architecture for the SmarterBOT platform, su
 
 ### Frontend Layers
 - **Web Application**: Next.js 13+ with React
-- **Mobile Application**: Ionic React with Capacitor
 - **Shared Logic**: Common utilities and services
 
 ### Infrastructure
-- **Hosting**: Vercel (Web), Capacitor (Mobile APK)
+- **Hosting**: Vercel (Web)
 - **Database**: Supabase Cloud
 - **CI/CD**: GitHub Actions
 
 ## Authentication Flow
 
 ### Single Sign-On (SSO)
-Both web and mobile applications share the same Supabase authentication instance:
+The web application uses Supabase authentication:
 
 1. User authenticates via Google OAuth
 2. Supabase creates user session
-3. Same user data available across both platforms
-4. Shared permissions and roles
-
-### Mobile-Specific Authentication
-- Deep linking for OAuth redirects
-- Secure storage of tokens using Capacitor Secure Storage
+3. User data stored and managed
+4. Permissions and roles applied
 
 ## Data Architecture
 
@@ -51,19 +46,6 @@ Shared database schema accessible to both platforms:
 - Notification system
 - Synchronized data changes
 
-## Mobile-Specific Features
-
-### Capacitor Plugins
-- `@capacitor/camera` - Photo capture
-- `@capacitor/barcode-scanner` - QR/Barcode scanning
-- `@capacitor/nfc` - NFC functionality
-- `@capacitor/geolocation` - Location services
-
-### Native Capabilities
-- Push notifications
-- Background sync
-- Offline support
-- Device hardware access
 
 ## API Specifications
 
@@ -83,7 +65,6 @@ Shared database schema accessible to both platforms:
 ```
 /smarter.rut
 ├── / (Next.js web app)
-├── /smarter-ionic (Ionic mobile app)
 ├── /services (Shared services)
 ├── /types (Shared TypeScript definitions)
 ├── /scripts (Build and deployment scripts)
@@ -102,12 +83,6 @@ Shared database schema accessible to both platforms:
 - Deployed to Vercel
 - Environment-specific configurations
 - Automated testing and deployment
-
-### Mobile Application
-- Built using Capacitor
-- APK generation for Android
-- IPA generation for iOS
-- App store deployment
 
 ## Security Considerations
 
@@ -130,16 +105,11 @@ Shared database schema accessible to both platforms:
 - Caching strategies
 - CDN integration
 
-### Mobile Performance
-- Lazy loading
-- Efficient data synchronization
-- Offline-first approach
-- Native performance optimization
 
 ## Monitoring and Analytics
 
-### Cross-Platform Analytics
-- Unified event tracking
+### Analytics
+- Event tracking
 - User behavior analysis
 - Performance monitoring
 - Error tracking

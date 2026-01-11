@@ -1,25 +1,21 @@
-# Mobile App Design: SmarterBOT Ionic Application
+# Mobile App Design: SmarterBOT Application
 
 ## Overview
-This document outlines the design for the SmarterBOT mobile application built with Ionic, featuring photo capture, QR code scanning, NFC functionality, and Google login integration.
+This document previously outlined the design for the SmarterBOT mobile application built with Ionic, but the mobile application has been discontinued. The platform now focuses solely on the web application.
 
-## App Architecture
+## Current Architecture
 
 ### Technology Stack
-- **Framework**: Ionic React
-- **Runtime**: Capacitor
+- **Framework**: Next.js with React
 - **State Management**: React Hooks + Context API
 - **Authentication**: Supabase Auth with Google OAuth
-- **Database**: Supabase (offline-first with sync)
-- **UI Components**: Ionic UI components
+- **Database**: Supabase
+- **UI Components**: React Bootstrap components
 
 ### Core Features
 1. Google OAuth Login
 2. Photo Capture and Management
-3. QR Code Scanning and Generation
-4. NFC Tag Reading and Writing
-5. Product Management
-6. Offline Capability
+3. Product Management
 
 ## Feature Design
 
@@ -27,80 +23,72 @@ This document outlines the design for the SmarterBOT mobile application built wi
 
 #### Implementation
 - Use Supabase Auth with Google provider
-- Deep linking for OAuth redirect
-- Secure token storage using Capacitor Secure Storage
+- Secure token storage in browser
 
 #### User Flow
-1. User opens app
-2. Taps "Sign in with Google" button
+1. User visits website
+2. Clicks "Sign in with Google" button
 3. Redirected to Google OAuth
 4. User authenticates with Google
-5. Redirected back to app with tokens
+5. Redirected back to web app with tokens
 6. Supabase creates/links user account
-7. User enters main app
+7. User enters main dashboard
 
 #### Components
 - `GoogleAuthButton` - Custom component for Google login
 - `AuthService` - Handles authentication logic
-- `SecureStorageService` - Secure token storage
 
 ### 2. Photo Capture and Management
 
 #### Implementation
-- Capacitor Camera plugin for photo capture
+- HTML5 File API for photo upload
 - Supabase Storage for photo uploads
-- Local caching for offline access
+- Browser caching for quick access
 
 #### Features
-- Capture new photos
-- Select from gallery
+- Upload new photos
+- Select from device
 - Upload to Supabase Storage
 - View and manage photos
-- Offline photo access
 
 #### Components
-- `PhotoCapture` - Camera interface
+- `PhotoUpload` - Upload interface
 - `PhotoGallery` - Photo browsing
 - `PhotoUploadService` - Upload management
-- `OfflinePhotoCache` - Local storage for offline access
 
-### 3. QR Code Scanning and Generation
+### 3. QR Code Generation
 
 #### Implementation
-- Capacitor Barcode Scanner plugin for scanning
 - QR code generation using library
 - Integration with backend API
 
 #### Features
-- Scan QR codes
 - Generate QR codes for products
 - Link QR codes to products
-- History of scanned codes
+- Export QR codes
 
 #### Components
-- `QRScanner` - Camera-based scanner
 - `QRGenerator` - QR code generation
-- `QRScannerService` - Scanning logic
-- `QRHistory` - History of scanned codes
+- `QRService` - QR code logic
 
-### 4. NFC Functionality
+### 4. Product Management
 
 #### Implementation
-- Capacitor NFC plugin
-- Reading and writing NFC tags
-- Linking NFC tags to products
+- Product CRUD operations
+- Integration with backend API
+- Photo association with products
 
 #### Features
-- Read NFC tags
-- Write to NFC tags
-- Link NFC tags to products
-- History of NFC interactions
+- Create products
+- Update products
+- Delete products
+- Associate photos with products
+- Search and filter products
 
 #### Components
-- `NFCReader` - NFC reading interface
-- `NFCWriter` - NFC writing interface
-- `NFCService` - NFC logic management
-- `NFCHistory` - History of NFC interactions
+- `ProductForm` - Product creation/editing
+- `ProductList` - Product browsing
+- `ProductService` - Product management logic
 
 ## App Structure
 
@@ -108,9 +96,8 @@ This document outlines the design for the SmarterBOT mobile application built wi
 1. **Auth Page** - Login/Signup
 2. **Dashboard** - Main overview
 3. **Products** - Product management
-4. **Scanner** - QR/NFC scanning
-5. **Photos** - Photo gallery
-6. **Profile** - User profile
+4. **Photos** - Photo gallery
+5. **Profile** - User profile
 
 ### Navigation Structure
 ```
@@ -120,7 +107,6 @@ App
 │   └── Google Login
 ├── Dashboard
 │   ├── Products
-│   ├── Scanner
 │   ├── Photos
 │   └── Profile
 ├── Products
@@ -128,13 +114,9 @@ App
 │   ├── Product Detail
 │   ├── Add Product
 │   └── Edit Product
-├── Scanner
-│   ├── QR Scanner
-│   ├── NFC Reader
-│   └── Scanner History
 ├── Photos
 │   ├── Photo Gallery
-│   ├── Capture Photo
+│   ├── Upload Photo
 │   └── Photo Detail
 └── Profile
     ├── Profile Info
@@ -171,218 +153,94 @@ class AuthService {
 }
 ```
 
-### Photo Capture Component
+### Photo Upload Component
 ```typescript
-// PhotoCapture.tsx
-const PhotoCapture = () => {
+// PhotoUpload.tsx
+const PhotoUpload = () => {
   const [photo, setPhoto] = useState<string | null>(null);
-  
-  const capturePhoto = async () => {
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: true,
-      resultType: CameraResultType.Uri,
-      saveToGallery: true
-    });
-    
-    setPhoto(image.webPath);
-    // Upload to Supabase Storage
-    await uploadPhoto(image);
+
+  const handleFileChange = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    // Convert file to base64 or blob for preview
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      setPhoto(e.target.result);
+      // Upload to Supabase Storage
+      await uploadPhoto(file);
+    };
+    reader.readAsDataURL(file);
   };
-  
-  const uploadPhoto = async (image: CameraPhoto) => {
-    // Convert to blob and upload
-    const response = await fetch(image.webPath!);
-    const blob = await response.blob();
-    
+
+  const uploadPhoto = async (file: File) => {
     const { data, error } = await supabase.storage
       .from('photos')
-      .upload(`${Date.now()}.jpg`, blob, {
+      .upload(`${Date.now()}_${file.name}`, file, {
         cacheControl: '3600',
         upsert: false
       });
-    
+
     if (error) throw error;
     return data;
   };
-  
+
   return (
-    <IonPage>
-      <IonContent>
-        <IonButton onClick={capturePhoto}>
-          Capture Photo
-        </IonButton>
-        {photo && <img src={photo} alt="Captured" />}
-      </IonContent>
-    </IonPage>
+    <div>
+      <input type="file" accept="image/*" onChange={handleFileChange} />
+      {photo && <img src={photo} alt="Uploaded" />}
+    </div>
   );
 };
 ```
 
-### QR Scanner Component
+### QR Generator Component
 ```typescript
-// QRScanner.tsx
-const QRScanner = () => {
-  const [scanning, setScanning] = useState(false);
-  
-  const startScan = async () => {
-    setScanning(true);
-    
-    try {
-      const result = await BarcodeScanner.scanBarcode();
-      if (result.hasContent) {
-        // Process the scanned content
-        processScannedContent(result.content);
-      }
-    } catch (error) {
-      console.error('Error scanning:', error);
-    } finally {
-      setScanning(false);
-    }
-  };
-  
-  const processScannedContent = async (content: string) => {
-    // Handle the scanned content
-    // Could be a product ID, URL, etc.
-    if (content.startsWith('https://smarterbot.store/product/')) {
-      const productId = content.split('/').pop();
-      // Navigate to product detail
-      navigate(`/products/${productId}`);
-    }
-  };
-  
+// QRGenerator.tsx
+import QRCode from 'qrcode.react';
+
+const QRGenerator = ({ value }) => {
   return (
-    <IonPage>
-      <IonContent>
-        <IonButton onClick={startScan} disabled={scanning}>
-          {scanning ? 'Scanning...' : 'Scan QR Code'}
-        </IonButton>
-      </IonContent>
-    </IonPage>
+    <div>
+      <QRCode value={value} size={256} />
+      <p>{value}</p>
+    </div>
   );
 };
 ```
 
-### NFC Component
-```typescript
-// NFCReader.tsx
-const NFCReader = () => {
-  const [nfcEnabled, setNfcEnabled] = useState(false);
-  
-  useEffect(() => {
-    const initNFC = async () => {
-      try {
-        await NFC.writePermission();
-        setNfcEnabled(true);
-        
-        // Start listening for NFC tags
-        const listener = NFC.addListener('tag', (event) => {
-          handleNFCTag(event.tag);
-        });
-        
-        return () => listener.remove();
-      } catch (error) {
-        console.error('NFC not supported:', error);
-      }
-    };
-    
-    initNFC();
-  }, []);
-  
-  const handleNFCTag = async (tag: any) => {
-    // Process NFC tag
-    const content = tag.ndefMessage[0]?.payload;
-    if (content) {
-      // Process the NFC content
-      processNFCContent(content);
-    }
-  };
-  
-  const processNFCContent = async (content: string) => {
-    // Handle NFC content
-    // Could be a product ID, URL, etc.
-    console.log('NFC content:', content);
-  };
-  
-  return (
-    <IonPage>
-      <IonContent>
-        <IonLabel>
-          NFC Status: {nfcEnabled ? 'Enabled' : 'Disabled'}
-        </IonLabel>
-        <IonNote>
-          Hold your device near an NFC tag
-        </IonNote>
-      </IonContent>
-    </IonPage>
-  );
-};
-```
+## Web Configuration
 
-## Capacitor Configuration
-
-### Required Plugins
+### Key Dependencies
 ```bash
-npm install @capacitor/app
-npm install @capacitor/haptics
-npm install @capacitor/keyboard
-npm install @capacitor/status-bar
-npm install @capacitor/camera
-npm install @capacitor/barcode-scanner
-npm install @capacitor/nfc
-npm install @capacitor/preferences
-```
-
-### Android Configuration (capacitor.config.ts)
-```typescript
-import { CapacitorConfig } from '@capacitor/cli';
-
-const config: CapacitorConfig = {
-  appId: 'com.smarterbot.app',
-  appName: 'SmarterBOT',
-  webDir: 'build',
-  server: {
-    androidScheme: 'https'
-  },
-  plugins: {
-    BarcodeScanner: {
-      formats: ['QR_CODE', 'CODE_128', 'EAN_13'],
-    },
-    NFC: {
-      // NFC configuration
-    }
-  }
-};
-
-export default config;
+npm install next react react-dom @supabase/supabase-js
 ```
 
 ## Offline Capability
 
 ### Data Synchronization
-- Local SQLite database using Capacitor Community SQLite plugin
+- Browser storage using localStorage/sessionStorage
 - Sync with Supabase when online
 - Conflict resolution strategies
-- Offline-first approach for critical features
+- Offline support for critical features using Service Workers
 
 ### Implementation
 ```typescript
 // OfflineService.ts
 class OfflineService {
   async syncData() {
-    const online = await Network.getStatus();
-    if (online.connected) {
+    if (navigator.onLine) {
       // Sync local data with Supabase
       await this.uploadLocalChanges();
       await this.downloadRemoteChanges();
     }
   }
-  
+
   async uploadLocalChanges() {
     // Upload locally stored data to Supabase
     // Handle conflicts if needed
   }
-  
+
   async downloadRemoteChanges() {
     // Download latest data from Supabase
     // Update local storage
@@ -393,10 +251,10 @@ class OfflineService {
 ## Security Considerations
 
 ### Authentication Security
-- Secure token storage using Capacitor Secure Storage
+- Secure token storage in browser localStorage/sessionStorage
 - Token refresh mechanisms
 - Session management
-- Biometric authentication (optional)
+- Secure cookie handling
 
 ### Data Security
 - Encryption for sensitive data

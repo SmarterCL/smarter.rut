@@ -1,7 +1,7 @@
-# Shared Supabase Backend Implementation
+# Supabase Backend Implementation
 
 ## Overview
-This document outlines the implementation of a shared Supabase backend that serves both the web (Next.js) and mobile (Ionic) applications for the SmarterBOT platform.
+This document outlines the implementation of a Supabase backend that serves the web (Next.js) application for the SmarterBOT platform.
 
 ## Database Schema
 
@@ -810,4 +810,4 @@ const { data, error } = await supabase
   .limit(20); // Limit results
 ```
 
-This implementation provides a robust, scalable, and secure shared Supabase backend that serves both web and mobile applications with proper authentication, authorization, and data management.
+This implementation provides a robust, scalable, and secure Supabase backend that serves the web application with proper authentication, authorization, and data management.

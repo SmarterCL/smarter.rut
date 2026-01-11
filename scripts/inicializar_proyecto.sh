@@ -40,28 +40,16 @@ else
 fi
 
 # Preguntar si se deben instalar dependencias
-echo -e "${YELLOW}¿Desea instalar las dependencias de ambos proyectos? (s/n)${NC}"
+echo -e "${YELLOW}¿Desea instalar las dependencias del proyecto web? (s/n)${NC}"
 read -r response
 if [[ "$response" =~ ^[Ss]$ ]]; then
     echo -e "${BLUE}=== Instalando dependencias del proyecto Next.js ===${NC}"
     npm install
-    
+
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}✅ Dependencias de Next.js instaladas${NC}"
     else
         echo -e "${RED}❌ Error instalando dependencias de Next.js${NC}"
-        exit 1
-    fi
-    
-    echo -e "${BLUE}=== Instalando dependencias del proyecto Ionic ===${NC}"
-    cd smarter-ionic
-    npm install
-    cd ..
-    
-    if [ $? -eq 0 ]; then
-        echo -e "${GREEN}✅ Dependencias de Ionic instaladas${NC}"
-    else
-        echo -e "${RED}❌ Error instalando dependencias de Ionic${NC}"
         exit 1
     fi
 else
@@ -73,7 +61,7 @@ echo -e "${YELLOW}¿Desea crear archivos .env de ejemplo? (s/n)${NC}"
 read -r response
 if [[ "$response" =~ ^[Ss]$ ]]; then
     echo -e "${BLUE}=== Creando archivos .env de ejemplo ===${NC}"
-    
+
     # Crear .env.local para Next.js si no existe
     if [ ! -f ".env.local" ] && [ ! -f ".env" ]; then
         cat > .env.local << EOF
@@ -86,19 +74,6 @@ EOF
     else
         echo -e "${YELLOW}⚠️  Archivo .env ya existe para Next.js, omitiendo${NC}"
     fi
-    
-    # Crear .env para Ionic si no existe
-    if [ ! -f "smarter-ionic/.env" ]; then
-        cat > smarter-ionic/.env << EOF
-# Variables de entorno para el proyecto Ionic
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_KEY=your_service_role_key
-EOF
-        echo -e "${GREEN}✅ Archivo .env creado para Ionic${NC}"
-    else
-        echo -e "${YELLOW}⚠️  Archivo .env ya existe para Ionic, omitiendo${NC}"
-    fi
 else
     echo -e "${YELLOW}Omitiendo creación de archivos .env${NC}"
 fi
@@ -110,8 +85,7 @@ echo ""
 echo -e "${BLUE}Siguientes pasos recomendados:${NC}"
 echo "1. Configurar sus variables de entorno en los archivos .env"
 echo "2. Para iniciar el proyecto Next.js: npm run dev"
-echo "3. Para iniciar el proyecto Ionic: npm run ionic-dev"
-echo "4. Para ver todos los comandos disponibles: npm run fusion-help"
+echo "3. Para ver todos los comandos disponibles: npm run fusion-help"
 echo ""
 echo -e "${BLUE}Documentación:${NC}"
 echo "- Para más información: cat README_FUSION.md"

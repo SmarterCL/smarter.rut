@@ -18,7 +18,7 @@ if ! command -v node &> /dev/null; then
 else
     NODE_VERSION=$(node --version)
     echo -e "${GREEN}✅ Node.js $NODE_VERSION está instalado${NC}"
-    
+
     # Verificar versión de Node.js
     if [[ $(node -v | sed 's/v//') =~ ^([0-9]+)\. ]] && [ ${BASH_REMATCH[1]} -lt 18 ]; then
         echo -e "${YELLOW}⚠️  Versión de Node.js recomendada es 18 o superior${NC}"
@@ -47,7 +47,7 @@ if [ -f "package.json" ]; then
     else
         echo -e "${YELLOW}⚠️  Supabase para Next.js no encontrado en package.json${NC}"
     fi
-    
+
     if grep -q "next" package.json; then
         echo -e "${GREEN}✅ Next.js está presente${NC}"
     else
@@ -55,31 +55,6 @@ if [ -f "package.json" ]; then
     fi
 else
     echo -e "${RED}❌ package.json de Next.js no encontrado${NC}"
-    exit 1
-fi
-
-# Verificar dependencias de Ionic
-echo -e "${BLUE}=== Verificando dependencias de Ionic ===${NC}"
-
-if [ -d "smarter-ionic" ]; then
-    if [ -f "smarter-ionic/package.json" ]; then
-        if grep -q "@supabase/supabase-js" smarter-ionic/package.json; then
-            echo -e "${GREEN}✅ Supabase para Ionic está presente${NC}"
-        else
-            echo -e "${YELLOW}⚠️  Supabase para Ionic no encontrado en package.json${NC}"
-        fi
-        
-        if grep -q "@ionic/angular" smarter-ionic/package.json; then
-            echo -e "${GREEN}✅ Ionic está presente${NC}"
-        else
-            echo -e "${YELLOW}⚠️  Ionic no encontrado en package.json${NC}"
-        fi
-    else
-        echo -e "${RED}❌ package.json de Ionic no encontrado${NC}"
-        exit 1
-    fi
-else
-    echo -e "${RED}❌ Directorio smarter-ionic no encontrado${NC}"
     exit 1
 fi
 
@@ -92,13 +67,13 @@ if [ -d "shared/services" ]; then
     else
         echo -e "${YELLOW}⚠️  Servicio de autenticación compartido no encontrado${NC}"
     fi
-    
+
     if [ -f "shared/services/utils.js" ]; then
         echo -e "${GREEN}✅ Utilidades compartidas están presentes${NC}"
     else
         echo -e "${YELLOW}⚠️  Utilidades compartidas no encontradas${NC}"
     fi
-    
+
     if [ -f "shared/services/types.js" ]; then
         echo -e "${GREEN}✅ Tipos compartidos están presentes${NC}"
     else
@@ -133,13 +108,6 @@ else
     echo -e "${YELLOW}   Recuerda crear .env.local o .env con tus variables de entorno${NC}"
 fi
 
-if [ -f "smarter-ionic/.env" ]; then
-    echo -e "${GREEN}✅ Archivo de entorno para Ionic encontrado${NC}"
-else
-    echo -e "${YELLOW}⚠️  Archivo de entorno para Ionic no encontrado${NC}"
-    echo -e "${YELLOW}   Recuerda crear smarter-ionic/.env con tus variables de entorno${NC}"
-fi
-
 # Verificar scripts de build
 echo -e "${BLUE}=== Verificando scripts de build ===${NC}"
 
@@ -161,11 +129,11 @@ echo -e "${GREEN}🎉 Verificación completada${NC}"
 echo ""
 echo -e "${BLUE}Resumen:${NC}"
 echo "- Node.js y npm verificados"
-echo "- Dependencias de ambos proyectos verificadas"
+echo "- Dependencias del proyecto verificadas"
 echo "- Servicios compartidos verificados"
 echo "- Archivos de fusión verificados"
 echo "- Archivos de entorno verificados"
 echo ""
 echo -e "${GREEN}✅ El entorno está listo para el build${NC}"
 echo ""
-echo -e "${YELLOW}Sugerencia: Ejecuta './build_proyectos.sh' para compilar ambos proyectos${NC}"
+echo -e "${YELLOW}Sugerencia: Ejecuta './build_proyectos.sh' para compilar el proyecto${NC}"

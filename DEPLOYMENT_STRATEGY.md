@@ -1,13 +1,12 @@
 # Deployment and CI/CD Strategy for SmarterBOT Platform
 
 ## Overview
-This document outlines the deployment and Continuous Integration/Continuous Deployment (CI/CD) strategy for the SmarterBOT platform, supporting both web (Next.js) and mobile (Ionic) applications with a shared Supabase backend.
+This document outlines the deployment and Continuous Integration/Continuous Deployment (CI/CD) strategy for the SmarterBOT platform, focusing on the web (Next.js) application with a Supabase backend.
 
 ## Deployment Architecture
 
 ### Infrastructure Components
 - **Web Application**: Deployed on Vercel
-- **Mobile Application**: Built with Capacitor, deployed to app stores
 - **Backend**: Supabase (PostgreSQL, Auth, Storage, Functions)
 - **API Gateway**: Vercel Edge Functions / Supabase Edge Functions
 - **CDN**: Vercel CDN for web assets
@@ -346,94 +345,6 @@ const securityHeaders = [
 module.exports = nextConfig;
 ```
 
-## Mobile Application Deployment (Ionic)
-
-### Capacitor Configuration
-```typescript
-// capacitor.config.ts
-import { CapacitorConfig } from '@capacitor/cli';
-
-const config: CapacitorConfig = {
-  appId: 'com.smarterbot.app',
-  appName: 'SmarterBOT',
-  webDir: 'build',
-  server: {
-    androidScheme: 'https'
-  },
-  plugins: {
-    SplashScreen: {
-      launchShowDuration: 3000,
-      launchAutoHide: true,
-      launchFadeOutDuration: 3000,
-      backgroundColor: "#875A7B",
-      androidSplashResourceName: "splash",
-      iosScale: "scale",
-      splashFullScreen: true,
-      splashImmersive: true,
-    },
-    PushNotifications: {
-      presentationOptions: ["badge", "sound", "alert"]
-    }
-  }
-};
-
-export default config;
-```
-
-### Android Build Configuration
-```gradle
-// smarter-ionic/android/app/build.gradle
-android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    defaultConfig {
-        applicationId "com.smarterbot.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0.0"
-    }
-    
-    signingConfigs {
-        release {
-            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
-                storeFile file(MYAPP_UPLOAD_STORE_FILE)
-                storePassword MYAPP_UPLOAD_STORE_PASSWORD
-                keyAlias MYAPP_UPLOAD_KEY_ALIAS
-                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
-            }
-        }
-    }
-    
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
-    }
-}
-```
-
-### iOS Build Configuration
-```xml
-<!-- smarter-ionic/ios/App/App/Info.plist -->
-<key>CFBundleIdentifier</key>
-<string>com.smarterbot.app</string>
-<key>CFBundleName</key>
-<string>SmarterBOT</string>
-<key>CFBundleShortVersionString</key>
-<string>1.0.0</string>
-<key>CFBundleVersion</key>
-<string>1</string>
-<key>LSRequiresIPhoneOS</key>
-<true/>
-<key>NSCameraUsageDescription</key>
-<string>This app needs access to camera to capture photos and scan QR codes.</string>
-<key>NSPhotoLibraryUsageDescription</key>
-<string>This app needs access to photo library to select photos.</string>
-<key>NFCReaderUsageDescription</key>
-<string>This app uses NFC to read tags and connect to products.</string>
-```
 
 ## Database Deployment (Supabase)
 
@@ -744,110 +655,6 @@ export const config = {
 }
 ```
 
-## Mobile App Store Deployment
-
-### Android Play Store Deployment
-```yaml
-# .github/workflows/deploy-android.yml
-name: Deploy Android App
-
-on:
-  workflow_run:
-    workflows: ["CI/CD Pipeline"]
-    types:
-      - completed
-    branches: [main]
-
-jobs:
-  deploy-android:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    steps:
-      - name: Download APK artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: android-apk
-          path: app/build/outputs/apk/release/
-      
-      - name: Deploy to Google Play Console
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.PLAY_CONSOLE_SERVICE_ACCOUNT }}
-          packageName: com.smarterbot.app
-          releaseFiles: app/build/outputs/apk/release/app-release.apk
-          track: internal
-          status: completed
-```
-
-### iOS App Store Deployment
-```yaml
-# .github/workflows/deploy-ios.yml
-name: Deploy iOS App
-
-on:
-  workflow_run:
-    workflows: ["CI/CD Pipeline"]
-    types:
-      - completed
-    branches: [main]
-
-jobs:
-  deploy-ios:
-    runs-on: macos-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: latest-stable
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-      
-      - name: Install pnpm
-        run: npm install -g pnpm
-      
-      - name: Install dependencies
-        run: cd smarter-ionic && pnpm install
-      
-      - name: Build iOS app
-        run: |
-          cd smarter-ionic
-          pnpm run build
-          npx cap add ios
-          npx cap open ios
-      
-      - name: Archive iOS app
-        run: |
-          cd smarter-ionic/ios/App
-          xcodebuild archive \
-            -workspace App.xcworkspace \
-            -scheme App \
-            -archivePath App.xcarchive \
-            -configuration Release
-      
-      - name: Export IPA
-        run: |
-          cd smarter-ionic/ios/App
-          xcodebuild -exportArchive \
-            -archivePath App.xcarchive \
-            -exportPath . \
-            -exportFormat IPA \
-            -destination generic/platform=iOS
-      
-      - name: Deploy to App Store Connect
-        run: |
-          xcrun altool --upload-app \
-            -f App.ipa \
-            -u ${{ secrets.APPSTORE_USERNAME }} \
-            -p ${{ secrets.APPSTORE_PASSWORD }} \
-            -t ios
-```
 
 ## Deployment Validation
 

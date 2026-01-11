@@ -1,5 +1,5 @@
 // shared/services/utils.js
-// Utilidades compartidas entre Next.js e Ionic
+// Utilidades compartidas para Next.js
 
 // Función para limpiar el RUT
 export const cleanRut = (rut) => {

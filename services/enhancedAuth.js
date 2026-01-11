@@ -21,7 +21,7 @@ class EnhancedAuthService extends SharedAuthService {
     this.supabaseService = supabaseService;
   }
 
-  // Método de login con enlace mágico (del proyecto Ionic)
+  // Método de login con enlace mágico
   async signInWithMagicLink(email) {
     try {
       // Usar el origen actual como URL de redirección
@@ -58,7 +58,7 @@ class EnhancedAuthService extends SharedAuthService {
     }
   }
 
-  // Método de login con OAuth (del proyecto Ionic)
+  // Método de login con OAuth
   async signInWithOAuth(provider) {
     try {
       const { data, error } = await this.supabase.auth.signInWithOAuth({
@@ -230,7 +230,7 @@ class EnhancedAuthService extends SharedAuthService {
     }
   }
 
-  // Registrar eventos (funcionalidad MCP del proyecto Ionic)
+  // Registrar eventos (funcionalidad MCP)
   async logEvent(eventType, payload = {}) {
     if (typeof window === 'undefined') return; // Solo en el cliente
 

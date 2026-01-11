@@ -1,5 +1,5 @@
 // shared/services/auth.js
-// Servicios de autenticación compartidos entre Next.js e Ionic
+// Servicios de autenticación para Next.js
 // Note: This file has been converted from TypeScript to JavaScript for compatibility
 
 class SharedAuthService {

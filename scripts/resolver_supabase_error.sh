@@ -12,33 +12,30 @@ NC='\033[0m' # No Color
 echo -e "${BLUE}=== Resolución de error: Supabase URL or Service Key missing ===${NC}"
 echo ""
 
-# Cambiar al directorio del proyecto Ionic
-cd smarter-ionic
-
 echo -e "${YELLOW}1. Limpiando build anterior...${NC}"
-rm -rf dist node_modules/.vite
+rm -rf .next node_modules/.cache
 echo -e "${GREEN}✅ Build limpiado${NC}"
 
 echo -e "${YELLOW}2. Verificando variables de entorno...${NC}"
-if [ -z "$VITE_SUPABASE_URL" ]; then
-    echo -e "${RED}❌ VITE_SUPABASE_URL no está definida${NC}"
+if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ]; then
+    echo -e "${RED}❌ NEXT_PUBLIC_SUPABASE_URL no está definida${NC}"
     echo -e "${YELLOW}Asegúrate de tener las variables de entorno definidas antes de continuar${NC}"
     exit 1
 else
-    echo -e "${GREEN}✅ VITE_SUPABASE_URL está definida${NC}"
-    echo -e "${YELLOW}   Valor: $VITE_SUPABASE_URL${NC}"
+    echo -e "${GREEN}✅ NEXT_PUBLIC_SUPABASE_URL está definida${NC}"
+    echo -e "${YELLOW}   Valor: $NEXT_PUBLIC_SUPABASE_URL${NC}"
 fi
 
-if [ -z "$VITE_SUPABASE_ANON_KEY" ]; then
-    echo -e "${RED}❌ VITE_SUPABASE_ANON_KEY no está definida${NC}"
+if [ -z "$NEXT_PUBLIC_SUPABASE_ANON_KEY" ]; then
+    echo -e "${RED}❌ NEXT_PUBLIC_SUPABASE_ANON_KEY no está definida${NC}"
     echo -e "${YELLOW}Asegúrate de tener las variables de entorno definidas antes de continuar${NC}"
     exit 1
 else
-    echo -e "${GREEN}✅ VITE_SUPABASE_ANON_KEY está definida${NC}"
-    echo -e "${YELLOW}   Valor: ${VITE_SUPABASE_ANON_KEY:0:10}...${NC}"  # Mostrar solo primeros 10 caracteres por seguridad
+    echo -e "${GREEN}✅ NEXT_PUBLIC_SUPABASE_ANON_KEY está definida${NC}"
+    echo -e "${YELLOW}   Valor: ${NEXT_PUBLIC_SUPABASE_ANON_KEY:0:10}...${NC}"  # Mostrar solo primeros 10 caracteres por seguridad
 fi
 
-echo -e "${YELLOW}3. Reconstruyendo proyecto Ionic...${NC}"
+echo -e "${YELLOW}3. Reconstruyendo proyecto Next.js...${NC}"
 npm install
 npm run build
 
@@ -50,10 +47,10 @@ fi
 echo -e "${GREEN}✅ Proyecto reconstruido exitosamente${NC}"
 
 echo -e "${YELLOW}4. Validando bundle...${NC}"
-if [ -d "dist" ]; then
-    # Buscar archivos JS en dist
-    JS_FILES=$(find dist -name "*.js" -type f | head -5)  # Tomar solo los primeros 5 archivos
-    
+if [ -d ".next" ]; then
+    # Buscar archivos JS en .next
+    JS_FILES=$(find .next -name "*.js" -type f | head -5)  # Tomar solo los primeros 5 archivos
+
     if [ -n "$JS_FILES" ]; then
         FOUND=false
         for file in $JS_FILES; do
@@ -63,29 +60,17 @@ if [ -d "dist" ]; then
                 break
             fi
         done
-        
+
         if [ "$FOUND" = false ]; then
             echo -e "${YELLOW}⚠️  No se encontró la URL de Supabase en los archivos JS (puede ser normal si está codificada)${NC}"
         fi
     else
-        echo -e "${RED}❌ No se encontraron archivos JS en dist${NC}"
+        echo -e "${RED}❌ No se encontraron archivos JS en .next${NC}"
         exit 1
     fi
 else
-    echo -e "${RED}❌ No se encontró el directorio dist${NC}"
+    echo -e "${RED}❌ No se encontró el directorio .next${NC}"
     exit 1
-fi
-
-echo -e "${YELLOW}5. Sincronizando con Capacitor (si aplica)...${NC}"
-if [ -f "capacitor.config.ts" ] || [ -f "capacitor.config.json" ]; then
-    echo -e "${YELLOW}Capacitor detectado, sincronizando...${NC}"
-    npx cap sync
-    echo -e "${GREEN}✅ Capacitor sincronizado${NC}"
-    
-    echo -e "${YELLOW}Para abrir en Android:${NC}"
-    echo -e "${YELLOW}  npx cap open android${NC}"
-else
-    echo -e "${YELLOW}Capacitor no detectado, omitiendo sincronización${NC}"
 fi
 
 echo ""
@@ -96,7 +81,6 @@ echo "- Build limpiado"
 echo "- Variables de entorno verificadas"
 echo "- Proyecto reconstruido"
 echo "- Bundle validado"
-echo "- Capacitor sincronizado (si aplica)"
 echo ""
 echo -e "${GREEN}El error 'Supabase URL or Service Key missing' debería haberse resuelto${NC}"
 echo -e "${GREEN}Después del rebuild, las variables de entorno están incluidas en el bundle${NC}"
