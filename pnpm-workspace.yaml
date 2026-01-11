@@ -1,4 +1,0 @@
-# pnpm workspace configuration
-packages:
-  - '.'
-  - 'smarter-ionic'

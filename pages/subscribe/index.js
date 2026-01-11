@@ -189,7 +189,7 @@ export default function Home() {
       .insert({
         deleted: false,
         dateCreated: new Date(),
-        planType: 'BASIC',
+        planType: 'DEMO',
         paymentStatus: 'PENDING',
         password: bcrypt.hashSync(password, 10),
         firstName,
@@ -262,7 +262,7 @@ export default function Home() {
                                 <td class="wrapper">
                                   <img src="https://rut.smarterbot.store/images/holder.svg" width="100%" style="border-radius: 10px;">
                                   <h1 style="font-size:22px">Hola <span style="color: var(--odoo-purple)">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
-                                  <p>Tu cuenta SmarterBOT Basic ya está creada y te invitamos a completar el pago de tu suscripción</p>
+                                  <p>Tu cuenta SmarterBOT DEMO ya está creada y te invitamos a completar el pago de tu suscripción</p>
                                   <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                     <tr>
                                       <td align="left">
@@ -592,7 +592,7 @@ export default function Home() {
                             width="100"
                           />
                         </p>
-                        <h3 className="mb-4">Tu cuenta Basic ya fue creada</h3>
+                        <h3 className="mb-4">Tu cuenta DEMO ya fue creada</h3>
                         <div className="col-md-12">
                           <p>
                             Te enviamos un correo con la confirmación de la

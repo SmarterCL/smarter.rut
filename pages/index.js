@@ -191,7 +191,7 @@ export default function Home() {
             <div className="row justify-content-center">
               <div className="bg-light rounded plans col-sm-12 col-lg-6 col-xl-4 py-4">
                 <h2 className="mb-3 text-center">
-                  <span className="color large">Basic</span>
+                  <span className="color large">DEMO</span>
                 </h2>
                 <table className="table">
                   <tbody>

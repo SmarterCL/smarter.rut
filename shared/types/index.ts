@@ -46,7 +46,7 @@ export interface PaymentInfo {
 export interface Subscription {
   id: string;
   userId: string;
-  type: 'free' | 'basic' | 'pro' | 'enterprise';
+  type: 'free' | 'demo' | 'pro' | 'enterprise';
   status: 'active' | 'inactive' | 'expired' | 'cancelled';
   startDate: string;
   endDate: string;
