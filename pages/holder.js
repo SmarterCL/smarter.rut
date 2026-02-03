@@ -165,21 +165,21 @@ export default function Holder() {
           href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
-        <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
+        <link rel="apple-touch-icon" href="/images/logo-smarteros.jpg" />
         <link
           rel="apple-touch-icon"
           sizes="76x76"
-          href="images/touch-icon-ipad.png"
+          href="/images/logo-smarteros.jpg"
         />
         <link
           rel="apple-touch-icon"
           sizes="120x120"
-          href="images/touch-icon-iphone-retina.png"
+          href="/images/logo-smarteros.jpg"
         />
         <link
           rel="apple-touch-icon"
           sizes="152x152"
-          href="images/touch-icon-ipad-retina.png"
+          href="/images/logo-smarteros.jpg"
         />
       </Head>
       <div className={`${"mont"} d-flex flex-column h-100`}>
@@ -202,7 +202,7 @@ export default function Holder() {
           strategy="afterInteractive"
         />
         <Header showAuthButtons={true} />
-        
+
         <div className="section-cover">
           <div className="container">
             <div className="row align-items-center">
@@ -213,7 +213,7 @@ export default function Holder() {
                 <p className="large mt-3">
                   Selecciona las opciones que deseas para tu negocio
                 </p>
-                
+
                 <div className="mt-4">
                   <Link
                     className="btn btn-primary btn-lg me-3"
@@ -249,16 +249,16 @@ export default function Holder() {
         <div className="section-light-gray py-5">
           <div className="container">
             <h2 className="text-center mb-5 display-4">Opciones Disponibles</h2>
-            
+
             <div className="row">
               {options.map((option) => (
                 <div key={option.id} className="col-lg-4 col-md-6 mb-4">
                   <div className={`card h-100 ${selectedOptions.includes(option.id) ? 'border-primary border-2' : ''}`}>
-                    <img 
-                      src={option.image || "/images/logo-smarteros.jpg"} 
-                      className="card-img-top" 
+                    <img
+                      src={option.image || "/images/logo-smarteros.jpg"}
+                      className="card-img-top"
                       alt={option.title}
-                      style={{height: '200px', objectFit: 'cover'}}
+                      style={{ height: '200px', objectFit: 'cover' }}
                     />
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title">{option.title}</h5>
@@ -273,7 +273,7 @@ export default function Holder() {
                       </div>
                     </div>
                     <div className="card-footer">
-                      <button 
+                      <button
                         className={`btn w-100 ${selectedOptions.includes(option.id) ? 'btn-outline-secondary' : 'btn-primary'}`}
                         onClick={() => toggleOption(option.id)}
                       >
@@ -284,7 +284,7 @@ export default function Holder() {
                 </div>
               ))}
             </div>
-            
+
             {/* Selected Items Summary */}
             {selectedItems.length > 0 && (
               <div className="mt-5">
@@ -315,8 +315,8 @@ export default function Holder() {
                       </strong>
                     </div>
                     <div className="mt-3 text-center">
-                      <Link 
-                        href="/dashboard/operate" 
+                      <Link
+                        href="/dashboard/operate"
                         className="btn btn-primary btn-lg"
                       >
                         Continuar con mi selección
