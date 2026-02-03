@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 @import './theme.tokens.css';
 
@@ -42,6 +40,7 @@ body {
   color: var(--odoo-gray-dark);
   background-color: var(--odoo-gray-light);
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px;
 }
 
 /* Estilos para contenedores principales */
