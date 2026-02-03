@@ -156,7 +156,7 @@ function EnhancedLogin(props) {
             <img
               className="margin-top img-fluid"
               src="/images/logo-smarteros.jpg"
-              width={220}
+              width={120}
             />
           </a>
         </nav>

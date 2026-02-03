@@ -167,17 +167,17 @@ export default function Home() {
                 <p className="mt-4">
                   <img
                     className="margin-top img-fluid mt-4"
-                    src="/images/logo-smarteros.jpg"
+                    src="/images/ai-click.jpg"
                     width="640"
-                    title="Sistema operativo comercial"
+                    title="Inteligencia Artificial a un Click - Comercio o PYME"
                   />
                 </p>
               </div>
               <div className="col-12 col-sm-12 col-lg-12 col-xl-5 mx-auto text-center img-home-container">
                 <img
                   className="align-middle img-fluid rounded img-home"
-                  src="/images/logo-smarteros.jpg"
-                  width="460"
+                  src="/images/decision-tree.jpg"
+                  width="800"
                 />
               </div>
             </div>
