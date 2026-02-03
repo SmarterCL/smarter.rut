@@ -136,7 +136,7 @@ export default function Home() {
         <div className="section-cover">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-12 col-sm-12 col-lg-12 col-xl-7 z-index">
+              <div className="col-12 col-sm-12 col-lg-6 col-xl-6 z-index">
                 <h1 className="display-1">
                   <span className="color">SmarterOS</span>
                 </h1>
@@ -173,7 +173,7 @@ export default function Home() {
                   />
                 </p>
               </div>
-              <div className="col-12 col-sm-12 col-lg-12 col-xl-5 mx-auto text-center img-home-container">
+              <div className="col-12 col-sm-12 col-lg-6 col-xl-6 mx-auto text-center img-home-container">
                 <img
                   className="align-middle img-fluid rounded img-home"
                   src="/images/decision-tree.jpg"
@@ -289,7 +289,7 @@ export default function Home() {
               <div className="col-12 col-sm-12 col-lg-12 col-xl-6 mx-auto text-center">
                 <img
                   className="align-middle img-fluid rounded img-home-two"
-                  src="/images/logo-smarteros.jpg"
+                  src="/images/accounting.jpg"
                   width="460"
                 />
               </div>

@@ -33,7 +33,7 @@ function Index(props) {
         <meta property="og:site_name" content="SmarterBOT" />
       </Head>
       <div className="splash-wrapper">
-        <img src="/images/logo-smarteros.jpg" width="320" />
+        <img src="/images/logo-smarteros.jpg" width="180" />
       </div>
     </Fragment>
   );

@@ -79,21 +79,21 @@ function Dashboard(props) {
           href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
-        <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
+        <link rel="apple-touch-icon" href="/images/logo-smarteros.jpg" />
         <link
           rel="apple-touch-icon"
           sizes="76x76"
-          href="images/touch-icon-ipad.png"
+          href="/images/logo-smarteros.jpg"
         />
         <link
           rel="apple-touch-icon"
           sizes="120x120"
-          href="images/touch-icon-iphone-retina.png"
+          href="/images/logo-smarteros.jpg"
         />
         <link
           rel="apple-touch-icon"
           sizes="152x152"
-          href="images/touch-icon-ipad-retina.png"
+          href="/images/logo-smarteros.jpg"
         />
       </Head>
       <div className={`d-flex flex-column h-100`}>

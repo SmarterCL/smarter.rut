@@ -14,7 +14,7 @@ const Header = ({ showAuthButtons = true }) => {
             <img
               className="margin-top img-fluid"
               src="/images/logo-smarteros.jpg"
-              width={120}
+              width={90}
               alt="SmarterOS Logo"
             />
           </Link>
