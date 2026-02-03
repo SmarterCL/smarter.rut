@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import ChileanRutify from 'chilean-rutify';
 import { Fragment, useEffect, useState } from 'react';
@@ -950,20 +951,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <footer className="footer bg-transparent">
-            <div className="container-fluid">
-              <div className="row text-center">
-                <div className="col-sm-12">
-                  <p className="d-block">
-                    <strong>SmarterBOT</strong> 2025 –{' '}
-                    <a href="mailto:contacto@smarterbot.store">
-                      contacto@smarterbot.store
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </div>
       </div>
     </Fragment>

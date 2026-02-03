@@ -6,6 +6,7 @@ import Sidebar from '../../../components/Sidebar';
 import ChileanRutify from 'chilean-rutify';
 import { supabase } from '../../../services/supabaseClient';
 import DashNav from '../../../components/DashNav';
+import Footer from '../../../components/Footer';
 import bcrypt from 'bcryptjs-react';
 
 
@@ -402,23 +403,7 @@ function Centers(props) {
             </main>
           </div>
         </div>
-        <footer className="footer mt-auto py-4">
-          <div className="container-fluid">
-            <div className="row align-items-center">
-              <div className="col-sm-6">
-                <a className="footer-brand d-block" href="#">
-                  <img
-                    className="margin-top img-fluid "
-                    src="/images/logo-smarteros.jpg"
-                  />
-                </a>
-              </div>
-              <div className="col-sm-6">
-                <p className="d-block">SmarterBOT 2025 </p>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Fragment>
   );

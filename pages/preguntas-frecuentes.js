@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import Link from 'next/link';
 import Faq from '../components/Faq';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -69,13 +70,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <footer className="footer mt-auto py-5">
-          <div className="container-fluid">
-            <div className="text-center">
-              <p>SmarterBOT 2025</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Fragment>
   );

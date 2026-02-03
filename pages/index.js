@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 import { Fragment, useEffect, useState } from 'react';
 import { supabase } from '../services/supabaseClient';
@@ -688,39 +689,7 @@ export default function Home() {
           </div>
         </div>
 
-        <footer className="footer mt-auto py-5">
-          <div className="container-fluid">
-            <div className="row align-items-center">
-              <div className="col-sm-6">
-                <a className="footer-brand d-block" href="#">
-                  <img
-                    className="margin-top img-fluid "
-                    src="/images/logo-smarteros.jpg"
-                  />
-                </a>
-                <p className="d-block mt-4">
-                  SmarterBOT 2025 –{' '}
-                  <a href="mailto:contacto@smarterbot.store">
-                    contacto@smarterbot.store
-                  </a>
-                </p>
-              </div>
-              <div className="col-sm-6">
-                <ul>
-                  <li>
-                    <a href="/politicas-de-privacidad">Política</a>
-                  </li>
-                  <li>
-                    <a href="/terminos-y-condiciones">Términos</a>
-                  </li>
-                  <li>
-                    <a href="https://smarterbot.cl">Volver a smarterbot.cl</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
       {showModal ? (
         <div

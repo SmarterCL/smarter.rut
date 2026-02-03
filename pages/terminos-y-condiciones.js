@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
+import Footer from '../components/Footer';
 
 export default function Terminos() {
   return (
@@ -54,13 +55,7 @@ export default function Terminos() {
             </p>
           </div>
         </div>
-        <footer className="footer mt-auto py-5">
-          <div className="container-fluid">
-            <div className="text-center">
-              <p>SmarterBOT 2025</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Fragment>
   );

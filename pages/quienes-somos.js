@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Fragment } from 'react';
 import Link from 'next/link';
+import Footer from '../components/Footer';
 
 export default function QuienesSomos() {
   return (
@@ -65,13 +66,7 @@ export default function QuienesSomos() {
             </div>
           </div>
         </div>
-        <footer className="footer mt-auto py-5">
-          <div className="container-fluid">
-            <div className="text-center">
-              <p>SmarterBOT 2025</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Fragment>
   );

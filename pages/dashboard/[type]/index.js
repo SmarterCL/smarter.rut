@@ -7,6 +7,7 @@ import { supabase } from '../../../services/supabaseClient';
 import moment from 'moment';
 import { isEmpty } from 'lodash';
 import DashNav from '../../../components/DashNav';
+import Footer from '../../../components/Footer';
 
 
 function Dashboard(props) {
@@ -197,177 +198,161 @@ function Dashboard(props) {
             role="main"
             className="dashboard-main-content"
           >
-              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom">
-                <h2>Dashboard</h2>
-                <div className="btn-toolbar mb-2 mb-md-0"></div>
-              </div>
-              <div className="row mt-5 mb-5">
-                {props.userType == 'user' ? (
-                  <Fragment>
-                    {(!isEmpty(userData) &&
-                      userData.expirationDate &&
-                      moment(userData.expirationDate.seconds ? moment.unix(userData.expirationDate.seconds) : userData.expirationDate)
-                        .diff(moment(), 'days') < 30) ||
-                      userData.paymentStatus == 'PENDING' ? (
-                      <div className="col-md-12 mb-5">
-                        <div className="alert alert-primary" role="alert">
-                          <div className="row align-items-center">
-                            <div className="col-md-10">
-                              {userData.paymentStatus != 'PENDING' ? (
-                                <p className="mb-0">
-                                  Tu cuenta vence el{' '}
-                                  {!isEmpty(userData) && userData.expirationDate
-                                    ? moment(userData.expirationDate.seconds ? moment.unix(userData.expirationDate.seconds) : userData.expirationDate)
-                                      .format('DD-MM-YYYY')
-                                    : ''}
-                                  . Haz click en el siguiente botón para renovar
-                                  tu suscripción.
-                                </p>
-                              ) : (
-                                <p className="mb-0">
-                                  Actualiza tu cuenta al plan PRO y podrás
-                                  disfrutar de todos sus beneficios
-                                </p>
-                              )}
-                            </div>
-                            <div className="col-md-2">
-                              <a
-                                href={`/pay/${userId}`}
-                                className="btn btn-primary w-100 dashboard-payment-button"
-                              >
-                                Actualízate a PRO
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      ''
-                    )}
-                    {!isEmpty(userData) &&
-                      userData.paymentStatus != 'PENDING' ? (
-                      <Fragment>
-                        <div className="col-md-6">
-                          <div className="card">
-                            <h5 className="card-header">
-                              Mis suscripciones SmarterBOT.
-                            </h5>
-                            <div className="card-body">
-                              <p className="card-text">
-                                Revisa y administra aquí tus suscripciones
-                              </p>
-                              <a
-                                href="/dashboard/user/subscriptions"
-                                className="btn btn-primary"
-                              >
-                                Ver suscripciones
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="card">
-                            <h5 className="card-header">Mi Información</h5>
-                            <div className="card-body">
-                              <p className="card-text">
-                                Revisa aquí tus datos y actualiza tu plan.
-                              </p>
-                              <a
-                                href="/dashboard/user/account"
-                                className="btn btn-primary"
-                              >
-                                Mi Cuenta
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </Fragment>
-                    ) : (
-                      ''
-                    )}
-                  </Fragment>
-                ) : (
-                  ''
-                )}
-                {props.userType == 'admin' ? (
-                  <Fragment>
-                    <div className="col-md-12 mb-5">
-                      <div className="row justify-content-center">
-                        <div className="col-md-4 text-center">
-                          <h1>{totalUsers}</h1>
-                          <p>Usuarios Inscritos</p>
-                        </div>
-                        <div className="col-md-4 text-center">
-                          <h1>{paidUsers}</h1>
-                          <p>Usuarios con pago realizado</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-12 mb-5">
-                      <h4>Administra los precios de suscripción</h4>
-                    </div>
-                    <div className="col-md-6">
-                      <label>Precio</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <label>Precio Oferta</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={offerPrice}
-                        onChange={(e) => setOfferPrice(e.target.value)}
-                      />
-                    </div>
-                    <div className="col-md-12 mt-4">
-                      <label>Texto Oferta</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={discountText}
-                        onChange={(e) => setDiscountText(e.target.value)}
-                      />
-                    </div>
-                    <div className="col-md-4 mt-4"></div>
-                    <div className="col-md-4 mt-4"></div>
-                    <div className="col-md-4 mt-4">
-                      <button
-                        className="btn btn-primary w-100"
-                        disabled={saving}
-                        onClick={() => updateSettings()}
-                      >
-                        {saving ? 'Guardando...' : 'Guardar Opciones'}
-                      </button>
-                    </div>
-                  </Fragment>
-                ) : (
-                  ''
-                )}
-              </div>
-            </main>
-        </div>
-        <footer className="footer mt-auto py-4">
-          <div className="container-fluid">
-            <div className="row align-items-center">
-              <div className="col-sm-6">
-                <a className="footer-brand d-block" href="#">
-                  <img
-                    className="margin-top img-fluid "
-                    src="/images/logo-smarteros.jpg"
-                  />
-                </a>
-              </div>
-              <div className="col-sm-6">
-                <p className="d-block">SmarterBOT 2025 </p>
-              </div>
+            <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom">
+              <h2>Dashboard</h2>
+              <div className="btn-toolbar mb-2 mb-md-0"></div>
             </div>
-          </div>
-        </footer>
+            <div className="row mt-5 mb-5">
+              {props.userType == 'user' ? (
+                <Fragment>
+                  {(!isEmpty(userData) &&
+                    userData.expirationDate &&
+                    moment(userData.expirationDate.seconds ? moment.unix(userData.expirationDate.seconds) : userData.expirationDate)
+                      .diff(moment(), 'days') < 30) ||
+                    userData.paymentStatus == 'PENDING' ? (
+                    <div className="col-md-12 mb-5">
+                      <div className="alert alert-primary" role="alert">
+                        <div className="row align-items-center">
+                          <div className="col-md-10">
+                            {userData.paymentStatus != 'PENDING' ? (
+                              <p className="mb-0">
+                                Tu cuenta vence el{' '}
+                                {!isEmpty(userData) && userData.expirationDate
+                                  ? moment(userData.expirationDate.seconds ? moment.unix(userData.expirationDate.seconds) : userData.expirationDate)
+                                    .format('DD-MM-YYYY')
+                                  : ''}
+                                . Haz click en el siguiente botón para renovar
+                                tu suscripción.
+                              </p>
+                            ) : (
+                              <p className="mb-0">
+                                Actualiza tu cuenta al plan PRO y podrás
+                                disfrutar de todos sus beneficios
+                              </p>
+                            )}
+                          </div>
+                          <div className="col-md-2">
+                            <a
+                              href={`/pay/${userId}`}
+                              className="btn btn-primary w-100 dashboard-payment-button"
+                            >
+                              Actualízate a PRO
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    ''
+                  )}
+                  {!isEmpty(userData) &&
+                    userData.paymentStatus != 'PENDING' ? (
+                    <Fragment>
+                      <div className="col-md-6">
+                        <div className="card">
+                          <h5 className="card-header">
+                            Mis suscripciones SmarterBOT.
+                          </h5>
+                          <div className="card-body">
+                            <p className="card-text">
+                              Revisa y administra aquí tus suscripciones
+                            </p>
+                            <a
+                              href="/dashboard/user/subscriptions"
+                              className="btn btn-primary"
+                            >
+                              Ver suscripciones
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="card">
+                          <h5 className="card-header">Mi Información</h5>
+                          <div className="card-body">
+                            <p className="card-text">
+                              Revisa aquí tus datos y actualiza tu plan.
+                            </p>
+                            <a
+                              href="/dashboard/user/account"
+                              className="btn btn-primary"
+                            >
+                              Mi Cuenta
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </Fragment>
+                  ) : (
+                    ''
+                  )}
+                </Fragment>
+              ) : (
+                ''
+              )}
+              {props.userType == 'admin' ? (
+                <Fragment>
+                  <div className="col-md-12 mb-5">
+                    <div className="row justify-content-center">
+                      <div className="col-md-4 text-center">
+                        <h1>{totalUsers}</h1>
+                        <p>Usuarios Inscritos</p>
+                      </div>
+                      <div className="col-md-4 text-center">
+                        <h1>{paidUsers}</h1>
+                        <p>Usuarios con pago realizado</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-12 mb-5">
+                    <h4>Administra los precios de suscripción</h4>
+                  </div>
+                  <div className="col-md-6">
+                    <label>Precio</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <label>Precio Oferta</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={offerPrice}
+                      onChange={(e) => setOfferPrice(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12 mt-4">
+                    <label>Texto Oferta</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={discountText}
+                      onChange={(e) => setDiscountText(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-4 mt-4"></div>
+                  <div className="col-md-4 mt-4"></div>
+                  <div className="col-md-4 mt-4">
+                    <button
+                      className="btn btn-primary w-100"
+                      disabled={saving}
+                      onClick={() => updateSettings()}
+                    >
+                      {saving ? 'Guardando...' : 'Guardar Opciones'}
+                    </button>
+                  </div>
+                </Fragment>
+              ) : (
+                ''
+              )}
+            </div>
+          </main>
+        </div>
+        <Footer />
       </div>
     </Fragment>
   );
