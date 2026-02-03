@@ -560,7 +560,7 @@ export default function Home() {
                                   <table>
                                       <tbody><tr>
                                       <td>
-                                        <img src="https://rut.smarterbot.store/images/holder.svg" width="100%" style="border-radius: 10px;">
+                                        <img src="https://rut.smarterbot.store/images/logo-smarteros.jpg" width="100%" style="border-radius: 10px;">
                                       </td>
                                     </tr>
                                   </tbody></table>
@@ -655,7 +655,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -665,19 +665,19 @@ export default function Home() {
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />

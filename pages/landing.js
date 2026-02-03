@@ -25,7 +25,7 @@ function Index(props) {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -33,7 +33,7 @@ function Index(props) {
         <meta property="og:site_name" content="SmarterBOT" />
       </Head>
       <div className="splash-wrapper">
-        <img src="/images/SmarterBotV2.svg" width="320" />
+        <img src="/images/logo-smarteros.jpg" width="320" />
       </div>
     </Fragment>
   );

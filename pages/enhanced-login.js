@@ -1,9 +1,11 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
 import { authService } from '../services/enhancedAuth';
 
 function EnhancedLogin(props) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,6 +22,7 @@ function EnhancedLogin(props) {
     }
 
     let result;
+    const { redirectTo } = router.query;
 
     if (loginMethod === 'password') {
       // Login tradicional con email/contraseña
@@ -32,7 +35,7 @@ function EnhancedLogin(props) {
     if (result.success) {
       if (result.data && result.data.redirectUrl) {
         // Redirigir al usuario después del login exitoso
-        window.location.href = result.data.redirectUrl;
+        window.location.href = redirectTo || result.data.redirectUrl;
       } else {
         // Para login con enlace mágico, mostrar mensaje de confirmación
         alert(result.data?.message || '¡Enlace mágico enviado! Revisa tu email para iniciar sesión.');
@@ -46,15 +49,16 @@ function EnhancedLogin(props) {
 
   const signInWithGoogle = async () => {
     setLoading(true);
-    
+
+    const { redirectTo } = router.query;
     // Iniciar sesión con Google usando OAuth
-    const { error, data } = await authService.signInWithOAuth('google');
+    const { error, data } = await authService.signInWithOAuth('google', redirectTo);
 
     if (error) {
       alert('Error al iniciar sesión con Google: ' + error);
     }
     // La autenticación OAuth redirigirá al usuario, por lo que no necesitamos manejar el resultado aquí
-    
+
     setLoading(false);
   };
 
@@ -67,7 +71,7 @@ function EnhancedLogin(props) {
   return (
     <Fragment>
       <Head>
-        <title>SmarterBOT - Login Mejorado</title>
+        <title>SmarterBOT - Iniciar sesión</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
@@ -87,7 +91,7 @@ function EnhancedLogin(props) {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -97,19 +101,19 @@ function EnhancedLogin(props) {
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -151,7 +155,7 @@ function EnhancedLogin(props) {
           <a className="d-block text-center" href="/">
             <img
               className="margin-top img-fluid"
-              src="/images/SmarterBotV2.svg"
+              src="/images/logo-smarteros.jpg"
               width={220}
             />
           </a>
@@ -167,7 +171,7 @@ function EnhancedLogin(props) {
                   <div className="row">
                     <h3 className="mb-4">Ingresa a tu cuenta</h3>
                   </div>
-                  
+
                   {/* Selector de método de login */}
                   <div className="form-group mb-3">
                     <label>Método de autenticación:</label>
@@ -202,7 +206,7 @@ function EnhancedLogin(props) {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="form-floating mb-3">
                     <input
                       type="email"
@@ -214,7 +218,7 @@ function EnhancedLogin(props) {
                     />
                     <label>Correo Electrónico</label>
                   </div>
-                  
+
                   {loginMethod === 'password' && (
                     <div className="form-floating mb-3">
                       <input
@@ -228,7 +232,7 @@ function EnhancedLogin(props) {
                       <label>Contraseña</label>
                     </div>
                   )}
-                  
+
                   {loginMethod === 'password' && (
                     <div className="form-check mb-3">
                       <input
@@ -242,20 +246,20 @@ function EnhancedLogin(props) {
                       </label>
                     </div>
                   )}
-                  
+
                   <div className="text-center">
                     <a
                       className="btn btn-primary btn-lg d-block mt-2"
                       disabled={loading}
                       onClick={() => doLogin()}
                     >
-                      {loading 
-                        ? 'Procesando...' 
-                        : loginMethod === 'password' 
-                          ? 'Ingresar' 
+                      {loading
+                        ? 'Procesando...'
+                        : loginMethod === 'password'
+                          ? 'Ingresar'
                           : 'Enviar enlace mágico'}
                     </a>
-                    
+
                     <div className="mt-3">
                       <button
                         className="btn btn-outline-dark btn-lg d-block w-100"
@@ -266,7 +270,7 @@ function EnhancedLogin(props) {
                       </button>
                     </div>
                   </div>
-                  
+
                   {loginMethod === 'password' && (
                     <div className="text-center mt-4 mb-0">
                       <a
@@ -277,7 +281,7 @@ function EnhancedLogin(props) {
                       </a>
                     </div>
                   )}
-                  
+
                   {loginMethod === 'magic-link' && (
                     <div className="text-center mt-3">
                       <small className="text-muted">

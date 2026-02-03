@@ -13,8 +13,9 @@ const Header = ({ showAuthButtons = true }) => {
           <Link className="navbar-brand" href="/">
             <img
               className="margin-top img-fluid"
-              src="/images/SmarterBotV2.svg"
+              src="/images/logo-smarteros.jpg"
               width={220}
+              alt="SmarterOS Logo"
             />
           </Link>
           <button

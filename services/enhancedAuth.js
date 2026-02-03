@@ -6,12 +6,12 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 export const supabase = (supabaseUrl && supabaseAnonKey)
-    ? createClient(supabaseUrl, supabaseAnonKey)
-    : (console.warn('Supabase URL or Anon Key missing'), null);
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : (console.warn('Supabase URL or Anon Key missing'), null);
 
 export const supabaseService = (supabaseUrl && supabaseServiceKey)
-    ? createClient(supabaseUrl, supabaseServiceKey)
-    : (console.warn('Supabase URL or Service Key missing'), null);
+  ? createClient(supabaseUrl, supabaseServiceKey)
+  : (console.warn('Supabase URL or Service Key missing'), null);
 
 // Servicio de autenticación mejorado combinando funcionalidades de ambos proyectos
 class EnhancedAuthService extends SharedAuthService {
@@ -59,12 +59,13 @@ class EnhancedAuthService extends SharedAuthService {
   }
 
   // Método de login con OAuth
-  async signInWithOAuth(provider) {
+  async signInWithOAuth(provider, redirectUrl = null) {
     try {
+      const finalRedirectUrl = redirectUrl || `${window.location.origin}/dashboard`;
       const { data, error } = await this.supabase.auth.signInWithOAuth({
         provider: provider,
         options: {
-          redirectTo: `${window.location.origin}/dashboard` // Redirigir de vuelta al dashboard después de la autenticación
+          redirectTo: finalRedirectUrl
         }
       });
 

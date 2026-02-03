@@ -31,7 +31,7 @@ function Success(props) {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -41,19 +41,19 @@ function Success(props) {
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -98,7 +98,7 @@ function Success(props) {
           <a className="d-block text-center" href="/">
             <img
               className="margin-top img-fluid"
-              src="/images/SmarterBotV2.svg"
+              src="/images/logo-smarteros.jpg"
               width={220}
             />
           </a>

@@ -17,7 +17,7 @@ export default function QuienesSomos() {
               <Link className="navbar-brand" href="/">
                 <img
                   className="margin-top img-fluid"
-                  src="/images/SmarterBotV2.svg"
+                  src="/images/logo-smarteros.jpg"
                   width={220}
                 />
               </Link>
@@ -47,7 +47,7 @@ export default function QuienesSomos() {
               <div className="col-12 col-sm-12 col-lg-12 col-xl-6 mx-auto text-center">
                 <img
                   className="align-middle img-fluid rounded img-home-two"
-                  src="/images/holder.svg"
+                  src="/images/logo-smarteros.jpg"
                   width="460"
                 />
               </div>

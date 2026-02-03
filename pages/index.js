@@ -71,7 +71,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -81,19 +81,19 @@ export default function Home() {
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -167,7 +167,7 @@ export default function Home() {
                 <p className="mt-4">
                   <img
                     className="margin-top img-fluid mt-4"
-                    src="/images/holder.svg"
+                    src="/images/logo-smarteros.jpg"
                     width="640"
                     title="Sistema operativo comercial"
                   />
@@ -176,7 +176,7 @@ export default function Home() {
               <div className="col-12 col-sm-12 col-lg-12 col-xl-5 mx-auto text-center img-home-container">
                 <img
                   className="align-middle img-fluid rounded img-home"
-                  src="/images/holder.svg"
+                  src="/images/logo-smarteros.jpg"
                   width="460"
                 />
               </div>
@@ -289,7 +289,7 @@ export default function Home() {
               <div className="col-12 col-sm-12 col-lg-12 col-xl-6 mx-auto text-center">
                 <img
                   className="align-middle img-fluid rounded img-home-two"
-                  src="/images/holder.svg"
+                  src="/images/logo-smarteros.jpg"
                   width="460"
                 />
               </div>
@@ -695,7 +695,7 @@ export default function Home() {
                 <a className="footer-brand d-block" href="#">
                   <img
                     className="margin-top img-fluid "
-                    src="/images/SmarterBot-white.svg"
+                    src="/images/logo-smarteros.jpg"
                   />
                 </a>
                 <p className="d-block mt-4">

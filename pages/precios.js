@@ -17,7 +17,7 @@ export default function Prices() {
               <Link className="navbar-brand" href="/">
                 <img
                   className="margin-top img-fluid"
-                  src="/images/SmarterBotV2.svg"
+                  src="/images/logo-smarteros.jpg"
                   width={220}
                 />
               </Link>

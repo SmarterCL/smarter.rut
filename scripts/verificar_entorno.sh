@@ -20,8 +20,8 @@ else
     echo -e "${GREEN}✅ Node.js $NODE_VERSION está instalado${NC}"
 
     # Verificar versión de Node.js
-    if [[ $(node -v | sed 's/v//') =~ ^([0-9]+)\. ]] && [ ${BASH_REMATCH[1]} -lt 18 ]; then
-        echo -e "${YELLOW}⚠️  Versión de Node.js recomendada es 18 o superior${NC}"
+    if [[ $(node -v | sed 's/v//') =~ ^([0-9]+)\. ]] && [ ${BASH_REMATCH[1]} -lt 22 ]; then
+        echo -e "${YELLOW}⚠️  Versión de Node.js recomendada es 22 o superior${NC}"
     fi
 fi
 

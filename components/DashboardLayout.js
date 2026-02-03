@@ -58,9 +58,9 @@ const DashboardLayout = ({ children, currentView }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="SmarterBOT - Dashboard" />
-        <link rel="icon" type="image/png" href="/images/holder.svg" sizes="16x16"></link>
-        <link rel="icon" type="image/png" href="/images/holder.svg" sizes="32x32"></link>
-        <link rel="icon" type="image/png" href="/images/holder.svg" sizes="96x96"></link>
+        <link rel="icon" type="image/png" href="/images/logo-smarteros.jpg" sizes="16x16"></link>
+        <link rel="icon" type="image/png" href="/images/logo-smarteros.jpg" sizes="32x32"></link>
+        <link rel="icon" type="image/png" href="/images/logo-smarteros.jpg" sizes="96x96"></link>
       </Head>
 
       <Script
@@ -82,7 +82,7 @@ const DashboardLayout = ({ children, currentView }) => {
           <div className="row align-items-center">
             <div className="col-md-6">
               <a href="/" className="logo-link">
-                <img src="/images/SmarterBotV2.svg" width="220" alt="SmarterBOT" />
+                <img src="/images/logo-smarteros.jpg" width="220" alt="SmarterBOT" />
               </a>
             </div>
             <div className="col-md-4">

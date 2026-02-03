@@ -1,12 +1,12 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
 import Header from '../components/Header';
 import { supabase } from '../services/supabaseClient';
 
-
-
 function Login(props) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [check, setCheck] = useState(false);
@@ -61,7 +61,13 @@ function Login(props) {
         '__sbot__ud',
         JSON.stringify(Object.assign(userData, { password: '' }))
       );
-      window.location.href = `/dashboard/${userData.type}`;
+
+      const { redirectTo } = router.query;
+      if (redirectTo) {
+        window.location.href = redirectTo;
+      } else {
+        window.location.href = `/dashboard/${userData.type}`;
+      }
     } else {
       alert('Error: No se encontraron datos de cuenta');
       setLoading(false);
@@ -97,7 +103,7 @@ function Login(props) {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -107,19 +113,19 @@ function Login(props) {
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -140,22 +146,22 @@ function Login(props) {
         />
       </Head>
       <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+        src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-MRN2ZCR8ZP');
         `}
-        </Script>{' '}
-        <Script
-          src="https://www.googletagmanager.com/gtm.js?id=GTM-WS4L7S5"
-          strategy="afterInteractive"
-        />
+      </Script>{' '}
+      <Script
+        src="https://www.googletagmanager.com/gtm.js?id=GTM-WS4L7S5"
+        strategy="afterInteractive"
+      />
       <Header showAuthButtons={false} />
       <div className={`${"mont"} section-shop pt-5 pb-0`}>
         <div className="container">

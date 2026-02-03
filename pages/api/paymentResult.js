@@ -395,7 +395,7 @@ export default async function handler(request, response) {
                                   <table>
                                       <tbody><tr>
                                       <td>
-                                        <img src="https://rut.smarterbot.store/images/holder.svg" width="100%" style="border-radius: 10px;">
+                                        <img src="https://rut.smarterbot.store/images/logo-smarteros.jpg" width="100%" style="border-radius: 10px;">
                                       </td>
                                     </tr>
                                   </tbody></table>

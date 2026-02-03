@@ -95,7 +95,7 @@ function Dashboard(props) {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -105,19 +105,19 @@ function Dashboard(props) {
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -162,7 +162,7 @@ function Dashboard(props) {
               <a className="navbar-brand" href={`/dashboard/${props.userType}`}>
                 <img
                   className="margin-top img-fluid"
-                  src="/images/SmarterBotV2.svg"
+                  src="/images/logo-smarteros.jpg"
                   width={220}
                 />
               </a>
@@ -287,7 +287,7 @@ function Dashboard(props) {
                 <a className="footer-brand d-block" href="#">
                   <img
                     className="margin-top img-fluid "
-                    src="/images/SmarterBot-white.svg"
+                    src="/images/logo-smarteros.jpg"
                   />
                 </a>
               </div>

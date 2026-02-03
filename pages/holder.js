@@ -140,7 +140,7 @@ export default function Holder() {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/holder.svg"
+          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -150,19 +150,19 @@ export default function Holder() {
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/holder.svg"
+          href="/images/logo-smarteros.jpg"
           sizes="96x96"
         ></link>
         <link rel="apple-touch-icon" href="images/touch-icon-iphone.png" />
@@ -238,7 +238,7 @@ export default function Holder() {
               <div className="col-12 col-sm-12 col-lg-12 col-xl-5 mx-auto text-center img-home-container">
                 <img
                   className="align-middle img-fluid rounded img-home"
-                  src="/images/holder.svg"
+                  src="/images/logo-smarteros.jpg"
                   width="460"
                 />
               </div>
@@ -255,7 +255,7 @@ export default function Holder() {
                 <div key={option.id} className="col-lg-4 col-md-6 mb-4">
                   <div className={`card h-100 ${selectedOptions.includes(option.id) ? 'border-primary border-2' : ''}`}>
                     <img 
-                      src={option.image || "/images/holder.svg"} 
+                      src={option.image || "/images/logo-smarteros.jpg"} 
                       className="card-img-top" 
                       alt={option.title}
                       style={{height: '200px', objectFit: 'cover'}}
@@ -336,7 +336,7 @@ export default function Holder() {
                 <a className="footer-brand d-block" href="#">
                   <img
                     className="margin-top img-fluid "
-                    src="/images/SmarterBot-white.svg"
+                    src="/images/logo-smarteros.jpg"
                   />
                 </a>
                 <p className="d-block mt-4">
