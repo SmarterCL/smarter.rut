@@ -352,9 +352,7 @@ export default function Home() {
                 <h1 className="display-1">
                   <span className="color">Smarter OS</span>
                 </h1>
-                <h2 className="display-3 mt-3">
-                  Sistema Operativo Comercial B2B
-                </h2>
+
                 <p className="large mt-3 text-center">
                   La inteligencia de negocios ahora es ejecutable.
                   Smarter OS ordena ingresos, prepara contabilidad y ejecuta reglas de negocio desde WhatsApp.
@@ -556,7 +554,6 @@ export default function Home() {
                     <thead>
                       <tr>
                         <th>Dimensión clave</th>
-                        <th>Odoo clásico (v13–v16)</th>
                         <th>Odoo v17–v18</th>
                         <th>Odoo v19 + IA (SmarterOS)</th>
                       </tr>
@@ -564,109 +561,91 @@ export default function Home() {
                     <tbody>
                       <tr>
                         <td><strong>Rol del ERP</strong></td>
-                        <td>Registro transaccional</td>
                         <td>Gestión optimizada</td>
                         <td>Sistema operativo comercial</td>
                       </tr>
                       <tr>
                         <td><strong>Toma de decisiones</strong></td>
-                        <td>Manual, humana</td>
                         <td>Semi-asistida</td>
                         <td>Automática por reglas</td>
                       </tr>
                       <tr>
                         <td><strong>Dependencia del CEO / gerente</strong></td>
-                        <td>Alta</td>
                         <td>Media</td>
                         <td>Baja</td>
                       </tr>
                       <tr>
                         <td><strong>Dependencia de presupuesto</strong></td>
-                        <td>Alta (consultoría, horas)</td>
                         <td>Media</td>
                         <td>Baja (aprendizaje continuo)</td>
                       </tr>
                       <tr>
                         <td><strong>Manejo de indecisión</strong></td>
-                        <td>No resuelto</td>
                         <td>Alertas y reportes</td>
                         <td>Ejecución automática</td>
                       </tr>
                       <tr>
                         <td><strong>Acumulación de tareas</strong></td>
-                        <td>Crece con el negocio</td>
                         <td>Se ordena parcialmente</td>
                         <td>Se elimina estructuralmente</td>
                       </tr>
                       <tr>
                         <td><strong>Uso de IA</strong></td>
-                        <td>No nativo</td>
                         <td>Funciones aisladas</td>
                         <td>Capa central de orquestación</td>
                       </tr>
                       <tr>
                         <td><strong>IA decide o ejecuta</strong></td>
-                        <td>No</td>
                         <td>Sugiere</td>
                         <td>Ejecuta reglas</td>
                       </tr>
                       <tr>
                         <td><strong>Criterios comerciales</strong></td>
-                        <td>Implícitos / humanos</td>
                         <td>Configurados</td>
                         <td>Codificados y versionados</td>
                       </tr>
                       <tr>
                         <td><strong>Mejora continua</strong></td>
-                        <td>Por reuniones</td>
                         <td>Por análisis</td>
                         <td>Por eventos reales</td>
                       </tr>
                       <tr>
                         <td><strong>Automatización</strong></td>
-                        <td>Flujos rígidos</td>
                         <td>Workflows mejorados</td>
                         <td>Automatización adaptativa</td>
                       </tr>
                       <tr>
                         <td><strong>Contexto de decisiones</strong></td>
-                        <td>Histórico</td>
                         <td>Histórico + dashboards</td>
                         <td>Contexto vivo multicanal</td>
                       </tr>
                       <tr>
                         <td><strong>Canales operativos</strong></td>
-                        <td>Backend ERP</td>
                         <td>Backend + web</td>
                         <td>ERP + WhatsApp + eventos</td>
                       </tr>
                       <tr>
                         <td><strong>Entrada de información</strong></td>
                         <td>Formularios</td>
-                        <td>Formularios</td>
                         <td>OCR, mensajes, audios</td>
                       </tr>
                       <tr>
                         <td><strong>Relación con contabilidad</strong></td>
-                        <td>Registro posterior</td>
                         <td>Conciliación asistida</td>
                         <td>Validación en tiempo real</td>
                       </tr>
                       <tr>
                         <td><strong>Gobernanza B2B</strong></td>
-                        <td>Externa al ERP</td>
                         <td>Parcial</td>
                         <td>Nativa y ejecutable</td>
                       </tr>
                       <tr>
                         <td><strong>Escalabilidad operativa</strong></td>
-                        <td>Personas</td>
                         <td>Personas + sistema</td>
                         <td>Sistema primero</td>
                       </tr>
                       <tr>
                         <td><strong>Velocidad de ejecución</strong></td>
-                        <td>Lenta</td>
                         <td>Media</td>
                         <td>Inmediata</td>
                       </tr>

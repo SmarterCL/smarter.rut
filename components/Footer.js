@@ -5,16 +5,8 @@ const Footer = () => {
         <footer className="footer mt-auto py-5">
             <div className="container">
                 <div className="row align-items-center">
-                    <div className="col-lg-5 mb-4 mb-lg-0">
-                        <Link href="/" className="d-block mb-3 text-decoration-none">
-                            <img
-                                src="/images/logo-smarteros.jpg"
-                                alt="SmarterBOT Logo"
-                                className="img-fluid"
-                                style={{ maxWidth: '180px', borderRadius: '12px' }}
-                            />
-                        </Link>
-                        <p className="small mb-3" style={{ opacity: 0.8, maxWidth: '400px', lineHeight: '1.6' }}>
+                    <div className="col-lg-3 mb-4 mb-lg-0">
+                        <p className="small mb-3" style={{ opacity: 0.8, lineHeight: '1.6' }}>
                             Plataforma de automatización y ERP basada en Odoo, n8n, Chatwoot, Supabase y Ollama.
                             <br />
                             Chile · proyectos remotos y presenciales.
@@ -27,7 +19,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div className="col-lg-3 col-md-4 mb-4 mb-md-0">
                         <h5 className="mb-3 text-white">Nosotros</h5>
                         <ul className="list-unstyled">
                             <li className="mb-2">
@@ -42,7 +34,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div className="col-lg-3 col-md-4 mb-4 mb-md-0">
                         <h5 className="mb-3 text-white">Legal</h5>
                         <ul className="list-unstyled">
                             <li className="mb-2">
