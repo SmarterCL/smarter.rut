@@ -77,8 +77,8 @@ function Sidebar(props) {
             </a>
           </li>
         )}
-        <li className="nav-item mt-4 pt-4 border-top border-secondary">
-          <a className="nav-link text-danger" href="/auth/logout">
+        <li className="nav-item mt-auto pt-4 border-top border-secondary">
+          <a className="nav-link logout-link opacity-75" href="/auth/logout">
             <MdLogout size={20} />
             <span>Cerrar Sesión</span>
           </a>
