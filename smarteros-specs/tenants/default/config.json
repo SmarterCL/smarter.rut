@@ -1,0 +1,17 @@
+{
+    "validation_rules": {
+        "email_validation": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+        "phone_validation": "^\\+?[1-9]\\d{1,14}$",
+        "max_message_length": 1000,
+        "max_amount_per_payment": 1000000,
+        "rate_limit_per_ip": {
+            "requests": 100,
+            "window": "1m"
+        }
+    },
+    "tenant_rules": {
+        "data_isolation": "Los datos de cada tenant están completamente aislados",
+        "cross_tenant_access": "Prohibido excepto con rol admin",
+        "resource_prefix": "tenant://{tenant_id}/"
+    }
+}

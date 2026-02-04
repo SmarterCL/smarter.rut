@@ -1,0 +1,26 @@
+{
+    "customer://profile/{customer_id}": {
+        "description": "Perfil completo del cliente",
+        "content_type": "application/json"
+    },
+    "customer://conversations/{customer_id}": {
+        "description": "Historial de conversaciones del cliente",
+        "content_type": "application/json"
+    },
+    "customer://payments/{customer_id}": {
+        "description": "Historial de pagos del cliente",
+        "content_type": "application/json"
+    },
+    "system://health": {
+        "description": "Estado general del sistema",
+        "content_type": "application/json"
+    },
+    "system://metrics": {
+        "description": "Métricas de uso del CRM",
+        "content_type": "application/json"
+    },
+    "tenant://config/{tenant_id}": {
+        "description": "Configuración específica del tenant",
+        "content_type": "application/json"
+    }
+}

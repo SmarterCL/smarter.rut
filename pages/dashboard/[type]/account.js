@@ -225,7 +225,7 @@ function Account(props) {
           href="/images/logo-smarteros.jpg"
         />
       </Head>
-      <div className={`${"mont"} d-flex flex-column h-100`}>
+      <div className={`${"mont"} d-flex flex-column h-100 visual-grid`}>
         {' '}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MRN2ZCR8ZP"
@@ -244,47 +244,16 @@ function Account(props) {
           src="https://www.googletagmanager.com/gtm.js?id=GTM-WS4L7S5"
           strategy="afterInteractive"
         />
-        <header>
-          <nav className="navbar navbar-expand-md fixed-top">
-            <div className="container-fluid">
-              <a className="navbar-brand" href={`/dashboard/${props.userType}`}>
-                <img
-                  className="margin-top img-fluid"
-                  src="/images/logo-smarteros.jpg"
-                  width={220}
-                />
-              </a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                onClick={() => setDisplayMoblieBar(!displayMobileBar)}
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div
-                className={`dash-nav collapse navbar-collapse ${displayMobileBar ? 'show' : ''
-                  }`}
-                id="navbarCollapse"
-              >
-                <DashNav userType={props.userType}></DashNav>
-              </div>
-            </div>
-          </nav>
-        </header>
-        <div className={`mont container-fluid dashboard`}>
-          <div className="row">
-            <Sidebar userType={props.userType} />
-            <main
-              role="main"
-              className="col-md-10 ml-sm-auto col-lg-9 pt-5 pb-5 px-5"
-            >
-              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom">
-                <h2>Mi cuenta</h2>
+        <div className="dashboard-layout">
+          <Sidebar userType={props.userType} />
+          <main
+            role="main"
+            className="dashboard-main-content p-0"
+          >
+            <DashNav userType={props.userType} />
+            <div className="container-fluid dashboard-container px-4 py-5">
+              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-4 border-bottom">
+                <h2 className="fw-bold">Mi cuenta</h2>
               </div>
 
               <div className="row mt-5 mb-5 align-items-center justify-content-center">
@@ -462,8 +431,8 @@ function Account(props) {
                   </div>
                 </div>
               </div>
-            </main>
-          </div>
+            </div>
+          </main>
         </div>
         <Footer />
       </div>

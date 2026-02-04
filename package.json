@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
-    "@supabase/supabase-js": "^2.89.0",
     "@popperjs/core": "^2.11.6",
+    "@supabase/supabase-js": "^2.89.0",
     "bcrypt": "5.1.0",
     "bcryptjs-react": "2.4.6",
     "bluebird": "3.7.2",
@@ -41,7 +41,8 @@
     "react-dom": "18.2.0",
     "react-icons": "4.7.1",
     "react-spinners": "0.13.8",
-    "uuid": "9.0.0"
+    "uuid": "9.0.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "typescript": "^4.9.5"

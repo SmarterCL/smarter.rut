@@ -7,8 +7,6 @@ import Footer from '../components/Footer';
 import { Fragment, useEffect, useState } from 'react';
 import { supabase } from '../services/supabaseClient';
 
-
-
 export default function Home() {
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(0);
@@ -138,29 +136,32 @@ export default function Home() {
           <div className="container">
             <div className="row align-items-center justify-content-center text-center">
               <div className="col-12 z-index">
-                <h1 className="display-1">
+                <h1 className="display-1 fw-extrabold mb-4" style={{ letterSpacing: '-3px' }}>
                   Hola, soy <span className="color">Smarter OS</span>.
                 </h1>
-                <h2 className="display-4 mt-3">
+                <h2 className="display-5 mt-2 fw-normal opacity-75">
                   ¿Cómo te ayudo hoy?
                 </h2>
                 <div className="mt-5 mb-5 d-flex justify-content-center gap-3 flex-wrap">
                   <a
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg px-5 shadow-lg"
                     href="https://odoo.smarterbot.store"
                     target="_blank"
+                    style={{ background: 'var(--primary)', border: 'none' }}
                   >
                     Ver demostración
                   </a>
                   <a
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-dark btn-lg px-5 shadow-lg"
                     href="/login"
+                    style={{ background: 'var(--bg-dark)', border: 'none' }}
                   >
                     Entrar al sistema
                   </a>
                   <a
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-warning btn-lg px-5 shadow-lg"
                     href="/subscribe"
+                    style={{ background: 'var(--accent)', color: 'white', border: 'none' }}
                   >
                     Crear cuenta
                   </a>
@@ -191,8 +192,8 @@ export default function Home() {
             <h1 className="display-1 text-center mb-4">
               Elige tu <span className="color">Plan</span>
             </h1>
-            <div className="row justify-content-center">
-              <div className="bg-light rounded plans col-sm-12 col-lg-6 col-xl-4 py-4">
+            <div className="row justify-content-center g-5 mt-4">
+              <div className="plans col-sm-12 col-lg-6 col-xl-4 py-5 px-4">
                 <h2 className="mb-3 text-center">
                   <span className="color large">DEMO</span>
                 </h2>
@@ -222,6 +223,14 @@ export default function Home() {
                       <th scope="row">Beneficios Smarter</th>
                       <td>No</td>
                     </tr>
+                    <tr>
+                      <th scope="row">N8N</th>
+                      <td>Si</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Fast API</th>
+                      <td>No</td>
+                    </tr>
                   </tbody>
                 </table>
                 <div className="d-grid">
@@ -234,7 +243,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-light rounded plans col-sm-12 col-lg-6 col-xl-4 py-4">
+              <div className="plans col-sm-12 col-lg-6 col-xl-4 py-5 px-4">
                 <h2 className="mb-3 text-center">
                   <span className="color large">Enterprise</span>
                 </h2>
@@ -328,16 +337,17 @@ export default function Home() {
           <div className="container">
             <div className="row align-content-start align-items-center">
               <div className="col-12 col-sm-12 col-md-8 mx-auto text-center">
-                <h1 className="mb-5">
+                <h2 className="display-6 fw-bold mb-4">
                   Conoce <span className="color">SmarterBOT</span>
-                </h1>
+                </h2>
                 <div className="justify-content-center">
-                  <div className="video-home rounded">
+                  <div className="video-home shadow-2xl">
                     <div className="embed-container">
                       <iframe
-                        src="https://www.youtube.com/embed//njrhms-83qc"
+                        src="https://www.youtube.com/embed/njrhms-83qc"
                         frameBorder="0"
-                        allowFullScreen=""
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
                       ></iframe>
                     </div>
                   </div>
@@ -351,210 +361,198 @@ export default function Home() {
           <div className="container">
             <div className="row">
               <div className="col-12 text-center">
-                <h1 className="display-1">
-                  <span className="color">Smarter OS</span>
-                </h1>
-
-                <p className="large mt-3 text-center">
-                  La inteligencia de negocios ahora es ejecutable.
-                  Smarter OS ordena ingresos, prepara contabilidad y ejecuta reglas de negocio desde WhatsApp.
-                </p>
-                <p className="display-6 mt-4">
-                  <span className="color">Sin planillas.</span>
-                  <span className="color"> Sin miedo.</span>
-                  <span className="color"> Sin confusión.</span>
-                </p>
-                <p className="large mt-4">
+                <h2 className="h4 fw-medium text-muted">
                   Basado en reglas abiertas (OpenSpec) y validado por contadores reales.
-                </p>
+                </h2>
               </div>
             </div>
-
-
-
-
-
-            <div className="row mt-5">
-              <div className="col-12">
-                <h3 className="text-center mb-4">Comparación: Evolución del ERP al Sistema Operativo Comercial</h3>
-                <div className="table-responsive">
-                  <table className="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Dimensión clave</th>
-                        <th>Odoo v17–v18</th>
-                        <th>Odoo v19 + IA (SmarterOS)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><strong>Rol del ERP</strong></td>
-                        <td>Gestión optimizada</td>
-                        <td>Sistema operativo comercial</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Toma de decisiones</strong></td>
-                        <td>Semi-asistida</td>
-                        <td>Automática por reglas</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Dependencia del CEO / gerente</strong></td>
-                        <td>Media</td>
-                        <td>Baja</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Dependencia de presupuesto</strong></td>
-                        <td>Media</td>
-                        <td>Baja (aprendizaje continuo)</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Manejo de indecisión</strong></td>
-                        <td>Alertas y reportes</td>
-                        <td>Ejecución automática</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Acumulación de tareas</strong></td>
-                        <td>Se ordena parcialmente</td>
-                        <td>Se elimina estructuralmente</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Uso de IA</strong></td>
-                        <td>Funciones aisladas</td>
-                        <td>Capa central de orquestación</td>
-                      </tr>
-                      <tr>
-                        <td><strong>IA decide o ejecuta</strong></td>
-                        <td>Sugiere</td>
-                        <td>Ejecuta reglas</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Criterios comerciales</strong></td>
-                        <td>Configurados</td>
-                        <td>Codificados y versionados</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Mejora continua</strong></td>
-                        <td>Por análisis</td>
-                        <td>Por eventos reales</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Automatización</strong></td>
-                        <td>Workflows mejorados</td>
-                        <td>Automatización adaptativa</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Contexto de decisiones</strong></td>
-                        <td>Histórico + dashboards</td>
-                        <td>Contexto vivo multicanal</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Canales operativos</strong></td>
-                        <td>Backend + web</td>
-                        <td>ERP + WhatsApp + eventos</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Entrada de información</strong></td>
-                        <td>Formularios</td>
-                        <td>OCR, mensajes, audios</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Relación con contabilidad</strong></td>
-                        <td>Conciliación asistida</td>
-                        <td>Validación en tiempo real</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Gobernanza B2B</strong></td>
-                        <td>Parcial</td>
-                        <td>Nativa y ejecutable</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Escalabilidad operativa</strong></td>
-                        <td>Personas + sistema</td>
-                        <td>Sistema primero</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Velocidad de ejecución</strong></td>
-                        <td>Media</td>
-                        <td>Inmediata</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-
           </div>
         </div>
 
-        <Footer />
-      </div>
-      {showModal ? (
-        <div
-          id="modal-valores"
-          className="modal fade show mont"
-          aria-modal="true"
-          role="dialog"
-          style={{ display: 'block' }}
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  onClick={() => setShowModal(false)}
-                ></button>
+        <div className="container">
+          <div className="row mt-5">
+            <div className="col-12">
+              <h3 className="text-center mb-4">Comparación: Evolución del ERP al Sistema Operativo Comercial</h3>
+              <div className="table-responsive">
+                <table className="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Dimensión clave</th>
+                      <th>Odoo v17–v18</th>
+                      <th>Odoo v19 + IA (SmarterOS)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Rol del ERP</strong></td>
+                      <td>Gestión optimizada</td>
+                      <td>Sistema operativo comercial</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Toma de decisiones</strong></td>
+                      <td>Semi-asistida</td>
+                      <td>Automática por reglas</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Dependencia del CEO / gerente</strong></td>
+                      <td>Media</td>
+                      <td>Baja</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Dependencia de presupuesto</strong></td>
+                      <td>Media</td>
+                      <td>Baja (aprendizaje continuo)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Manejo de indecisión</strong></td>
+                      <td>Alertas y reportes</td>
+                      <td>Ejecución automática</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Acumulación de tareas</strong></td>
+                      <td>Se ordena parcialmente</td>
+                      <td>Se elimina estructuralmente</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Uso de IA</strong></td>
+                      <td>Funciones aisladas</td>
+                      <td>Capa central de orquestación</td>
+                    </tr>
+                    <tr>
+                      <td><strong>IA decide o ejecuta</strong></td>
+                      <td>Sugiere</td>
+                      <td>Ejecuta reglas</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Criterios comerciales</strong></td>
+                      <td>Configurados</td>
+                      <td>Codificados y versionados</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Mejora continua</strong></td>
+                      <td>Por análisis</td>
+                      <td>Por eventos reales</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Automatización</strong></td>
+                      <td>Workflows mejorados</td>
+                      <td>Automatización adaptativa</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Contexto de decisiones</strong></td>
+                      <td>Histórico + dashboards</td>
+                      <td>Contexto vivo multicanal</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Canales operativos</strong></td>
+                      <td>Backend + web</td>
+                      <td>ERP + WhatsApp + eventos</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Entrada de información</strong></td>
+                      <td>Formularios</td>
+                      <td>OCR, mensajes, audios</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Relación con contabilidad</strong></td>
+                      <td>Conciliación asistida</td>
+                      <td>Validación en tiempo real</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Gobernanza B2B</strong></td>
+                      <td>Parcial</td>
+                      <td>Nativa y ejecutable</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Escalabilidad operativa</strong></td>
+                      <td>Personas + sistema</td>
+                      <td>Sistema primero</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Velocidad de ejecución</strong></td>
+                      <td>Media</td>
+                      <td>Inmediata</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className="modal-body">
-                <div className="row">
-                  <h5 className="text-uppercase text-center">Plan Pro</h5>
-                  <h2 className="mb-3 text-center">
-                    <span className="large">
-                      Valores por <span className="color">categorías</span>
-                    </span>
-                  </h2>
+            </div>
+          </div>
 
-                  <table className="table">
-                    <tbody>
-                      <tr>
-                        <th scope="row">Emprendedor</th>
-                        <td>1.0 UF / mes</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Pyme</th>
-                        <td>2.5 UF / mes</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Empresa</th>
-                        <td>5.0 UF / mes</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Holding</th>
-                        <td>A convenir</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div className="d-grid">
-                    <p className="text-center small text-muted mt-2">
-                      Valores exentos de IVA. Soporte incluido.
-                    </p>
-                    <a
-                      className="btn btn-block btn-primary btn-md mt-2 mb-4"
-                      href="/subscribe/pro"
-                    >
-                      Comprar Suscripción
-                    </a>
+        </div>
+
+
+        <Footer />
+      </div >
+
+      {
+        showModal ? (
+          <div
+            id="modal-valores"
+            className="modal fade show mont"
+            aria- modal="true"
+            role="dialog"
+            style={{ display: 'block' }
+            }
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    onClick={() => setShowModal(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <div className="row">
+                    <h5 className="text-uppercase text-center">Plan Pro</h5>
+                    <h2 className="mb-3 text-center">
+                      <span className="large">
+                        Valores por <span className="color">categorías</span>
+                      </span>
+                    </h2>
+
+                    <table className="table">
+                      <tbody>
+                        <tr>
+                          <th scope="row">Emprendedor</th>
+                          <td>1.0 UF / mes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Pyme</th>
+                          <td>2.5 UF / mes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Empresa</th>
+                          <td>5.0 UF / mes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Holding</th>
+                          <td>A convenir</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div className="d-grid">
+                      <p className="text-center small text-muted mt-2">
+                        Valores exentos de IVA. Soporte incluido.
+                      </p>
+                      <a
+                        className="btn btn-block btn-primary btn-md mt-2 mb-4"
+                        href="/subscribe/pro"
+                      >
+                        Comprar Suscripción
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      ) : (
-        ''
-      )}
-    </Fragment>
+          </div >
+        ) : (
+          ''
+        )}
+    </Fragment >
   );
 }

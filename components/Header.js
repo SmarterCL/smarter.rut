@@ -10,8 +10,8 @@ const Header = ({ showAuthButtons = true }) => {
     <header>
       <nav className="navbar navbar-expand-md fixed-top">
         <div className="container-fluid">
-          <Link className="navbar-brand" href="/">
-            <span className="fw-bold fs-3" style={{ color: 'var(--odoo-purple)', letterSpacing: '-0.5px' }}>SmarterOS</span>
+          <Link className="navbar-brand d-flex align-items-center" href="/">
+            <span className="fw-bold fs-2 text-gradient" style={{ letterSpacing: '-1.5px' }}>SmarterOS</span>
           </Link>
           <button
             className="navbar-toggler"

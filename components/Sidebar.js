@@ -9,94 +9,81 @@ function Sidebar(props) {
 
   return (
     <nav className="dashboard-sidebar">
-      <div className="sidebar-sticky">
-        <ul className="nav flex-column">
+      <div className="mb-4 px-3">
+        <img src="/images/logo-smarteros.jpg" className="img-fluid rounded" alt="SmarterBOT" />
+      </div>
+      <ul className="list-unstyled">
+        <li className="nav-item">
+          <a
+            className={`nav-link ${currentPath === `/dashboard/${props.userType}` ? 'active' : ''}`}
+            href={`/dashboard/${props.userType}`}
+          >
+            <MdDashboard size={20} />
+            <span>Dashboard</span>
+          </a>
+        </li>
+        {props.userType === 'user' && (
           <li className="nav-item">
             <a
-              className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}`) && currentPath === `/dashboard/${props.userType}` ? 'active' : ''}`}
-              href={`/dashboard/${props.userType}`}
+              className={`nav-link ${currentPath.includes('/account') ? 'active' : ''}`}
+              href={`/dashboard/${props.userType}/account`}
             >
-              <MdDashboard size={24} className="mr-1"></MdDashboard>
-              <span>Dashboard</span>
+              <MdAccountBalance size={20} />
+              <span>Mi Cuenta</span>
             </a>
           </li>
-          {props.userType == 'user' ? (
+        )}
+        {props.userType === 'user' && (
+          <li className="nav-item">
+            <a
+              className={`nav-link ${currentPath.includes('/subscriptions') ? 'active' : ''}`}
+              href={`/dashboard/${props.userType}/subscriptions`}
+            >
+              <MdReceipt size={20} />
+              <span>Suscripciones</span>
+            </a>
+          </li>
+        )}
+        {props.userType === 'admin' && (
+          <>
             <li className="nav-item">
               <a
-                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/account`) ? 'active' : ''}`}
-                href={`/dashboard/${props.userType}/account`}
-              >
-                <MdAccountBalance size={24} className="mr-1"></MdAccountBalance>
-                <span>Mi Cuenta</span>
-              </a>
-            </li>
-          ) : (
-            ''
-          )}
-          {props.userType == 'user' ? (
-            <li className="nav-item">
-              <a
-                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/subscriptions`) ? 'active' : ''}`}
-                href={`/dashboard/${props.userType}/subscriptions`}
-              >
-                <MdReceipt size={24} className="mr-1"></MdReceipt>
-                <span>Suscripciones</span>
-              </a>
-            </li>
-          ) : (
-            ''
-          )}
-
-          {props.userType == 'admin' ? (
-            <li className="nav-item">
-              <a
-                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/users`) ? 'active' : ''}`}
+                className={`nav-link ${currentPath.includes('/users') ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/users`}
               >
-                <FaUsers size={24} className="mr-1"></FaUsers>
+                <FaUsers size={20} />
                 <span>Usuarios</span>
               </a>
             </li>
-          ) : (
-            ''
-          )}
-
-          {props.userType == 'admin' ? (
             <li className="nav-item">
               <a
-                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/centers`) ? 'active' : ''}`}
+                className={`nav-link ${currentPath.includes('/centers') ? 'active' : ''}`}
                 href={`/dashboard/${props.userType}/centers`}
               >
-                <BiBuildings size={24} className="mr-1"></BiBuildings>
+                <BiBuildings size={20} />
                 <span>Sedes</span>
               </a>
             </li>
-          ) : (
-            ''
-          )}
-
-          {props.userType == 'center' ? (
-            <li className="nav-item">
-              <a
-                className={`nav-link ${currentPath.includes(`/dashboard/${props.userType}/validate`) ? 'active' : ''}`}
-                href={`/dashboard/${props.userType}/validate`}
-              >
-                <FaAddressCard size={24} className="mr-1"></FaAddressCard>
-                <span>Validar rut</span>
-              </a>
-            </li>
-          ) : (
-            ''
-          )}
-
-          <li className="nav-item mt-auto pt-3 border-top">
-            <a className="nav-link" href={`/auth/logout`}>
-              <MdLogout size={24} className="mr-1"></MdLogout>
-              <span>Cerrar Sesión</span>
+          </>
+        )}
+        {props.userType === 'center' && (
+          <li className="nav-item">
+            <a
+              className={`nav-link ${currentPath.includes('/validate') ? 'active' : ''}`}
+              href={`/dashboard/${props.userType}/validate`}
+            >
+              <FaAddressCard size={20} />
+              <span>Validar Rut</span>
             </a>
           </li>
-        </ul>
-      </div>
+        )}
+        <li className="nav-item mt-4 pt-4 border-top border-secondary">
+          <a className="nav-link text-danger" href="/auth/logout">
+            <MdLogout size={20} />
+            <span>Cerrar Sesión</span>
+          </a>
+        </li>
+      </ul>
     </nav>
   );
 }

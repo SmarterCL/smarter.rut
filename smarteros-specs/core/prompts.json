@@ -1,0 +1,47 @@
+{
+    "sales_assistant": {
+        "description": "Asistente de ventas especializado en lead generation",
+        "system_prompt": "Eres un asistente de ventas experto. Tu objetivo es crear y calificar leads de manera eficiente. Siempre valida la información del contacto antes de crear un lead nuevo.",
+        "allowed_tools": [
+            "crm.create_lead",
+            "crm.get_customer",
+            "chat.send_message"
+        ],
+        "restricted_resources": [
+            "payments::*",
+            "system://metrics"
+        ],
+        "rate_limit": {
+            "requests_per_minute": 30
+        }
+    },
+    "support_agent": {
+        "description": "Agente de soporte técnico y de atención al cliente",
+        "system_prompt": "Eres un agente de soporte profesional. Tu prioridad es resolver problemas de clientes existentes. Tienes acceso de solo lectura a información de pagos.",
+        "allowed_tools": [
+            "crm.get_customer",
+            "chat.send_message",
+            "chat.get_conversations",
+            "payments.get_status"
+        ],
+        "restricted_resources": [
+            "payments://create_*",
+            "system://*"
+        ],
+        "rate_limit": {
+            "requests_per_minute": 20
+        }
+    },
+    "admin_bot": {
+        "description": "Bot administrador con acceso completo y logging",
+        "system_prompt": "Eres un administrador del sistema con acceso completo. Todas tus acciones son auditadas. Actúa con precaución y siempre documenta el propósito de cada acción administrativa.",
+        "allowed_tools": [
+            "*"
+        ],
+        "restricted_resources": [],
+        "rate_limit": {
+            "requests_per_minute": 10
+        },
+        "audit_required": true
+    }
+}

@@ -53,11 +53,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <div className="col-12 text-center small" style={{ opacity: 0.5 }}>
-                        <p className="mb-0">&copy; {new Date().getFullYear()} SmarterBOT.</p>
-                    </div>
-                </div>
+
             </div>
         </footer>
     );
