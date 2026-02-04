@@ -4,22 +4,17 @@ const Footer = () => {
     return (
         <footer className="footer mt-auto py-5">
             <div className="container">
-                <div className="row align-items-center">
+                <div className="row align-items-start">
                     <div className="col-lg-3 mb-4 mb-lg-0">
-                        <p className="small mb-3" style={{ opacity: 0.8, lineHeight: '1.6' }}>
-                            Plataforma de automatización y ERP basada en Odoo, n8n, Chatwoot, Supabase y Ollama.
-                            <br />
-                            Chile · proyectos remotos y presenciales.
-                        </p>
+                        <h5 className="mb-3 text-white">Smarter SPA</h5>
                         <div className="d-flex flex-column small" style={{ opacity: 0.7 }}>
-                            <span className="fw-bold mb-1">SMARTER SPA</span>
                             <span className="mb-1">RUT: 78.233.417-4</span>
                             <span className="mb-1">Servicios de consultoría de desarrollo de software</span>
                             <span>Padre Mariano 103 Of 201, Providencia, Santiago</span>
                         </div>
                     </div>
 
-                    <div className="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <div className="col-lg-2 col-md-4 mb-4 mb-md-0 offset-lg-2">
                         <h5 className="mb-3 text-white">Nosotros</h5>
                         <ul className="list-unstyled">
                             <li className="mb-2">
@@ -34,7 +29,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div className="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
                         <h5 className="mb-3 text-white">Legal</h5>
                         <ul className="list-unstyled">
                             <li className="mb-2">
@@ -56,9 +51,11 @@ const Footer = () => {
                                 <a href="https://odoo.smarterbot.store" target="_blank" rel="noopener noreferrer" className="text-decoration-none">Portal Clientes</a>
                             </li>
                         </ul>
-                        <p className="mt-4 small mb-0" style={{ opacity: 0.5 }}>
-                            &copy; {new Date().getFullYear()} SmarterBOT.
-                        </p>
+                    </div>
+                </div>
+                <div className="row mt-5">
+                    <div className="col-12 text-center small" style={{ opacity: 0.5 }}>
+                        <p className="mb-0">&copy; {new Date().getFullYear()} SmarterBOT.</p>
                     </div>
                 </div>
             </div>
