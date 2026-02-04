@@ -136,24 +136,24 @@ export default function Home() {
         <Header showAuthButtons={true} />
         <div className="section-cover">
           <div className="container">
-            <div className="row align-items-center">
-              <div className="col-12 col-sm-12 col-lg-6 col-xl-6 z-index">
+            <div className="row align-items-center justify-content-center text-center">
+              <div className="col-12 z-index">
                 <h1 className="display-1">
-                  <span className="color">SmarterOS</span>
+                  Hola, soy <span className="color">Smarter OS</span>.
                 </h1>
-                <p className="large mt-3">
-                  Una sola plataforma. Múltiples operaciones. Cero fricción.
-                </p>
-                <div className="mt-4">
+                <h2 className="display-4 mt-3">
+                  ¿Cómo te ayudo hoy?
+                </h2>
+                <div className="mt-5 mb-5 d-flex justify-content-center gap-3 flex-wrap">
                   <a
-                    className="btn btn-primary btn-lg me-3"
+                    className="btn btn-primary btn-lg"
                     href="https://odoo.smarterbot.store"
                     target="_blank"
                   >
                     Ver demostración
                   </a>
                   <a
-                    className="btn btn-primary btn-lg me-3"
+                    className="btn btn-primary btn-lg"
                     href="/login"
                   >
                     Entrar al sistema
@@ -165,18 +165,20 @@ export default function Home() {
                     Crear cuenta
                   </a>
                 </div>
-                <p className="mt-4">
-                  <img
-                    className="margin-top img-fluid mt-4"
-                    src="/images/ai-click.jpg"
-                    width="640"
-                    title="Inteligencia Artificial a un Click - Comercio o PYME"
-                  />
-                </p>
               </div>
-              <div className="col-12 col-sm-12 col-lg-6 col-xl-6 mx-auto text-center img-home-container">
+            </div>
+            <div className="row align-items-center">
+              <div className="col-12 col-md-6 text-center mb-4">
                 <img
-                  className="align-middle img-fluid rounded img-home"
+                  className="img-fluid rounded"
+                  src="/images/ai-click.jpg"
+                  width="640"
+                  title="Inteligencia Artificial a un Click - Comercio o PYME"
+                />
+              </div>
+              <div className="col-12 col-md-6 text-center mb-4">
+                <img
+                  className="align-middle img-fluid rounded"
                   src="/images/decision-tree.jpg"
                   width="800"
                 />
@@ -487,64 +489,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="row mt-5">
-              <div className="col-12">
-                <h3 className="text-center mb-4">Casos de uso clave</h3>
-                <div className="row">
-                  <div className="col-md-6 col-lg-4 mb-4">
-                    <div className="card h-100">
-                      <div className="card-body text-center">
-                        <h5 className="card-title">Registro Automático</h5>
-                        <p className="card-text">Registro automático de ingresos desde WhatsApp</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4 mb-4">
-                    <div className="card h-100">
-                      <div className="card-body text-center">
-                        <h5 className="card-title">Consulta en Tiempo Real</h5>
-                        <p className="card-text">Consulta de IVA y flujo de caja en tiempo real</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4 mb-4">
-                    <div className="card h-100">
-                      <div className="card-body text-center">
-                        <h5 className="card-title">Ventas Cooperativas</h5>
-                        <p className="card-text">Ventas cooperativas y asociativas B2B</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4 mb-4">
-                    <div className="card h-100">
-                      <div className="card-body text-center">
-                        <h5 className="card-title">Operación Multimoneda</h5>
-                        <p className="card-text">Operación multimoneda y multipaís</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4 mb-4">
-                    <div className="card h-100">
-                      <div className="card-body text-center">
-                        <h5 className="card-title">Impuestos Automáticos</h5>
-                        <p className="card-text">Separación automática de impuestos</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4 mb-4">
-                    <div className="card h-100">
-                      <div className="card-body text-center">
-                        <h5 className="card-title">Conciliación Bancaria</h5>
-                        <p className="card-text">Conciliación bancaria y validación contable</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p className="large mt-3 text-center">
-                  La contabilidad deja de mirar el pasado y empieza a ayudar a decidir.
-                </p>
-              </div>
-            </div>
+
 
             <div className="row mt-5">
               <div className="col-12">
@@ -655,16 +600,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="row mt-5 justify-content-center">
-              <div className="col-12 text-center">
-                <h3 className="display-6">
-                  Hola, soy <span className="color">Smarter OS</span>.
-                </h3>
-                <h4 className="display-6 mt-3">
-                  ¿Cómo te ayudo hoy?
-                </h4>
-              </div>
-            </div>
+
           </div>
         </div>
 
