@@ -11,12 +11,7 @@ const Header = ({ showAuthButtons = true }) => {
       <nav className="navbar navbar-expand-md fixed-top">
         <div className="container-fluid">
           <Link className="navbar-brand" href="/">
-            <img
-              className="margin-top img-fluid"
-              src="/images/logo-smarteros.jpg"
-              width={90}
-              alt="SmarterOS Logo"
-            />
+            <span className="fw-bold fs-3" style={{ color: 'var(--odoo-purple)', letterSpacing: '-0.5px' }}>SmarterOS</span>
           </Link>
           <button
             className="navbar-toggler"

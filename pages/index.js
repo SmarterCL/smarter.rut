@@ -636,30 +636,29 @@ export default function Home() {
                   <table className="table">
                     <tbody>
                       <tr>
-                        <th scope="row">03 a 10 años</th>
-                        <td>Gratis</td>
+                        <th scope="row">Emprendedor</th>
+                        <td>1.0 UF / mes</td>
                       </tr>
                       <tr>
-                        <th scope="row">11 a 18 años</th>
-                        <td>$ 24.000</td>
+                        <th scope="row">Pyme</th>
+                        <td>2.5 UF / mes</td>
                       </tr>
                       <tr>
-                        <th scope="row">19 a 34 años</th>
-                        <td>$ 36.000</td>
+                        <th scope="row">Empresa</th>
+                        <td>5.0 UF / mes</td>
                       </tr>
                       <tr>
-                        <th scope="row">35 a 64 años</th>
-                        <td>$ 48.000</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">65 años y más</th>
-                        <td>Gratis</td>
+                        <th scope="row">Holding</th>
+                        <td>A convenir</td>
                       </tr>
                     </tbody>
                   </table>
                   <div className="d-grid">
+                    <p className="text-center small text-muted mt-2">
+                      Valores exentos de IVA. Soporte incluido.
+                    </p>
                     <a
-                      className="btn btn-block btn-primary btn-md mt-4 mb-4"
+                      className="btn btn-block btn-primary btn-md mt-2 mb-4"
                       href="/subscribe/pro"
                     >
                       Comprar Suscripción

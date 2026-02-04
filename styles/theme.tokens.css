@@ -1,13 +1,13 @@
 :root {
-  --ui-bg-base: #f4f5f6;        /* base background */
-  --ui-bg-muted: #e6e7e8;
+  --ui-bg-base: #FFFFFF;        /* cleaner white */
+  --ui-bg-muted: #F9F9F9;
 
-  --ui-text-primary: #2f2f33;  /* primary text */
-  --ui-text-muted: #5c5d61;
+  --ui-text-primary: #212529;  /* standard dark */
+  --ui-text-muted: #666666;
 
-  --ui-accent-primary: #8756ff; /* primary accent */
-  --ui-accent-secondary: #6f42c1;
+  --ui-accent-primary: #714B67; /* Odoo Purple */
+  --ui-accent-secondary: #017E84; /* Odoo Teal */
 
   --ui-warning: #e6a700;
-  --ui-success: #3fa97c;
+  --ui-success: #017E84; /* Use Teal for success/brand consistency */
 }
