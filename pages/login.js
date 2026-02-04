@@ -48,6 +48,7 @@ function Login(props) {
     }
 
     // Si el login es exitoso, buscamos los datos extendidos
+    console.log('Auth successful, fetching account details for:', email);
     const { data: userData, error: userError } = await supabase
       .from('accounts')
       .select('*')
@@ -55,7 +56,15 @@ function Login(props) {
       .eq('deleted', false)
       .single();
 
+    if (userError) {
+      console.error('Error fetching account:', userError);
+      alert('Error obteniendo datos de cuenta: ' + userError.message);
+      setLoading(false);
+      return;
+    }
+
     if (userData) {
+      console.log('Account found:', userData);
       localStorage.setItem('__sbot__id', userData.id);
       localStorage.setItem(
         '__sbot__ud',
@@ -64,12 +73,16 @@ function Login(props) {
 
       const { redirectTo } = router.query;
       if (redirectTo) {
+        console.log('Redirecting to:', redirectTo);
         window.location.href = redirectTo;
       } else {
-        window.location.href = `/dashboard/${userData.type}`;
+        const dest = `/dashboard/${userData.type}`;
+        console.log('Redirecting to dashboard:', dest);
+        window.location.href = dest;
       }
     } else {
-      alert('Error: No se encontraron datos de cuenta');
+      console.warn('No account found for email:', email);
+      alert('Error: No se encontraron datos de cuenta asociada en el sistema CRM.');
       setLoading(false);
     }
   };
