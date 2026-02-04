@@ -7,79 +7,66 @@ import { FaAddressCard } from 'react-icons/fa';
 
 function DashNav(props) {
   return (
-    <ul className="mont navbar-nav me-auto mb-2 mb-md-0">
-      <li className="nav-item text-left dash-nav-item mt-4">
-        <a className="nav-link" href={`/dashboard/${props.userType}`}>
-          <MdDashboard size={30} className="mx-2"></MdDashboard>
-          Dashboard <span className="sr-only"></span>
+    <div className="d-flex flex-column flex-shrink-0 p-3 bg-white" style={{ width: '280px', height: '100vh' }}>
+      <ul className="nav nav-pills flex-column mb-auto">
+        <li className="nav-item mb-2">
+          <a href={`/dashboard/${props.userType}`} className="nav-link text-dark fs-5 d-flex align-items-center">
+            <MdDashboard size={24} className="me-3 text-primary" />
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+        {props.userType === 'user' && (
+          <>
+            <li className="nav-item mb-2">
+              <a href={`/dashboard/${props.userType}/account`} className="nav-link text-dark fs-5 d-flex align-items-center">
+                <FaHouseUser size={24} className="me-3 text-primary" />
+                <span>Mi Cuenta</span>
+              </a>
+            </li>
+            <li className="nav-item mb-2">
+              <a href={`/dashboard/${props.userType}/subscriptions`} className="nav-link text-dark fs-5 d-flex align-items-center">
+                <IoIdCardSharp size={24} className="me-3 text-primary" />
+                <span>Suscripciones</span>
+              </a>
+            </li>
+          </>
+        )}
+
+        {props.userType === 'admin' && (
+          <>
+            <li className="nav-item mb-2">
+              <a href={`/dashboard/${props.userType}/users`} className="nav-link text-dark fs-5 d-flex align-items-center">
+                <FaUsers size={24} className="me-3 text-primary" />
+                <span>Usuarios</span>
+              </a>
+            </li>
+            <li className="nav-item mb-2">
+              <a href={`/dashboard/${props.userType}/centers`} className="nav-link text-dark fs-5 d-flex align-items-center">
+                <BiBuildings size={24} className="me-3 text-primary" />
+                <span>Sedes</span>
+              </a>
+            </li>
+          </>
+        )}
+
+        {props.userType === 'center' && (
+          <li className="nav-item mb-2">
+            <a href={`/dashboard/${props.userType}/validate`} className="nav-link text-dark fs-5 d-flex align-items-center">
+              <FaAddressCard size={24} className="me-3 text-primary" />
+              <span>Validar Rut</span>
+            </a>
+          </li>
+        )}
+      </ul>
+      <hr />
+      <div>
+        <a href="/auth/logout" className="nav-link text-danger d-flex align-items-center fs-5">
+          <IoMdLogOut size={24} className="me-3" />
+          <span>Cerrar Sesión</span>
         </a>
-      </li>
-      {props.userType == 'user' ? (
-        <li className="nav-item text-left dash-nav-item">
-          <a className="nav-link" href={`/dashboard/${props.userType}/account`}>
-            <FaHouseUser size={30} className="mx-2"></FaHouseUser> Mi Cuenta
-            <span className="sr-only"></span>
-          </a>
-        </li>
-      ) : (
-        ''
-      )}
-      {props.userType == 'user' ? (
-        <li className="nav-item text-left dash-nav-item">
-          <a
-            className="nav-link"
-            href={`/dashboard/${props.userType}/subscriptions`}
-          >
-            <IoIdCardSharp size={30} className="mx-2"></IoIdCardSharp>
-            Suscripciones{' '}
-          </a>
-        </li>
-      ) : (
-        ''
-      )}
-
-      {props.userType == 'admin' ? (
-        <li className="nav-item text-left dash-nav-item">
-          <a className="nav-link" href={`/dashboard/${props.userType}/users`}>
-            <FaHouseUser size={30} className="mx-2"></FaHouseUser> Usuarios{' '}
-          </a>
-        </li>
-      ) : (
-        ''
-      )}
-
-      {props.userType == 'admin' ? (
-        <li className="nav-item text-left dash-nav-item">
-          <a className="nav-link" href={`/dashboard/${props.userType}/centers`}>
-            <BiBuildings size={30} className="mx-2"></BiBuildings> Sedes{' '}
-          </a>
-        </li>
-      ) : (
-        ''
-      )}
-
-      {props.userType == 'center' ? (
-        <li className="nav-item text-left dash-nav-item">
-          <a
-            className="nav-link"
-            href={`/dashboard/${props.userType}/validate`}
-          >
-            <FaAddressCard size={30} className="mx-2"></FaAddressCard>
-            Validar rut{' '}
-          </a>
-        </li>
-      ) : (
-        ''
-      )}
-
-      <li className="nav-item text-left dash-nav-item">
-        <a className="nav-link" href={`/auth/logout`}>
-          {' '}
-          <IoMdLogOut size={30} className="mx-2"></IoMdLogOut>
-          Cerrar Sesión{' '}
-        </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   );
 }
 export default DashNav;
