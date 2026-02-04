@@ -125,20 +125,37 @@ function Account(props) {
       phone,
       type: 'user',
     };
+    const updatePromises = [];
+
+    // 1. Update Supabase Auth Password if provided
     if (password != '') {
+      updatePromises.push(
+        supabase.auth.updateUser({ password: password })
+          .then(({ data, error }) => {
+            if (error) throw error;
+            return data;
+          })
+      );
+      // Update legacy hash in local data object
       data.password = bcrypt.hashSync(password, 10);
     }
 
-    supabase.from('accounts')
-      .update(data)
-      .eq('id', localStorage.getItem('__sbot__id'))
+    // 2. Update Accounts data in table
+    updatePromises.push(
+      supabase.from('accounts')
+        .update(data)
+        .eq('id', localStorage.getItem('__sbot__id'))
+    );
+
+    Promise.all(updatePromises)
       .then(() => {
-        alert('Datos Actualizados');
+        alert('Datos Actualizados Correctamente');
         setSaving(false);
+        setPassword(''); // Clear password field after success
       })
       .catch((error) => {
-        console.log(error);
-        alert('Ocurrió un error al crear tu cuenta. Inténtalo nuevamente');
+        console.error('Error updating account:', error);
+        alert('Ocurrió un error al actualizar los datos: ' + (error.message || error.error_description || 'Error desconocido'));
         setSaving(false);
       });
   };
