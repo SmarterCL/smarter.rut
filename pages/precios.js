@@ -55,11 +55,31 @@ export default function Prices() {
                     </div>
                     <div className="card-body">
                       <h1 className="card-title pricing-card-title">$0 <small className="text-muted">/ mes</small></h1>
-                      <ul className="list-unstyled mt-3 mb-4">
-                        <li>Acceso básico</li>
-                        <li>Soporte comunitario</li>
-                        <li>Funcionalidades limitadas</li>
-                      </ul>
+                      <div className="row text-start mt-4">
+                        <div className="col-6 mb-2 fw-bold">Inscripción</div>
+                        <div className="col-6 mb-2">Gratis</div>
+
+                        <div className="col-6 mb-2 fw-bold">Pagar por hora</div>
+                        <div className="col-6 mb-2">Sí</div>
+
+                        <div className="col-6 mb-2 fw-bold">Precios Dinámicos</div>
+                        <div className="col-6 mb-2">No</div>
+
+                        <div className="col-6 mb-2 fw-bold">Módulos</div>
+                        <div className="col-6 mb-2">Uno a elección</div>
+
+                        <div className="col-6 mb-2 fw-bold">Anticipación Reserva</div>
+                        <div className="col-6 mb-2">78 horas</div>
+
+                        <div className="col-6 mb-2 fw-bold">Beneficios Smarter</div>
+                        <div className="col-6 mb-2">No</div>
+
+                        <div className="col-6 mb-2 fw-bold">Soporte META</div>
+                        <div className="col-6 mb-2 text-danger">X</div>
+
+                        <div className="col-6 mb-2 fw-bold">ODOO Whatsapp</div>
+                        <div className="col-6 mb-2 text-danger">X</div>
+                      </div>
                       <button type="button" className="btn btn-lg btn-block btn-outline-primary">Registrarse gratis</button>
                     </div>
                   </div>
@@ -71,12 +91,31 @@ export default function Prices() {
                     </div>
                     <div className="card-body">
                       <h1 className="card-title pricing-card-title">UF 1,20 <small className="text-muted">/ mes</small></h1>
-                      <ul className="list-unstyled mt-3 mb-4">
-                        <li>ERP Completo</li>
-                        <li>Integraciones API (MCP)</li>
-                        <li>Soporte Prioritario</li>
-                        <li>Automatizaciones Avanzadas</li>
-                      </ul>
+                      <div className="row text-start mt-4">
+                        <div className="col-6 mb-2 fw-bold">Inscripción</div>
+                        <div className="col-6 mb-2">Gratis</div>
+
+                        <div className="col-6 mb-2 fw-bold">Pagar por hora</div>
+                        <div className="col-6 mb-2">No (Mensual)</div>
+
+                        <div className="col-6 mb-2 fw-bold">Precios Dinámicos</div>
+                        <div className="col-6 mb-2">Sí</div>
+
+                        <div className="col-6 mb-2 fw-bold">Módulos</div>
+                        <div className="col-6 mb-2">Todos</div>
+
+                        <div className="col-6 mb-2 fw-bold">Anticipación Reserva</div>
+                        <div className="col-6 mb-2">Sin límite</div>
+
+                        <div className="col-6 mb-2 fw-bold">Beneficios Smarter</div>
+                        <div className="col-6 mb-2">Sí</div>
+
+                        <div className="col-6 mb-2 fw-bold">Soporte META</div>
+                        <div className="col-6 mb-2 text-success">✓</div>
+
+                        <div className="col-6 mb-2 fw-bold">ODOO Whatsapp</div>
+                        <div className="col-6 mb-2 text-success">✓</div>
+                      </div>
                       <button type="button" className="btn btn-lg btn-block btn-primary">Comenzar ahora</button>
                     </div>
                   </div>

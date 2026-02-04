@@ -212,28 +212,50 @@ export default function Holder() {
                   <span className="color">SmarterOS</span>
                 </h1>
                 <p className="large mt-3">
-                  Selecciona las opciones que deseas para tu negocio
+                  Una sola plataforma. Múltiples operaciones. Cero fricción.
                 </p>
 
-                <div className="mt-4">
-                  <Link
-                    className="btn btn-primary btn-lg me-3"
-                    href="/dashboard/status"
-                  >
-                    Ver Resumen
-                  </Link>
-                  <Link
-                    className="btn btn-primary btn-lg me-3"
-                    href="/login"
-                  >
-                    Entrar al sistema
-                  </Link>
-                  <Link
-                    className="btn btn-primary btn-lg"
-                    href="/subscribe"
-                  >
-                    Crear cuenta
-                  </Link>
+                <div className="mt-5 action-buttons-container">
+                  <div className="d-flex flex-nowrap overflow-auto pb-3 gap-3 action-buttons-scroll">
+                    <Link
+                      className="btn btn-primary btn-lg flex-shrink-0"
+                      href="/dashboard/status"
+                    >
+                      Ver Resumen
+                    </Link>
+                    <Link
+                      className="btn btn-primary btn-lg flex-shrink-0"
+                      href="/login"
+                    >
+                      Entrar al sistema
+                    </Link>
+                    <Link
+                      className="btn btn-primary btn-lg flex-shrink-0"
+                      href="/subscribe"
+                    >
+                      Crear cuenta
+                    </Link>
+                  </div>
+                  <style jsx>{`
+                    .action-buttons-scroll::-webkit-scrollbar {
+                      height: 6px;
+                    }
+                    .action-buttons-scroll::-webkit-scrollbar-track {
+                      background: rgba(0,0,0,0.05);
+                      border-radius: 10px;
+                    }
+                    .action-buttons-scroll::-webkit-scrollbar-thumb {
+                      background: var(--odoo-purple);
+                      border-radius: 10px;
+                    }
+                    @media (min-width: 992px) {
+                      .action-buttons-scroll {
+                        overflow: visible !important;
+                        justify-content: flex-start;
+                        padding-bottom: 0 !important;
+                      }
+                    }
+                  `}</style>
                 </div>
               </div>
               <div className="col-12 col-sm-12 col-lg-12 col-xl-5 mx-auto text-center img-home-container">
