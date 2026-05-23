@@ -1,4 +1,4 @@
-import { MdDashboard, MdAccountBalance, MdReceipt, MdLogout } from 'react-icons/md';
+import { MdDashboard, MdAccountBalance, MdReceipt, MdLogout, MdQrCode2 } from 'react-icons/md';
 import { FaUsers } from 'react-icons/fa';
 import { BiBuildings } from 'react-icons/bi';
 import { FaAddressCard } from 'react-icons/fa';
@@ -10,7 +10,7 @@ function Sidebar(props) {
   return (
     <nav className="dashboard-sidebar">
       <div className="mb-4 px-3">
-        <img src="/images/logo-smarteros.jpg" className="img-fluid rounded" alt="SmarterBOT" />
+        <img src="/images/logo.jpg" className="img-fluid rounded" alt="SmarterBOT" />
       </div>
       <ul className="list-unstyled">
         <li className="nav-item">
@@ -30,6 +30,17 @@ function Sidebar(props) {
             >
               <MdAccountBalance size={20} />
               <span>Mi Cuenta</span>
+            </a>
+          </li>
+        )}
+        {props.userType === 'user' && (
+          <li className="nav-item">
+            <a
+              className={`nav-link ${currentPath.includes('/connect') ? 'active' : ''}`}
+              href={`/dashboard/${props.userType}/connect`}
+            >
+              <MdQrCode2 size={20} />
+              <span>Conectar WhatsApp</span>
             </a>
           </li>
         )}

@@ -99,7 +99,7 @@ function Dashboard(props) {
         />
         <meta
           property="og:image"
-          content="https://rut.smarterbot.store/images/logo-smarteros.jpg"
+          content="https://rut.smarterbot.store/images/logo.jpg"
         />
         <meta property="og:image:width" content="828" />
         <meta property="og:image:height" content="450" />
@@ -109,36 +109,36 @@ function Dashboard(props) {
         <link
           rel="icon"
           type="image/png"
-          href="/images/logo-smarteros.jpg"
+          href="/images/logo.jpg"
           sizes="16x16"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/logo-smarteros.jpg"
+          href="/images/logo.jpg"
           sizes="32x32"
         ></link>
         <link
           rel="icon"
           type="image/png"
-          href="/images/logo-smarteros.jpg"
+          href="/images/logo.jpg"
           sizes="96x96"
         ></link>
-        <link rel="apple-touch-icon" href="/images/logo-smarteros.jpg" />
+        <link rel="apple-touch-icon" href="/images/logo.jpg" />
         <link
           rel="apple-touch-icon"
           sizes="76x76"
-          href="/images/logo-smarteros.jpg"
+          href="/images/logo.jpg"
         />
         <link
           rel="apple-touch-icon"
           sizes="120x120"
-          href="/images/logo-smarteros.jpg"
+          href="/images/logo.jpg"
         />
         <link
           rel="apple-touch-icon"
           sizes="152x152"
-          href="/images/logo-smarteros.jpg"
+          href="/images/logo.jpg"
         />
       </Head>
       <div className={`${"mont"} d-flex flex-column h-100 visual-grid`}>
@@ -219,6 +219,23 @@ function Dashboard(props) {
                       userData.paymentStatus != 'PENDING' ? (
                       <Fragment>
                         <div className="row g-4">
+                          <div className="col-md-6">
+                            <div className="card h-100 border-0 shadow-sm">
+                              <div className="card-body">
+                                <h5 className="card-title fw-bold mb-3">Conectar WhatsApp</h5>
+                                <p className="card-text text-muted mb-4">
+                                  Vincula tu sesión de WhatsApp desde el dashboard y abre el flujo
+                                  de onboarding QR sin salir de SmarterBOT.
+                                </p>
+                                <a
+                                  href="/dashboard/user/connect"
+                                  className="btn btn-primary btn-sm"
+                                >
+                                  Abrir vinculación QR
+                                </a>
+                              </div>
+                            </div>
+                          </div>
                           <div className="col-md-6">
                             <div className="card h-100 border-0 shadow-sm">
                               <div className="card-body">
