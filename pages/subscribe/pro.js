@@ -5,7 +5,6 @@ import Footer from '../../components/Footer';
 
 import ChileanRutify from 'chilean-rutify';
 import { Fragment, useEffect, useState } from 'react';
-import { supabase } from '../../services/supabaseClient';
 import intlTelInput from 'intl-tel-input';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import { RxEyeClosed, RxEyeOpen } from 'react-icons/rx';
@@ -155,86 +154,33 @@ export default function Home() {
         return alert('Debes aceptar términos y condiciones');
       }
 
-      const { data: existingRut } = await supabase
-        .from('accounts')
-        .select('id')
-        .eq('rut', rut)
-        .maybeSingle();
-
-      if (existingRut) {
-        setSaving(false);
-        return alert('Ya existe un usuario con este rut');
-      }
-
-      const { data: existingEmail } = await supabase
-        .from('accounts')
-        .select('id')
-        .eq('email', email)
-        .maybeSingle();
-
-      if (existingEmail) {
-        setSaving(false);
-        return alert('Ya existe un usuario con este email');
-      }
-
-      // Create auth user
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (authError) {
-        setSaving(false);
-        return alert('Error al crear cuenta: ' + authError.message);
-      }
-
-      // Create account
-      const { data: account, error: accountErr } = await supabase
-        .from('accounts')
-        .insert({
-          deleted: false,
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           planType: 'PRO',
-          dateCreated: new Date(),
-          paymentStatus: 'PENDING',
           firstName,
           lastName1,
           lastName2,
           email,
+          password,
           rut,
           phone: `${dialCode}${phone}`,
-          type: 'user',
           subscriptionsCount,
           totalPrice,
-        })
-        .select()
-        .single();
+        }),
+      });
 
-      if (accountErr) {
+      const result = await res.json();
+
+      if (!res.ok) {
         setSaving(false);
-        return alert('Error al guardar datos de cuenta: ' + accountErr.message);
+        if (result.error === 'rut_exists') return alert('Ya existe un usuario con este rut');
+        if (result.error === 'email_exists') return alert('Ya existe un usuario con este email');
+        return alert('Error al guardar datos de cuenta: ' + (result.error || 'Error desconocido'));
       }
 
-      if (account) {
-        const { data: sub, error: subErr } = await supabase
-          .from('subscriptions')
-          .insert({
-            deleted: false,
-            name: `${firstName} ${lastName1} ${lastName2}`,
-            rut,
-            accountId: account.id,
-          })
-          .select()
-          .single();
-
-        if (subErr) console.error(subErr);
-        fetch('/api/sendWelcome', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ to: email, firstName }),
-        }).finally(() => {
-          window.location.href = `/pay/${account.id}/process`;
-        });
-      }
+      window.location.href = `/pay/${result.accountId}/process`;
     } else {
       alert('No has seleccionado opciones');
       setSaving(false);

@@ -132,94 +132,32 @@ export default function Home() {
       return alert('Debes aceptar términos y condiciones');
     }
 
-    if (!supabase) {
-      setSaving(false);
-      return alert('Error: El servicio de base de datos no está disponible.');
-    }
-
-    const { data: existingRut } = await supabase
-      .from('accounts')
-      .select('id')
-      .eq('rut', rut)
-      .maybeSingle();
-
-    if (existingRut) {
-      setSaving(false);
-      return alert('Ya existe un usuario con este rut');
-    }
-
-    const { data: existingEmail } = await supabase
-      .from('accounts')
-      .select('id')
-      .eq('email', email)
-      .maybeSingle();
-
-    if (existingEmail) {
-      setSaving(false);
-      return alert('Ya existe un usuario con este email');
-    }
-
-    // Create auth user
-    const { data: authData, error: authError } = await supabase.auth.signUp({
-      email,
-      password,
-    });
-
-    if (authError) {
-      setSaving(false);
-      return alert('Error al crear cuenta: ' + authError.message);
-    }
-
-    // Create account record
-    const { data: account, error: accountErr } = await supabase
-      .from('accounts')
-      .insert({
-        deleted: false,
-        dateCreated: new Date(),
+    const res = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         planType: 'DEMO',
-        paymentStatus: 'PENDING',
         firstName,
         lastName1,
         lastName2,
         email,
+        password,
         rut,
         phone: `${dialCode}${phone}`,
-        type: 'user',
         subscriptionsCount: count,
-      })
-      .select()
-      .single();
+      }),
+    });
 
-    if (accountErr) {
+    const result = await res.json();
+
+    if (!res.ok) {
       setSaving(false);
-      return alert('Error al guardar datos de cuenta: ' + accountErr.message);
+      if (result.error === 'rut_exists') return alert('Ya existe un usuario con este rut');
+      if (result.error === 'email_exists') return alert('Ya existe un usuario con este email');
+      return alert('Error al guardar datos de cuenta: ' + (result.error || 'Error desconocido'));
     }
 
-    if (account) {
-      const { data: sub, error: subErr } = await supabase
-        .from('subscriptions')
-        .insert({
-          deleted: false,
-          name: `${firstName} ${lastName1} ${lastName2}`,
-          rut,
-          accountId: account.id,
-        })
-        .select()
-        .single();
-
-      if (subErr) {
-        console.error(subErr);
-      }
-
-      fetch('/api/sendWelcome', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ to: email, firstName }),
-      }).finally(() => {
-        setReady(true);
-      });
-
-    }
+    setReady(true);
   };
 
   return (
