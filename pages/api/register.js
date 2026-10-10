@@ -25,6 +25,7 @@
 
 import { supabaseService as db } from '../../services/supabaseClient';
 import { sendMail } from '../../services/mailer';
+import { createLead } from '../../services/wacrm';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -125,9 +126,18 @@ export default async function handler(req, res) {
     // No es bloqueante — la cuenta se creó correctamente
   }
 
-  // --- Enviar email de bienvenida (fire and forget) ---
+  // --- Enviar email de bienvenida y crear lead en wacrm (fire and forget) ---
   sendMail({ to: email, attribs: { firstName } }).catch((err) => {
     console.error('[register] sendMail error:', err.message);
+  });
+
+  createLead({
+    phone,
+    name: `${firstName} ${lastName1} ${lastName2}`.trim(),
+    email,
+    company: `SmarterRUT - Plan ${planType}`,
+  }).catch((err) => {
+    console.error('[register] createLead error:', err.message);
   });
 
   return res.status(200).json({ accountId: account.id });
