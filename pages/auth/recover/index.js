@@ -3,13 +3,7 @@ import Head from 'next/head';
 import { v4 as uuidv4 } from 'uuid';
 import Script from 'next/script';
 import { supabase } from '../../../services/supabaseClient';
-
-
-const mailgun = require('mailgun.js');
-const mg = mailgun.client({
-  username: 'api',
-  key: 'key-80d577c302f3bcad991bea13930b3fde',
-});
+import { sendMail } from '../../../services/mailer';
 
 function RecorverPassword(props) {
   const [loading, setLoading] = useState(false);
@@ -28,25 +22,9 @@ function RecorverPassword(props) {
             .from('accounts')
             .update({ recoverToken: token })
             .eq('id', account.id);
-          mg.messages
-            .create('rut.smarterbot.store', {
-              from: 'SmarterBOT<noreply@rut.smarterbot.store>',
-              to: [email],
-              subject: 'Solicitud de cambio de contraseña',
-              text: 'Solicitud de cambio de contraseña',
-              html: `<html>...${account.firstName}...${token}...</html>`, // Keep original structure
-            })
-            .then((msg) => {
-              alert(
-                'Te enviamos un correo con las instrucciones para reestablecer la contraseña'
-              );
-              setEmail('');
-              setLoading(false);
-            })
-            .catch((err) => {
-              alert(
-                'Te enviamos un correo con las instrucciones para reestablecer la contraseña'
-              );
+          sendMail({ to: email, attribs: { firstName: account.firstName || '', token } })
+            .finally(() => {
+              alert('Te enviamos un correo con las instrucciones para reestablecer la contraseña');
               setEmail('');
               setLoading(false);
             });

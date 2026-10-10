@@ -5,22 +5,9 @@ import Header from '../../components/Header';
 import ChileanRutify from 'chilean-rutify';
 import { Fragment, useEffect, useState } from 'react';
 import { supabase } from '../../services/supabaseClient';
-import bcrypt from 'bcryptjs-react';
 import intlTelInput from 'intl-tel-input';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import { RxEyeClosed, RxEyeOpen } from 'react-icons/rx';
-let mg = null;
-if (typeof window === 'undefined' || process.env.NEXT_PUBLIC_MAILGUN_KEY) {
-  try {
-    const mailgun = require('mailgun.js');
-    mg = mailgun.client({
-      username: 'api',
-      key: process.env.NEXT_PUBLIC_MAILGUN_KEY || 'key-80d577c302f3bcad991bea13930b3fde',
-    });
-  } catch (e) {
-    console.error('Failed to initialize mailgun', e);
-  }
-}
 
 
 export default function Home() {
@@ -191,14 +178,12 @@ export default function Home() {
         dateCreated: new Date(),
         planType: 'DEMO',
         paymentStatus: 'PENDING',
-        password: bcrypt.hashSync(password, 10),
         firstName,
         lastName1,
         lastName2,
         email,
         rut,
         phone: `${dialCode}${phone}`,
-        check,
         type: 'user',
         subscriptionsCount: count,
       })
@@ -226,66 +211,14 @@ export default function Home() {
         console.error(subErr);
       }
 
-      if (!mg) {
+      fetch('/api/sendWelcome', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to: email, firstName }),
+      }).finally(() => {
         setReady(true);
-        return;
-      }
+      });
 
-      mg.messages
-        .create('rut.smarterbot.store', { // Assuming mail domain matches or needs change. Keeping generic if unsure, but text must change.
-          from: 'SmarterBOT<noreply@rut.smarterbot.store>',
-          to: [email],
-          subject: 'Te damos la bienvenida a SmarterBOT',
-          text: 'Te damos la bienvenida a SmarterBOT',
-          html: `<html><head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                    <title>Simple Transactional Email</title>
-                    <style>
-                      /*All the styling*/
-                      img { border: none; -ms-interpolation-mode: bicubic; max-width: 100%; }
-                      body { background-color: var(--ui-bg-muted); font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; }
-                      table { border-collapse: separate; width: 100%; }
-                      .container { max-width: 580px; margin: 0 auto; padding: 10px; }
-                      .main { background: var(--ui-bg-base); width: 100%; }
-                      .btn-primary a { background-color: var(--odoo-purple); color: var(--ui-bg-base); padding: 12px 25px; text-decoration: none; border-radius: 100px; display: inline-block; font-weight: bold; }
-                    </style>
-                  </head>
-                  <body>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
-                      <tr>
-                        <td>&nbsp;</td>
-                        <td class="container">
-                          <div class="content">
-                            <table role="presentation" class="main">
-                              <tr>
-                                <td class="wrapper">
-                                  <img src="https://rut.smarterbot.store/images/logo-smarteros.jpg" width="100%" style="border-radius: 10px;">
-                                  <h1 style="font-size:22px">Hola <span style="color: var(--odoo-purple)">${firstName},</span><br/>¡Te damos la bienvenida a SmarterBOT!</h1>
-                                  <p>Tu cuenta SmarterBOT DEMO ya está creada y te invitamos a completar el pago de tu suscripción</p>
-                                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
-                                    <tr>
-                                      <td align="left">
-                                        <a href="https://rut.smarterbot.store/pay/${account.id}" target="_blank">Paga tu suscripción aquí</a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </td>
-                        <td>&nbsp;</td>
-                      </tr>
-                    </table>
-                  </body></html>`,
-        })
-        .then((msg) => {
-          setReady(true);
-        })
-        .catch((err) => {
-          setReady(true);
-        });
     }
   };
 
